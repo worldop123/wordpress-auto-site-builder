@@ -205,7 +205,7 @@ Enforcement procedure for EACH custom page:
 4. Reload the front-end URL — verify NO theme header/footer/menu appears.
 5. If theme chrome still appears: Canvas was NOT set correctly. Re-set, Update, re-verify.
 6. Record `"canvas_set": true` in the page ledger.
-7. Do NOT add the HTML widget or paste page HTML in this phase. Page HTML import happens only after the global shell and Canvas are both active and verified.
+7. Do NOT add the HTML widget or paste page HTML in this phase. Page HTML import happens only after the global shell and Canvas are both active and verified, and after the default/old Elementor layout is cleared.
 
 **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.
 **Pages that MUST NOT use Canvas** (WooCommerce-owned): Shop, Cart, Checkout, My Account, product archives, single product pages.
@@ -289,6 +289,8 @@ Generate Elementor HTML block content for Home, Blog, Contact, policies, FAQ, an
 Before writing page HTML, read the product knowledge ledger created in Phase 1a or the live WooCommerce product inventory. Use it to decide which sections, category groupings, product benefits, compliance notes, FAQs, internal links, and dynamic containers belong on each page. Do not write generic ecommerce sections when product facts are available.
 
 Before writing any production page HTML code, verify the global shell gate again. Header/footer/menu must come from Code Snippets and WordPress menus, global CSS must live in Appearance → Customize → Additional CSS, global JS must live in Code Snippets, and page HTML must not include shared shell code.
+
+Before adding page HTML in Elementor, clear the target page's existing/default layout. Delete placeholder sections, default containers, demo widgets, old generated HTML widgets, duplicate widgets, empty spacers, and stale generated blocks. Do not clear protected human-authored content without overwrite/rebuild permission. Record `canvas_cleared`, `cleared_items`, and the final intended HTML widget count in the page ledger.
 
 ### Full storefront surface layout
 
@@ -543,7 +545,7 @@ When resuming, the ledger is a starting point, not proof. Verify live state befo
 | Gate 5→6 | Preview approved | Homepage style preview approved by user; approved visual direction recorded for the real global shell |
 | Gate 6→7 | Global shell active | **DEAD RULE: Global header/footer/footer menu via Code Snippets, global CSS in Additional CSS, global JS in Code Snippets, and dynamic renderers active/verified BEFORE any production page HTML is generated or imported** |
 | Gate 7→8 | Canvas ready | **DEAD RULE: Elementor Canvas set on EVERY custom page (verified — no theme header/footer)**; URL map verified; no page HTML imported yet |
-| Gate 8→9 | HTML imported | All Elementor HTML pages contain only page-specific content; no header/footer/menu/global CSS/global JS; **Large HTML batch-imported correctly**; **DEAD RULE: Homepage/Blog use dynamic data containers (no hardcoded product/article data)**; **Page HTML imported one page at a time** |
+| Gate 8→9 | HTML imported | Default/old Elementor layout cleared before adding HTML; all Elementor HTML pages contain only page-specific content; no header/footer/menu/global CSS/global JS; **Large HTML batch-imported correctly**; **DEAD RULE: Homepage/Blog use dynamic data containers (no hardcoded product/article data)**; **Page HTML imported one page at a time with the intended single HTML widget unless documented otherwise** |
 | Gate 9→10 | Products ready | CSV rewritten; categories/attributes/products/variations created; WebP images; gallery/body images and long descriptions verified |
 | Gate 10→11 | Product UX added | Variation events preserved; add-to-cart works; mobile layout fixed |
 | Gate 11→12 | Cart/checkout rules | Min quantity, notices, terms defaults verified |

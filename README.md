@@ -25,6 +25,7 @@ The skill is designed for Codex, Claude Code, Cursor, Devin Desktop/Windsurf, Gi
 - Critical-judgment rules so agents do not blindly agree with risky or wrong user instructions
 - Country/language-specific design variation
 - Strict global-shell-first order: Code Snippets header/footer/menu, Additional CSS global styles, global JS, and dynamic renderers must be verified before production Elementor page HTML
+- Clean Elementor canvas rule: clear default layouts, placeholder sections, stale generated widgets, and duplicates before adding the intended page HTML widget
 - SEO article batch generation
 - WooCommerce product CSV rewriting and import integrity, including intelligent product name, short description, long description/body, image text, and Rank Math metadata rewrites aligned with target language, market design style, brand replacement, payment/shipping facts, currency, and SEO strategy instead of translation-only or repeated source-copy patterns. Brand replacement never rewrites image URLs, and remote images must be localized and served as WebP before final use.
 - Product knowledge ledger before homepage/page HTML, article plans, and Rank Math SEO generation

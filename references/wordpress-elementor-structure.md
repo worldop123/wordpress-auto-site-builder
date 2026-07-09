@@ -310,9 +310,11 @@ Access via Elementor → Settings
 The HTML widget is the primary method for adding custom page code:
 
 #### How to Use
-1. Drag "HTML" widget from the panel to the canvas
-2. Paste complete HTML/CSS/JS code into the content area
-3. Click Update to save
+1. Confirm the global shell is active and the page uses Elementor Canvas when required.
+2. Clear the default/old Elementor layout first: remove placeholder sections, containers, old generated HTML widgets, empty spacers, demo widgets, and stale blocks.
+3. Drag ONE "HTML" widget from the panel to the clean canvas.
+4. Paste complete page-specific HTML/CSS/JS code into the content area.
+5. Click Update to save.
 
 #### Best Practices
 - Use scoped CSS class names (e.g., `.brand-home .hero`)
@@ -321,6 +323,7 @@ The HTML widget is the primary method for adding custom page code:
 - Include JavaScript within `<script>` tags inside the HTML widget
 - Use `data-site-render` attributes for dynamic content containers
 - Do NOT include global CSS resets that affect WooCommerce or admin
+- Do NOT stack new HTML widgets on top of default Elementor sections or previous generated widgets. Clear or replace first.
 
 #### Dynamic Content Containers
 Use data attributes to mark where WordPress should inject dynamic content:

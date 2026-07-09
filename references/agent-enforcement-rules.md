@@ -352,8 +352,9 @@ These rules are DEAD RULES. The agent MUST NOT skip, forget, or work around any 
 Every custom page built with Elementor MUST have its Page Layout set to `elementor_canvas` BEFORE pasting any HTML.
 
 - **Enforcement**: Set Canvas → Update → Reload front-end → Verify no theme header/footer → record Canvas ready. Add the HTML widget only later in the page HTML phase after the global shell is active and verified.
+- **Clean canvas before HTML**: Before adding the HTML widget, remove any default layout, placeholder sections, old generated HTML widgets, duplicate widgets, empty containers, and stale Elementor content. Do not delete human-authored content unless overwrite/rebuild permission is recorded.
 - **If Canvas is not set**: Hello Elementor's default header, footer, and menu appear, duplicating the global shell. The page is broken.
-- **Record**: `"canvas_set": true` in page ledger only after verification passes.
+- **Record**: `"canvas_set": true`, `"canvas_cleared": true`, and `cleared_items` in page ledger only after verification passes.
 - **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.
 - **Pages that MUST NOT use Canvas**: Shop, Cart, Checkout, My Account, product archives, single product pages.
 - Read `elementor-html-automation.md` for the complete enforcement procedure.
@@ -414,7 +415,7 @@ When building pages, the agent MUST follow this import order. No exceptions. No 
 2. **SECOND: Global CSS** — Add global CSS (design tokens, header styles, footer styles, shared components, responsive breakpoints) to Appearance → Customize → Additional CSS. Verify it loads on all pages. Do not put global CSS in page HTML widgets.
 3. **THIRD: Global JS** — Add global JS (mobile menu toggle, cart counter, smooth scroll, cookie/compliance behavior as needed) via Code Snippets HTML/JS snippet on `wp_footer` hook. Verify it works on all pages.
 4. **FOURTH: Dynamic renderers** — Activate Code Snippets PHP/JS snippets for dynamic product/post rendering before page HTML depends on `data-site-render` containers. Verify containers can be filled with real data.
-5. **FIFTH: Page HTML — one page at a time** — Only after steps 1-4 are active and verified, import page HTML into Elementor HTML widgets, one page at a time. For each page: Set Canvas → verify → add HTML widget → paste HTML → Update → verify front-end → move to next page.
+5. **FIFTH: Page HTML — one page at a time** — Only after steps 1-4 are active and verified, import page HTML into Elementor HTML widgets, one page at a time. For each page: Set Canvas → verify → clear default/old layout → add one HTML widget → paste HTML → Update → verify front-end → move to next page.
 6. **NEVER generate or import all page HTML before the global shell is active.** The global shell must be in place first so the agent can verify that page HTML does NOT contain duplicate header/footer/menu/global CSS/global JS.
 
 ### 11.8 SEO, Speed, and WebP Optimization (MANDATORY)

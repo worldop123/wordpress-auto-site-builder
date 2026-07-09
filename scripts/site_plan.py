@@ -77,6 +77,7 @@ PHASES = [
     "create_and_bind_pages",
     "generate_and_verify_global_shell_header_footer_menus_additional_css_global_js",
     "set_elementor_canvas_after_global_shell_verified",
+    "clear_default_or_old_elementor_layout_before_html_widget",
     "import_elementor_page_html_one_page_at_a_time_after_shell_and_canvas",
     "rewrite_product_csv_originality_and_rankmath_seo",
     "verify_product_csv_gallery_body_images_and_long_descriptions",

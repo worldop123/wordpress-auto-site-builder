@@ -171,6 +171,8 @@ ALL images on the site must be converted to WebP format. This is a hard requirem
 - [ ] HTML is clean and well-structured (no unnecessary nesting).
 - [ ] No inline styles where CSS classes should be used.
 - [ ] No duplicate HTML widgets in Elementor (one per page).
+- [ ] No default Elementor layout, placeholder section, demo widget, stale generated block, empty spacer, or old duplicate HTML widget remains underneath/above the new page HTML.
+- [ ] Page ledger records `canvas_cleared`, `cleared_items`, and final intended HTML widget count for each custom Elementor page.
 - [ ] No leftover debug code, console.log, or commented-out code blocks.
 - [ ] No hardcoded data that should be dynamic.
 - [ ] Scoped CSS class names used (e.g., `.brand-home .hero`, not global `.hero`).
@@ -423,6 +425,7 @@ This gate must be completed before any production Elementor page HTML is generat
 
 ### Page HTML isolation
 - [ ] Build ledger proves global shell verification happened before page HTML generation/import.
+- [ ] Page HTML was added only after the default/old Elementor layout was cleared or protected human content was intentionally preserved and documented.
 - [ ] No page HTML widget contains `<header>` tags.
 - [ ] No page HTML widget contains `<footer>` tags.
 - [ ] No page HTML widget contains navigation menu HTML.

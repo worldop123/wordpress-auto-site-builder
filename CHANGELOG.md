@@ -5,6 +5,7 @@ All notable project changes should be recorded here.
 ## [Unreleased]
 
 - Enforce a global-shell-first page build order: Code Snippets header/footer/menu, Additional CSS global styles, global JS, and dynamic renderers must be active and verified before production Elementor page HTML.
+- Require Elementor pages to clear default/old layouts, placeholder sections, stale generated widgets, and duplicate HTML widgets before adding the intended HTML block.
 - Require intelligent WooCommerce product CSV rewriting for product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields; translation-only and repeated source-copy patterns are explicit blockers.
 - Tie product CSV rewriting to target country/language, single-language or multilingual strategy, design/content tone, brand replacement rules, payment/shipping facts, currency, and localized commerce trust signals.
 - Protect image URLs from brand-name replacement and require remote images to be localized into Media Library or an approved media pipeline, then converted/served as WebP before final use.

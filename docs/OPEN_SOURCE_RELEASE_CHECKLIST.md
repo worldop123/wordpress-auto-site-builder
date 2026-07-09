@@ -45,6 +45,7 @@ Use this before publishing the skill to GitHub.
 - [ ] Fixed stack is documented: Hello Elementor, Elementor, WooCommerce, Code Snippets, Rank Math.
 - [ ] Full store surface is required: home, custom pages, products, product archives, blog archives, single posts, cart, checkout, account, policies.
 - [ ] Global shell ordering is explicit: Code Snippets header/footer/menu first, global CSS in Additional CSS, global JS in Code Snippets, dynamic renderers, then page HTML one page at a time.
+- [ ] Elementor page HTML rules require clearing default/old layouts, placeholder sections, old generated widgets, and duplicate widgets before adding the intended HTML widget.
 - [ ] CSV import integrity covers featured images, galleries, body images, long descriptions, variations, attributes, and Rank Math fields.
 - [ ] CSV rewrite reports include localization strategy, design-content alignment, commerce trust strategy, brand replacement strategy, naming strategy, description strategy, SEO strategy, uniqueness checks, and any customer-facing source copy intentionally preserved.
 - [ ] Brand replacement rules explicitly protect image URLs, inline `<img src>`, media attachment IDs, CDN paths, and download URLs from string replacement.

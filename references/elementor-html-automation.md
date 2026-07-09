@@ -26,8 +26,9 @@ If Canvas is NOT set:
 3. **Set Page Layout to Elementor Canvas** — this step MUST be completed BEFORE adding any HTML widget. See the "Set Page Layout to Elementor Canvas" section below for exact UI steps.
 4. **Click Update/Save** to persist the Canvas setting.
 5. **Verify Canvas is set** — reload the front-end page URL. If the theme's default header/footer/menu still appears, Canvas was NOT set correctly. Fix before proceeding.
-6. **ONLY THEN** add the HTML widget and paste page content.
-7. **Record in page ledger**: `"canvas_set": true` — only after verification passes.
+6. **Clear the existing/default Elementor layout** before adding the HTML widget. Remove default sections, placeholder containers, demo widgets, empty spacers, old generated HTML widgets, duplicate HTML widgets, and stale generated content. If the page contains human-authored content and overwrite/rebuild was not authorized, stop and ask before clearing it.
+7. **ONLY THEN** add the HTML widget and paste page content.
+8. **Record in page ledger**: `"canvas_set": true` and `"canvas_cleared": true` — only after verification passes and the canvas is clean.
 
 ### Pages That MUST Use Elementor Canvas
 
@@ -94,6 +95,8 @@ Do not restart the whole page if one Elementor step fails. Maintain a page ledge
     "elementor_url": "",
     "created": false,
     "canvas_set": false,
+    "canvas_cleared": false,
+    "cleared_items": [],
     "html_widget_inserted": false,
     "html_updated": false,
     "frontend_verified": false
@@ -191,9 +194,15 @@ After selecting Elementor Canvas and clicking Update/Save:
 For each custom page:
 
 1. **Verify Canvas is set** — check the page ledger: `"canvas_set": true`. If false, go back to "Set Page Layout to Elementor Canvas" and complete it first.
-2. Ensure the canvas is blank or contains only prior generated content for the same page.
-3. Add an `HTML` widget. In Chinese UI this may appear as `HTML`.
-4. Drag/click it into the main canvas.
+2. **Clear default or stale layout before adding HTML**:
+   - Open Navigator/Structure panel when available.
+   - Delete default sections, containers, placeholder text/image widgets, empty spacers, demo blocks, and old generated HTML widgets.
+   - If replacing prior generated content from the same task, remove the old HTML widget instead of stacking another one.
+   - If the page contains human-authored content and no overwrite/rebuild permission is recorded, stop and ask before deleting it.
+   - Update/save after cleanup when Elementor requires it, then confirm the canvas is blank.
+   - Record `"canvas_cleared": true` and `cleared_items` in the page ledger.
+3. Add ONE `HTML` widget. In Chinese UI this may appear as `HTML`.
+4. Drag/click it into the clean main canvas.
 5. Paste the full generated HTML/CSS/JS payload for that page.
    - **If the payload is large (>30,000 characters) or paste fails/truncates**: Follow the "DEAD RULE: Batch Import for Large HTML" procedure above. Split into batches, append to the SAME HTML widget, verify after each batch.
 6. Update.
@@ -208,7 +217,7 @@ For each custom page:
 If a page already has a generated HTML widget:
 
 - Prefer selecting and replacing the widget content.
-- Avoid stacking duplicate HTML widgets unless the page intentionally has multiple independent sections.
+- Avoid stacking duplicate HTML widgets. If the page is being rebuilt, delete the old generated widget or clear the canvas first, then add the intended single HTML widget.
 - When replacing large content, use the batch import procedure if the new content exceeds 30,000 characters.
 
 ## Failure handling
@@ -226,6 +235,8 @@ A page is done only when:
 
 - Page exists with the correct slug.
 - Page Layout is Elementor Canvas when required.
+- Default/old Elementor layout was cleared before the new HTML widget was added, unless preserved human content was intentionally kept and documented.
+- Exactly one intended HTML widget exists for the page unless a documented exception requires multiple independent widgets.
 - Exactly the intended HTML content is present (page-specific content only — no header, footer, or global CSS/JS).
 - Update succeeded.
 - Front-end URL renders the expected design.

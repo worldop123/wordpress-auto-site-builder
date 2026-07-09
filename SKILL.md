@@ -1,4 +1,4 @@
-﻿---
+---
 name: wordpress-auto-site-builder
 description: Universal AI-agent workflow for building or repairing customizable WordPress/WooCommerce SEO sites using Hello Elementor, Elementor HTML blocks, Code Snippets PHP/CSS/JS, Rank Math, varied page designs, full-store QA, CSV product/media integrity, reference-site layout capture/adaptation, and autonomous or ask-user execution modes. Use with Codex, Claude, Trae, Cursor, OpenHands, Aider, or other AI coding agents when the user wants requirements intake, WordPress operation, old-site rebuilds, reference-site/clone-style builds, homepage/style previews, pages/products/categories/policies/blogs, product CSV originality rewriting, Rank Math metadata, non-repetitive layouts, snippet implementation, interaction testing, launch gating, or a reusable automated WordPress site-building workflow.
 ---

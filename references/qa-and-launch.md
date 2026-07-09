@@ -1,4 +1,4 @@
-﻿# QA and Launch Checklist
+# QA and Launch Checklist
 
 Do not claim completion until relevant checks are run or explicitly blocked. Every item in this checklist must be verified on BOTH desktop and mobile unless explicitly noted.
 

@@ -60,6 +60,23 @@ For Rank Math Free bulk SEO metadata, prefer a one-time writer over pretending C
 
 ---
 
+## Large CSV Importer Rules
+
+Do not paste large WooCommerce CSV contents into Code Snippets. A CSV importer snippet may reference only a verified file URL or temporary server file path plus expected hash/counts.
+
+When a one-time CSV importer is required:
+
+- Read `large-csv-media-import.md` first.
+- Run only in wp-admin and require `manage_woocommerce` or administrator capability.
+- Require nonce/action confirmation, expected SHA-256 hash, expected row count, and expected headers.
+- Support a dry-run mode that reports parser results without writing products.
+- Use WordPress temporary files and cleanup routines; do not leave downloaded CSV files public.
+- Never decode base64 from chat or reconstruct CSV rows from pasted text.
+- Stop and ask the user to manually upload the processed CSV if file upload, media URL retrieval, hash verification, or dry-run validation cannot be completed safely.
+- Disable and delete the importer snippet after successful import and verification.
+
+---
+
 ## Section 1: WordPress Core Configuration via Code Snippets
 
 ### 1.1 Set Permalink Structure to Post Name

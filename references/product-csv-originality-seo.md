@@ -8,6 +8,8 @@ Produce a re-import-ready CSV that keeps WooCommerce product identity and commer
 
 ## First inspect the CSV
 
+If the CSV is too large for the current agent/tool channel, do not move it through chat, base64, screenshots, pasted text, or chunked prompt messages. Use `large-csv-media-import.md`: process the file through local filesystem access, browser/agent-browser media upload, REST media upload, or ask the user to manually upload the processed CSV and provide a file URL. Never guess encoding or reconstruct CSV content from partial text.
+
 Before editing, identify:
 
 - Encoding and delimiter.
@@ -166,6 +168,7 @@ If Rank Math fields are not present in the CSV:
    - HTML in descriptions is valid enough for WordPress import.
    - Converted prices match the target currency and original prices are backed up when currency conversion was used.
 8. Provide a change report with edited columns, preserved columns, SEO fields, media fields, and import notes.
+9. For large CSV imports, upload the final CSV as a real file, record media URL/attachment ID/file size/SHA-256, run a dry-run or mapping preview, and delete or restrict the uploaded CSV after successful verification.
 
 ## Media and body-content integrity
 
@@ -191,6 +194,7 @@ If importing into WordPress:
 - Prefer a small test import or staging site when possible.
 - Use WooCommerce product importer mapping screen carefully.
 - Confirm "update existing products" behavior if IDs/SKUs match existing products.
+- For large CSV files, import from a verified media URL or temporary server file using the workflow in `large-csv-media-import.md`; do not paste CSV content into Code Snippets or admin text fields.
 - After import, verify product title, short description, long description, inline/body images, Rank Math meta, product URL, featured image, image gallery, variation form, price, stock, category, add-to-cart, cart quantity, and sitemap inclusion.
 
 ## Import ledger
@@ -203,6 +207,7 @@ Every CSV import deliverable must include:
 - Preserved identity fields and rewritten fields.
 - Expected featured/gallery/body image counts and actual sampled results.
 - Import warnings, failed rows, failed image URLs, and remediation steps.
+- Large-file transport details when used: media attachment ID, CSV URL, file size, SHA-256 hash, dry-run result, importer snippet ID, cleanup status, and manual-upload fallback if automation was not safe.
 - Sample verification URLs for product, category/archive, cart, and sitemap.
 
 ## Deliverables

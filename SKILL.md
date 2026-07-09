@@ -188,6 +188,10 @@ Unless the user explicitly opts out, every full SEO ecommerce build MUST create 
 
 When importing or rewriting WooCommerce CSV data, product data and media integrity are mandatory:
 
+- Large CSV files MUST NOT be transmitted through chat, base64, screenshots, pasted text, or clipboard payloads. These paths can truncate data, corrupt encodings, break quoted HTML fields, and shift WooCommerce columns.
+- For large CSV files, read `references/large-csv-media-import.md` and use a file-safe transport: local filesystem access, browser/agent-browser upload to WordPress Media Library, or REST media upload. Then import from the media attachment URL or a server-side downloaded temp file via a controlled Code Snippets one-time importer.
+- If the agent cannot safely access the local file, upload the file through browser automation, or verify the uploaded media URL, STOP and ask the user to manually upload the processed CSV file and provide the media/file URL. Do not improvise with base64, partial copy/paste, screenshots, or guessed encodings.
+- The CSV URL must be treated as temporary sensitive import material. Record attachment ID, URL, file size, encoding, SHA-256 hash, row count, and uploader account; delete or restrict the media attachment after successful import and verification.
 - For official WooCommerce CSV exports, prefer RFC/Excel CSV parsing with doubled-quote support (`doublequote=True`) and verify parser quality before editing. Do not blindly trust delimiter sniffing when product descriptions contain HTML.
 - When a product CSV is provided, inspect and summarize it BEFORE generating homepage previews, page HTML, product/category copy, blog topics, or Rank Math SEO metadata. Page code and SEO data must be based on real product names, categories, attributes, prices, images, descriptions, and compliance limits, not guesses.
 - Produce a product knowledge ledger before design/content generation: product/category counts, representative products, variable/simple product mix, key attributes, price range/currency, image/gallery/body-image coverage, current descriptions, SEO fields, protected fields, and content opportunities.
@@ -598,6 +602,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 11. Read `references/product-csv-originality-seo.md` when the user provides a WordPress/WooCommerce product export CSV for product title, description, content, or Rank Math SEO rewriting before import.
 11a. If a product CSV was provided, run product CSV inspection and create the product knowledge ledger before generating any homepage preview, page HTML, article plan, or SEO mapping.
 11b. Read `references/reference-site-capture.md` when the user provides a site URL to clone, imitate, reference, or rebuild from. Capture public/authorized HTML snapshots locally and transform the layout into original WordPress/WooCommerce implementation.
+11c. Read `references/large-csv-media-import.md` when the CSV is too large for the current agent/tool channel, when an agent proposes base64/text transfer, or when importing a processed CSV by WordPress media URL and Code Snippets.
 12. Read `references/design-variation.md` before generating page HTML/CSS so every site and article batch has a distinct, content-rich, non-AI-looking design direction.
 13. Read `references/automation-and-safety.md` before touching wp-admin, WooCommerce settings, snippets, or live content.
 14. Read `references/google-seo-guidelines.md` for comprehensive Google SEO official guidelines, E-E-A-T, spam policies, and best practices.
@@ -648,6 +653,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 - Make output feel hand-built and site-specific. Avoid generic AI phrasing, over-explaining sections, repetitive card grids, vague superlatives, fake testimonials, and template-looking gradients.
 - **Apply global design preferences** based on the target market. Read `references/global-design-preferences.md` for regional color, layout, trust, payment, and content conventions.
 - When editing a WooCommerce product export CSV, preserve technical identity fields such as product ID, type, SKU, slug, parent, attributes, stock, prices, images, categories, and variation relationships unless the user explicitly asks to change them.
+- Never move a large WooCommerce CSV through chat/base64/pasted text. Upload the finished CSV as a real file through browser automation, WordPress media REST upload, or another binary-safe file channel, then import by media URL or server temp file with hash and row-count verification. If safe upload/import cannot be completed, ask the user to manually upload the processed CSV and provide its URL.
 - Product CSV originality work may rewrite product names/titles, short descriptions, long descriptions/body/content, image alt-related fields if present, and Rank Math SEO meta fields; keep claims compliant and product-specific.
 - Classify snippets as `persistent`, `one_time_writer`, `read_only_scanner`, `ux_polish`, or `deprecated`. One-time writers and scanners must be disabled after use.
 - Do not rewrite stable pages just to improve Rank Math scores. Put serious SEO content in product long descriptions, category descriptions, blog posts, image ALT text, and metadata.
@@ -747,6 +753,7 @@ Each snippet file must say whether it is persistent, one-time, scanner, UX polis
 - `references/elementor-html-automation.md`: Elementor Canvas and HTML-widget automation for old and new Elementor UI.
 - `references/style-preview-gate.md`: homepage style preview, approval gate, and anti-AI review rules.
 - `references/product-csv-originality-seo.md`: WooCommerce product export CSV rewriting, import safety, and Rank Math product SEO mapping.
+- `references/large-csv-media-import.md`: binary-safe large CSV handling through local files or WordPress media URLs, Code Snippets importer controls, dry-run, cleanup, and manual-upload fallback.
 - `references/reference-site-capture.md`: reference-site/clone-style capture, page-type classification, HTML snapshot handling, WordPress mapping, and transformation rules.
 - `references/design-variation.md`: reusable but non-repetitive design system rules.
 - `references/automation-and-safety.md`: credentials, API/admin choices, snippets, rollback.

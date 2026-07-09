@@ -254,6 +254,9 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - Header, footer, and mobile menu locations are assigned or rendered from the global shell.
 - If products were prepared from CSV, row count, IDs, SKUs, slugs, parent/variation relationships, prices, stock, categories, and image URLs were preserved unless intentionally changed.
 - If products were prepared from CSV, homepage sections, page copy, category copy, article topics, image ALT themes, and Rank Math metadata can be traced back to the product knowledge ledger instead of generic ecommerce assumptions.
+- If the CSV was too large for the agent/tool channel, it was not transferred through chat, base64, screenshots, pasted text, or clipboard chunks. The import ledger records a binary-safe file path, media URL, REST upload, or user manual upload fallback.
+- If a WordPress media URL was used for CSV import, the ledger records attachment ID, URL, file size, SHA-256 hash, dry-run/mapping result, importer snippet ID, and cleanup status.
+- Uploaded CSV import files and one-time CSV importer snippets were deleted, disabled, or access-restricted after successful verification.
 - If product prices were converted from another currency, the import ledger records source currency, target currency, rate, rate source/timestamp, rounding rule, converted columns, original backup columns, and sample converted products.
 - Converted product prices display in the target WooCommerce currency on product pages, archives, cart, checkout, order review, and Product schema `priceCurrency`.
 - If products were imported from rewritten CSV, sample products show rewritten title, short description, long description, and correct Rank Math product SEO data.

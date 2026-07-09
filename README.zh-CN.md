@@ -138,3 +138,10 @@ wordpress-auto-site-builder/
 ## 中断续做
 
 如果 AI 工具因为服务器错误、上下文限制、浏览器崩溃、网络失败或用户暂停而中断，继续前必须读取 [中断续做协议](docs/RESUME_PROTOCOL.zh-CN.md)。只能从最后一个已验证检查点继续，不能盲目重复旧站清理、产品导入、文章发布、snippet 替换或上线索引操作。
+## AI Agent 通用适配与判断规则
+
+本 skill 不只适配 Codex，也要适配 Claude Code、Cursor、Devin Desktop/Windsurf、GitHub Copilot、Gemini Code Assist、Qwen Code、Trae、通义灵码、Qoder、百度 Comate、CodeGeeX、MarsCode、腾讯 CodeBuddy、OpenHands、Aider、Cline/Roo/Kilo 等国内外 AI 编程工具。
+
+所有 AI agent 必须遵守 `references/ai-agent-compatibility.md`：先读规则、建立台账、按阶段执行、每步验证、防止跳步骤。工具能力不足时，必须输出可粘贴代码和人工 QA 清单，不能假装已经完成线上验证。
+
+AI agent 不能盲目认同用户。用户的要求可能不完整、风险高、技术上错误、影响 SEO、破坏结账、删除受保护数据或违反合规。遇到这类情况时，必须列出好处、风险和更安全替代方案；询问模式下先问用户确认，全自动模式下选择最安全合规路径并写入台账。

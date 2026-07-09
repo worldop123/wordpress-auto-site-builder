@@ -50,6 +50,7 @@
 
 - [Product CSV Originality and SEO](../references/product-csv-originality-seo.md)
 - [Reference Site Capture](../references/reference-site-capture.md)
+- [AI Agent Compatibility Layer](../references/ai-agent-compatibility.md)
 - [Site Plan Script](../scripts/site_plan.py)
 - [Product CSV Inspector](../scripts/inspect_product_csv.py)
 - [Product Price Currency Converter](../scripts/convert_product_prices.py)

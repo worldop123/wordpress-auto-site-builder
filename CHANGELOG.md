@@ -8,6 +8,7 @@ All notable project changes should be recorded here.
 - Add reference-site capture / clone-style adaptation workflow, including local HTML snapshot capture, page-type manifest generation, and WordPress/WooCommerce transformation rules.
 - Add product price currency conversion workflow for localized WooCommerce imports, including original-price backup meta columns and exchange-rate ledger requirements.
 - Add a product knowledge gate requiring CSV/live product inspection before homepage previews, page HTML, article planning, and Rank Math SEO metadata generation.
+- Add universal AI coding agent compatibility guidance, including anti-skip protocol, capability fallback matrix, and critical-judgment rules so agents do not blindly follow risky user instructions.
 
 ## [0.1.0] - 2026-07-09
 

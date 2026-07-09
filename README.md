@@ -10,7 +10,7 @@ A universal AI-agent workflow for building, rebuilding, and repairing WordPress/
 - WooCommerce for store flow
 - Rank Math for SEO metadata, sitemap, schema, and indexing preparation
 
-The skill is designed for Codex, Claude, Trae, Cursor, OpenHands, Aider, and other AI coding agents that can read repository files, edit text, operate a browser, call WordPress REST APIs, and report verification evidence.
+The skill is designed for Codex, Claude Code, Cursor, Devin Desktop/Windsurf, GitHub Copilot, Gemini Code Assist, Qwen Code, Trae, Tongyi Lingma, Qoder, Baidu Comate, CodeGeeX, MarsCode, Tencent CodeBuddy, OpenHands, Aider, Cline/Roo/Kilo, and other AI coding agents that can read repository files, edit text, operate a browser, call WordPress REST APIs, and report verification evidence.
 
 ## What It Covers
 
@@ -21,6 +21,8 @@ The skill is designed for Codex, Claude, Trae, Cursor, OpenHands, Aider, and oth
 - Full-store page architecture
 - Homepage, policy pages, product pages, product archives, blog archives, single posts, cart, checkout, and account pages
 - Autonomous mode and ask-user mode
+- Cross-agent compatibility and anti-skip rules for major domestic and international AI coding tools
+- Critical-judgment rules so agents do not blindly agree with risky or wrong user instructions
 - Country/language-specific design variation
 - SEO article batch generation
 - WooCommerce product CSV rewriting and import integrity
@@ -55,6 +57,7 @@ Every project starts by identifying the service mode:
 - Do not hardcode secrets, tokens, credentials, private endpoints, or payment keys.
 - Do not create a custom theme or large plugin unless the user explicitly asks for that architecture.
 - Do not dump a large unmaintainable codebase into Code Snippets.
+- Do not blindly follow user instructions that would break checkout, delete protected data, skip product understanding, copy protected content, create false claims, or launch before QA.
 
 ## Quick Start for AI Agents
 
@@ -62,6 +65,7 @@ Every project starts by identifying the service mode:
 2. Read only the relevant reference files:
    - [`references/intake-checklist.md`](references/intake-checklist.md)
    - [`references/phase-playbook.md`](references/phase-playbook.md)
+   - [`references/ai-agent-compatibility.md`](references/ai-agent-compatibility.md) for cross-tool adaptation and anti-skip rules
    - [`references/qa-and-launch.md`](references/qa-and-launch.md)
    - [`references/product-csv-originality-seo.md`](references/product-csv-originality-seo.md) for CSV work
    - [`references/reference-site-capture.md`](references/reference-site-capture.md) for clone-style/reference-site builds

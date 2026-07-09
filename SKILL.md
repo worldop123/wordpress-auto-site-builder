@@ -13,6 +13,8 @@ This skill is intentionally written for broad AI-agent portability. Codex, Claud
 
 The goal is not to reuse fixed content. Always turn brand, contact details, products, shipping, compliance, SEO keywords, design tone, language, and policies into inputs. Prefer a working storefront, clean mobile UX, dynamic products/posts, and verifiable purchase flow over cosmetic SEO-score chasing.
 
+For multi-tool compatibility, read `references/ai-agent-compatibility.md` when adapting this skill to Codex, Claude Code, Cursor, Devin Desktop/Windsurf, GitHub Copilot, Gemini Code Assist, Qwen Code, Trae, Tongyi Lingma, Qoder, Baidu Comate, CodeGeeX, MarsCode, Tencent CodeBuddy, Cline/Roo/Kilo, Aider, OpenHands, Replit Agent, or other AI coding tools.
+
 ## CRITICAL: Language Matching
 
 The agent MUST communicate in the user's language:
@@ -105,6 +107,16 @@ Every build MUST declare one of these interaction modes in the site ledger befor
 - **Autonomous mode (explicit user authorization required)**: when the user clearly says they authorize full autonomous execution/no questions, the agent may decide target-market design, page layouts, snippets, SEO structure, blog topics, article schedules, menu structure, policies, WooCommerce settings, and non-destructive cleanup from the available facts. The agent still MUST preserve protected data, run backups/exports before destructive rebuild work, avoid deleting products/media unless explicitly allowed, verify each step, and report the decisions made.
 
 If the user grants autonomous mode in the same message as a site task, do not stop for approval gates that the user already waived. Record `"interaction_mode": "autonomous"` and continue with the safest complete implementation.
+
+## CRITICAL: Do Not Blindly Agree With the User
+
+The agent is not a passive executor. User instructions can be incomplete, risky, contradictory, technically wrong, SEO-harmful, legally sensitive, or commercially unsafe.
+
+- In ask-user mode, when a request may harm the site, rankings, checkout, compliance, protected data, or maintainability, pause and explain the issue. List benefits, risks, and safer alternatives, then ask for confirmation.
+- In autonomous mode, choose the safest compliant path from the user's goal and record the tradeoff instead of following an obviously harmful literal instruction.
+- Do not agree with requests to skip required product understanding, skip QA, launch early, delete protected products/media, hardcode secrets, copy protected third-party content, publish false claims, break WooCommerce native flows, or leave one-time writer snippets active.
+- If the user asks for something that conflicts with this skill's dead rules, name the conflict and offer a safe route. Only the user can explicitly override non-safety preferences; safety, legality, protected data, and checkout integrity remain blockers.
+- When there are multiple reasonable options, present a concise comparison of pros/cons and recommend one based on the site's goal.
 
 ## CRITICAL: Foundation Baseline Must Be Solid
 
@@ -256,6 +268,8 @@ Every step in every phase MUST be executed carefully and in order. This is a HAR
 - **Do NOT assume a step was completed without verifying.** Every step has a verification requirement — check it.
 - **If a step fails, STOP.** Fix the issue, retry the step, and only proceed after it succeeds.
 - **Do NOT rush.** Completing thoroughly is more important than completing quickly.
+
+For agents that tend to skip steps, use the anti-skip protocol in `references/ai-agent-compatibility.md`: print the current phase, state the required gate, list intended writes before editing, verify after every write, and mark blocked instead of improvising when a required artifact or capability is missing.
 
 ## CRITICAL: Agent Enforcement Rules (Binding Framework)
 
@@ -561,6 +575,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 4. If the user gave a WordPress URL and credentials, avoid echoing secrets. Use the current session only, and prefer environment variables or browser password prompts over storing credentials.
 5. Build a `site_config` from supplied answers and observed WordPress state. If the user did not supply enough detail, ask only for fields that cannot be inferred.
 6. Read `references/phase-playbook.md` for the execution order.
+6a. Read `references/ai-agent-compatibility.md` when porting this workflow to another AI coding tool, when the current agent cannot reliably run shell/browser/WordPress/GitHub steps, or when a tool tends to skip gates.
 7. Read `references/wordpress-elementor-structure.md` before creating any page code. Understand which pages exist and their URL paths.
 8. Read `references/site-baseline-and-menus.md` before creating page content so global style, Rank Math basics, WooCommerce bindings, header menu, and footer menu are settled first.
 9. Read `references/elementor-html-automation.md` before opening Elementor, setting Elementor Canvas, adding HTML widgets, or pasting page HTML.

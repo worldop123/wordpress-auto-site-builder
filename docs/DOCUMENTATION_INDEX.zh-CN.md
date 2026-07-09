@@ -70,3 +70,7 @@
 - [GitHub 发布指南](GITHUB_PUBLISHING.zh-CN.md)
 - [开源发布检查清单](OPEN_SOURCE_RELEASE_CHECKLIST.zh-CN.md)
 - [维护者指南](MAINTAINER_GUIDE.zh-CN.md)
+
+## AI Agent 通用适配
+
+- [AI Agent 通用适配层](../references/ai-agent-compatibility.md)：覆盖 Codex、Claude Code、Cursor、Devin Desktop/Windsurf、GitHub Copilot、Gemini Code Assist、Qwen Code、Trae、通义灵码、Qoder、Comate、CodeGeeX、MarsCode、CodeBuddy、OpenHands、Aider、Cline/Roo/Kilo 等工具的防跳步骤、能力回退和风险判断规则。

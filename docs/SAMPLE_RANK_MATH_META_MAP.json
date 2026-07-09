@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1001,
+    "object_type": "product",
+    "seo_title": "Example Starter Kit | Example Brand",
+    "seo_description": "Shop Example Starter Kit with clear product details, shipping information, and a simple checkout experience.",
+    "focus_keyword": "example starter kit",
+    "robots": "index,follow",
+    "schema_type": "Product",
+    "source_evidence": "Product title, short description, category, and shipping facts from the build ledger.",
+    "content_html": "<h2>Example starter kit details</h2><p>Example starter kit is a compact demo product for shoppers comparing Example Brand options.</p><p>Use this example starter kit page to test product SEO, internal links, and media.</p><img src=\"https://example.com/uploads/example-main.webp\" alt=\"Example starter kit product image\"><p><a href=\"/shop/\">Browse more example products</a></p>",
+    "image_alts": ["Example starter kit product image"],
+    "internal_links": ["/shop/"],
+    "minimum_words": 20
+  },
+  {
+    "id": 2001,
+    "object_type": "page",
+    "seo_title": "Example Brand Shipping Information | Example Brand",
+    "seo_description": "Read Example Brand shipping times, delivery areas, tracking notes, and support steps before placing an order.",
+    "focus_keyword": "example brand shipping",
+    "robots": "index,follow",
+    "schema_type": "WebPage",
+    "source_evidence": "Shipping policy page content.",
+    "content_html": "<h2>Example brand shipping times</h2><p>Example brand shipping information explains delivery areas, tracking, support steps, and order handling for demo shoppers.</p><p>Use this Example Brand shipping page to confirm delivery expectations before checkout.</p><img src=\"https://example.com/uploads/shipping.webp\" alt=\"Example brand shipping support\"><p><a href=\"/contact/\">Contact support</a></p>",
+    "image_alts": ["Example brand shipping support"],
+    "internal_links": ["/contact/"],
+    "minimum_words": 20
+  },
+  {
+    "id": 3001,
+    "object_type": "post",
+    "seo_title": "Choose Example Product Options | Example Brand",
+    "seo_description": "Choose example product options by comparing key features, shipping notes, and related products in this buying guide.",
+    "focus_keyword": "choose example product",
+    "robots": "index,follow",
+    "schema_type": "Article",
+    "source_evidence": "Generated article title, outline, linked products, and FAQ section.",
+    "content_html": "<h2>Choose example product by use case</h2><p>Choose example product options by comparing features, delivery notes, and related product pages.</p><p>This guide helps readers choose example product variations without keyword stuffing.</p><img src=\"https://example.com/uploads/guide.webp\" alt=\"Choose example product guide\"><p><a href=\"/product/example-starter-kit/\">See the starter kit</a></p>",
+    "image_alts": ["Choose example product guide"],
+    "internal_links": ["/product/example-starter-kit/"],
+    "minimum_words": 20
+  }
+]

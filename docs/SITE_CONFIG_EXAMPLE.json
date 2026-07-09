@@ -1,0 +1,62 @@
+{
+  "site": {
+    "domain": "example.com",
+    "brand": "Example Brand",
+    "language": "en",
+    "market": "United States",
+    "site_type": "ecommerce",
+    "industry": "consumer products",
+    "adult_or_regulated": false,
+    "build_mode": "new",
+    "interaction_mode": "ask_user"
+  },
+  "access": {
+    "wp_admin_url": "https://example.com/wp-admin",
+    "auth_method": "browser_login"
+  },
+  "commerce": {
+    "currency": "USD",
+    "shipping_origin": "United States",
+    "shipping_countries": ["US"],
+    "shipping_time": "3-7 business days",
+    "payment_methods": ["card", "paypal"],
+    "cod_regions": [],
+    "minimum_order_quantity": 1
+  },
+  "mobile_ux": {
+    "density": "target_market_default",
+    "product_grid": "target_market_default",
+    "floating_widgets": []
+  },
+  "product_import": {
+    "csv_source": "",
+    "expected_row_count": null,
+    "image_columns": ["Images"],
+    "gallery_required": true,
+    "body_images_required": true,
+    "body_image_strategy": "extract_inline_img_src_and_verify_after_import",
+    "rank_math_columns": []
+  },
+  "seo": {
+    "seed_keywords": [],
+    "priority_urls": [],
+    "competitors": [],
+    "prohibited_claims": []
+  },
+  "preserve": {
+    "pages": [],
+    "snippets": [],
+    "notes": []
+  },
+  "products": [
+    {
+      "name": "Example Product",
+      "type": "simple",
+      "sku": "EXAMPLE-001",
+      "price": "29.00",
+      "category": "Example Category",
+      "image_status": "placeholder_required"
+    }
+  ],
+  "categories": ["Example Category"]
+}

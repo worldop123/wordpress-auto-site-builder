@@ -1,0 +1,63 @@
+{
+  "site": {
+    "domain": "example-store.com",
+    "brand": "Example Store",
+    "site_type": "ecommerce",
+    "build_mode": "existing_seo_optimization",
+    "interaction_mode": "ask_user",
+    "language": "en",
+    "market": "United States",
+    "adult_or_regulated": false
+  },
+  "access": {
+    "wp_admin_url": "https://example-store.com/wp-admin",
+    "auth_method": "application_password_or_admin_session"
+  },
+  "plugins": {
+    "rank_math_active": true,
+    "rank_math_account_state": "connected|user_skipped|blocked|unknown",
+    "code_snippets_active": false,
+    "code_snippets_install_allowed": false
+  },
+  "seo": {
+    "optimize_scope": "full_site",
+    "preserve_existing_custom_meta": true,
+    "seed_keywords": [
+      "example product keyword",
+      "example category keyword"
+    ],
+    "competitors": [
+      "https://competitor.example/"
+    ],
+    "rank_math_writer_strategy": "code_snippets_one_time_writer"
+  },
+  "existing_site_preservation": {
+    "preserve_layouts": true,
+    "preserve_theme": true,
+    "preserve_slugs": true,
+    "preserve_products": true,
+    "preserve_prices": true,
+    "preserve_stock": true,
+    "preserve_checkout": true,
+    "preserve_payment": true,
+    "preserve_shipping": true
+  },
+  "inventory_targets": [
+    "pages",
+    "products",
+    "posts",
+    "product_categories",
+    "post_categories",
+    "tags",
+    "media_alt",
+    "rank_math_meta",
+    "sitemap",
+    "robots",
+    "schema",
+    "internal_links"
+  ],
+  "products": [],
+  "articles": {
+    "opt_out": true
+  }
+}

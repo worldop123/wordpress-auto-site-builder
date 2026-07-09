@@ -1,0 +1,45 @@
+.DS_Store
+Thumbs.db
+
+# Secrets and local credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+auth.json
+cookies.json
+session.json
+storage-state.json
+application-password*.txt
+
+# Local exports and private site data
+*.sql
+*.sqlite
+*.sqlite3
+wp-content/
+uploads/
+exports/
+backups/
+.uploads/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+logs/
+
+# Generated one-time writers
+rank-math-writer.php
+tmp-rank-math-writer.php
+*-rank-math-writer.php

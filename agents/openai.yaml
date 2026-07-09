@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Auto Site Builder"
+  short_description: "Universal AI workflow for varied WordPress/WooCommerce SEO builds."
+  default_prompt: "Use $wordpress-auto-site-builder to build or repair a customizable WordPress/WooCommerce SEO site from my site details, using either autonomous mode or ask-user mode."

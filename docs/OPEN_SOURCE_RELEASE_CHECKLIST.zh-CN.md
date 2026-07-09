@@ -45,7 +45,9 @@
 - [ ] 全店页面覆盖：主页、自定义页、产品、产品归档、博客归档、单篇文章、购物车、结账、账户、政策页。
 - [ ] CSV 导入完整性覆盖特色图、图库、正文图片、长描述、变体、属性和 Rank Math 字段。
 - [ ] CSV 改写报告必须包含本地化策略、设计内容对齐、交易信任策略、品牌替换策略、命名策略、描述策略、SEO 策略、唯一性检查，以及被刻意保留的客户可见源文案说明。
+- [ ] 品牌替换规则明确保护图片 URL、内联 `<img src>`、媒体附件 ID、CDN 路径和下载 URL，不能做字符串替换。
 - [ ] WooCommerce 官方 CSV 解析优先使用支持双引号转义的 Excel/RFC 解析，并验证 `Images`、`Parent`、`Position`、`Meta:` 列。
+- [ ] CSV/导入中的远程图片 URL 上线前必须本地化到媒体库或明确批准的 CDN/媒体管线，且所有使用中的图片必须转换或输出为 WebP。
 - [ ] 产品知识台账必须先于首页预览、页面 HTML、文章计划、图片 ALT 规划和 Rank Math 元数据生成。
 - [ ] 自定义元数据策略区分可编辑 Rank Math/Yoast SEO 字段和受保护 runtime、analytics、序列化或未知 meta 字段。
 - [ ] 生成 logo 时也必须生成独立 favicon/site icon，并在 WordPress Site Identity 配置。

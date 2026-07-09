@@ -45,7 +45,9 @@ Use this before publishing the skill to GitHub.
 - [ ] Full store surface is required: home, custom pages, products, product archives, blog archives, single posts, cart, checkout, account, policies.
 - [ ] CSV import integrity covers featured images, galleries, body images, long descriptions, variations, attributes, and Rank Math fields.
 - [ ] CSV rewrite reports include localization strategy, design-content alignment, commerce trust strategy, brand replacement strategy, naming strategy, description strategy, SEO strategy, uniqueness checks, and any customer-facing source copy intentionally preserved.
+- [ ] Brand replacement rules explicitly protect image URLs, inline `<img src>`, media attachment IDs, CDN paths, and download URLs from string replacement.
 - [ ] Official WooCommerce CSV parsing prefers double-quote-safe Excel/RFC parsing and validates `Images`, `Parent`, `Position`, and `Meta:` columns before rewriting.
+- [ ] Remote image URLs from CSV/imports are localized into Media Library or an approved CDN/media pipeline before launch, and all used images are converted/served as WebP.
 - [ ] Product knowledge ledger is required before homepage preview, page HTML, article planning, image ALT planning, and Rank Math metadata.
 - [ ] Custom metadata policy distinguishes editable Rank Math/Yoast SEO fields from protected runtime, analytics, serialized, or unknown meta fields.
 - [ ] Logo generation also requires a separate verified site icon/favicon configured in WordPress Site Identity.

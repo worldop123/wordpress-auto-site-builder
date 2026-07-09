@@ -211,9 +211,17 @@ Collect or infer whether each surface needs a custom layout pass:
         "from": "",
         "to": "",
         "editable_fields": ["Name", "Short description", "Description", "Tags", "image_alt", "rank_math"],
-        "protected_fields": ["ID", "SKU", "Slug", "Parent", "image_urls"]
+        "protected_fields": ["ID", "SKU", "Slug", "Parent", "image_urls", "inline_img_src", "attachment_ids", "cdn_urls", "download_urls"],
+        "never_replace_inside_urls": true
       }
     ],
+    "image_localization": {
+      "preserve_source_urls_during_csv_rewrite": true,
+      "localize_remote_images_after_import": true,
+      "preferred_plugin_or_workflow": "Smush|ShortPixel|Imagify|EWWW|media_sideload_workflow|host_importer",
+      "convert_to_webp_before_use": true,
+      "allow_hotlinked_images_after_launch": false
+    },
     "rewrite_context": {
       "target_language": "",
       "secondary_languages": [],

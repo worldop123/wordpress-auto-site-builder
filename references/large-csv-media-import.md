@@ -37,6 +37,7 @@ Before uploading a processed CSV:
 - Record file size, SHA-256 hash, encoding, delimiter, row count, column count, product type counts, and expected image/gallery counts.
 - Verify headers and row field counts match.
 - Verify identity fields, variation parent links, image URLs, Rank Math fields, and price conversion rules.
+- Verify brand replacement did not modify `Images` values, inline `<img src>` URLs, attachment IDs, CDN URLs, or other media/download URLs.
 
 If any check fails, do not upload/import. Fix the CSV first.
 
@@ -82,9 +83,11 @@ Do not place the CSV contents inside the snippet. The snippet should reference a
 6. Confirm row count, headers, product types, parent links, image columns, and price fields.
 7. Run the actual import.
 8. Verify sample simple products, variable products, product galleries, inline body images, prices, stock, categories, add-to-cart, cart quantity, and Rank Math metadata.
-9. Delete/disable the one-time importer snippet.
-10. Delete the uploaded CSV from Media Library or restrict access after verification.
-11. Record final import ledger and cleanup evidence.
+9. Localize/sideload remote product/gallery/body images into the WordPress Media Library using a suitable image import/optimization plugin or controlled media workflow, then convert or serve the localized images as WebP.
+10. Verify no finished product/gallery/body image depends on unapproved hotlinked remote URLs, and verify WebP output for sampled featured, gallery, inline/body, category, article, hero, logo, and OpenGraph images.
+11. Delete/disable the one-time importer snippet.
+12. Delete the uploaded CSV from Media Library or restrict access after verification.
+13. Record final import ledger and cleanup evidence.
 
 ## Manual Fallback Message
 

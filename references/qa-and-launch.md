@@ -120,6 +120,7 @@ This section is MANDATORY. Every interactive element must be tested on both desk
 - Every social sharing image (OpenGraph) is configured.
 - Every image is optimized (not oversized 鈥?check file size vs display size).
 - Every image uses WebP format (see WebP conversion section below).
+- No finished product, gallery, category, article, hero, logo, OpenGraph, or page-module image depends on unapproved hotlinked remote URLs. Remote CSV image URLs must be localized into the Media Library or an explicitly approved CDN/media pipeline.
 
 ### Mobile-specific image checks
 - Images are responsive and do not overflow viewport.
@@ -143,9 +144,10 @@ ALL images on the site must be converted to WebP format. This is a hard requirem
 - [ ] All icon images (if using image files) converted to WebP.
 - [ ] All favicon variants generated (PNG fallback for older browsers).
 - [ ] All OpenGraph/social sharing images have WebP or JPEG fallback.
+- [ ] Remote/hotlinked product, gallery, body, category, article, hero, logo, and OpenGraph images were imported/localized before final use.
 
 ### Conversion methods
-1. **Plugin-based (recommended)**: Use Smush, ShortPixel, or Imagify to auto-convert all existing and new uploads to WebP.
+1. **Plugin-based (recommended)**: Use Smush, ShortPixel, Imagify, EWWW, or another verified image optimization/import plugin to import/localize remote images where needed and auto-convert all existing and new uploads to WebP.
 2. **Server-based**: Configure nginx/apache to serve WebP with JPEG/PNG fallback via `picture` element or content negotiation.
 3. **Batch conversion**: Use a script to convert all images in `wp-content/uploads/` to WebP.
 
@@ -260,7 +262,9 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - If product prices were converted from another currency, the import ledger records source currency, target currency, rate, rate source/timestamp, rounding rule, converted columns, original backup columns, and sample converted products.
 - Converted product prices display in the target WooCommerce currency on product pages, archives, cart, checkout, order review, and Product schema `priceCurrency`.
 - If products were imported from rewritten CSV, sample products show rewritten title, short description, long description, and correct Rank Math product SEO data.
+- If brand replacement was applied, image URLs, inline `<img src>`, attachment IDs, CDN paths, and download URLs were preserved exactly unless the user explicitly approved media URL replacement.
 - If products were imported from CSV, featured images, every gallery image, inline/body images in product descriptions, ALT/title/caption metadata, and product detail HTML were checked against the import ledger.
+- If product images started as remote URLs, the final product records use local Media Library attachments or an approved CDN/media pipeline, and the report lists failed sideload/localization items.
 - Products with galleries must show the expected thumbnail count and open/switch gallery images on desktop and mobile.
 - Products with long descriptions/body images must render those details on the single product page without broken images, clipped content, or missing HTML sections.
 - Currency correct.

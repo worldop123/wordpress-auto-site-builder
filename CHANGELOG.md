@@ -6,6 +6,7 @@ All notable project changes should be recorded here.
 
 - Require intelligent WooCommerce product CSV rewriting for product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields; translation-only and repeated source-copy patterns are explicit blockers.
 - Tie product CSV rewriting to target country/language, single-language or multilingual strategy, design/content tone, brand replacement rules, payment/shipping facts, currency, and localized commerce trust signals.
+- Protect image URLs from brand-name replacement and require remote images to be localized into Media Library or an approved media pipeline, then converted/served as WebP before final use.
 - Add GitHub community health files, CI, documentation index, support policy, roadmap, and publishing guide.
 - Add reference-site capture / clone-style adaptation workflow, including local HTML snapshot capture, page-type manifest generation, and WordPress/WooCommerce transformation rules.
 - Add product price currency conversion workflow for localized WooCommerce imports, including original-price backup meta columns and exchange-rate ledger requirements.

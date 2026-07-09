@@ -36,7 +36,7 @@ Create a product knowledge ledger with:
 - Product counts by type: simple, variable, variation, grouped, external.
 - Category, tag, attribute, flavor/color/size/spec, and parent/variation structure.
 - Representative product names, SKUs, slugs, price range, sale-price patterns, stock/catalog visibility, shipping/compliance notes, and targetable differentiators.
-- Brand normalization and replacement rules: old brand strings, new brand strings, affected columns/HTML/media alt text/meta fields, and fields where replacement must not happen such as SKU, URL, IDs, or protected supplier metadata unless explicitly authorized.
+- Brand normalization and replacement rules: old brand strings, new brand strings, affected columns/HTML/media alt text/meta fields, and fields where replacement must not happen such as SKU, URL, image URL, remote media path, IDs, or protected supplier metadata unless explicitly authorized.
 - Description quality: missing short descriptions, thin long descriptions, duplicate wording, body/detail image usage, FAQ/spec opportunities, and prohibited claims.
 - Media coverage: featured image availability, gallery counts, inline body images, image ALT/title/caption fields, remote URLs, and WebP/conversion needs.
 - SEO state: existing Rank Math title, description, focus keyword, robots/canonical fields, duplicate/missing values, and keyword cannibalization risks.
@@ -51,6 +51,7 @@ For official WooCommerce exports, run these checks before any rewrite/import:
 
 - Header count equals row field count for every row.
 - `Images` values are real image URLs or attachment references, not `0`, blank because of parser drift, or HTML from another column.
+- Brand replacement must not modify `Images` values or any image URL inside `Description` HTML. If an old brand name appears in a filename, path, hostname, CDN URL, or query string, preserve the URL exactly and rewrite only editable surrounding text or ALT/title/caption fields.
 - Gallery counts are extracted from comma-separated `Images` URLs; the first URL is the featured image and following URLs are gallery images.
 - `Position` is numeric for normal exports.
 - Parent products have empty `Parent`; variation rows have `Parent` pointing to an existing parent SKU/slug/ID.
@@ -98,6 +99,7 @@ Do not change these casually:
 - weight/dimensions
 - categories
 - image URLs
+- remote image paths, CDN URLs, attachment IDs, and inline `<img src>` values
 - download URLs
 - tax/shipping class
 - published status
@@ -160,6 +162,7 @@ Before rewriting the full CSV, create a short rewrite plan:
 - Design-content alignment: how the approved/autonomous visual style, mobile density, product-card layout, and homepage/category merchandising influence title length, short-description length, body section structure, and image ALT style.
 - Commerce trust strategy: where payment method, COD, shipping origin/timing, support channel, return/payment notes, and compliance wording should appear across product descriptions, SEO descriptions, category copy, and policy pages.
 - Brand replacement strategy: source brand strings, target brand strings, exact fields to rewrite, protected fields to preserve, and a post-rewrite scan for leftover old brand mentions.
+- Image URL protection strategy: exact columns/HTML attributes that must be preserved (`Images`, inline `<img src>`, attachment IDs, CDN URLs), plus editable image text fields where brand replacement is allowed (`alt`, title, caption) when mapped.
 - Naming strategy by category: which product facts belong in names, which facts belong in descriptions, and which words should be avoided.
 - Description strategy by product group: expected short-description angle, long-description section pattern, FAQ/spec use, and compliance limits.
 - SEO strategy: primary keyword pattern, category keyword boundaries, cannibalization risks, and Rank Math field format.
@@ -196,6 +199,7 @@ If Rank Math fields are not present in the CSV:
    - Same SKU/Parent relationships.
    - Same featured image and gallery image references unless intentionally replaced.
    - Inline/body image URLs in long descriptions still exist and are importable.
+   - Brand replacement did not alter any image URL, media attachment ID, CDN path, or inline `<img src>`.
    - No broken CSV quoting.
    - Required columns still present.
    - HTML in descriptions is valid enough for WordPress import.
@@ -211,12 +215,15 @@ Before importing:
 - Extract inline `<img>` URLs from product long descriptions and verify they are reachable or already in the media library.
 - Preserve image order when it matters for product galleries.
 - Do not remove body/detail images during originality rewriting.
-- If remote image URLs are used, confirm WordPress can sideload them or pre-upload them and replace with media-library URLs.
+- If remote image URLs are used, preserve the source URLs through CSV rewriting/import, then confirm WordPress can sideload them or pre-upload them and replace product records with Media Library attachment URLs/IDs after import.
+- Use a suitable image import/optimization plugin or controlled media sideload workflow to convert hotlinked product, gallery, category, article, hero, logo, OpenGraph, and other site images into local WordPress Media Library assets. Do not leave hotlinked product images in the finished site unless the user explicitly approved an external-media/CDN architecture.
+- Convert uploaded/localized images to WebP before using them in page modules, articles, category surfaces, OpenGraph assets, or product galleries. If a plugin serves WebP via content negotiation while retaining original file URLs, verify the MIME type or generated WebP variant instead of assuming conversion happened.
 
 After importing:
 
 - Compare expected vs actual featured image and gallery count for sampled products.
 - Open single product pages and verify main image, thumbnails, gallery switching, long description, body/detail images, and image ALT text.
+- Verify remote image URLs were localized into Media Library attachments or an approved CDN/media pipeline, and verify WebP output for sampled featured, gallery, inline/body, category, article, hero, logo, and OpenGraph images.
 - Check at least one simple product, one variable product, one product with multiple gallery images, and one product with inline body images.
 - Record failed image URLs, missing attachment IDs, mismatched gallery counts, and products requiring re-import.
 
@@ -229,6 +236,7 @@ If importing into WordPress:
 - Confirm "update existing products" behavior if IDs/SKUs match existing products.
 - For large CSV files, import from a verified media URL or temporary server file using the workflow in `large-csv-media-import.md`; do not paste CSV content into Code Snippets or admin text fields.
 - After import, verify product title, short description, long description, inline/body images, Rank Math meta, product URL, featured image, image gallery, variation form, price, stock, category, add-to-cart, cart quantity, and sitemap inclusion.
+- After image localization/WebP conversion, verify product image fields no longer depend on unapproved hotlinked remote URLs and that converted images still render in product schema, galleries, archives, page modules, and mobile layouts.
 
 ## Import ledger
 
@@ -241,6 +249,8 @@ Every CSV import deliverable must include:
 - Rewrite strategy summary: naming patterns used, short-description angles, long-description structures, SEO keyword patterns, sample before/after notes, and any source copy intentionally preserved.
 - Uniqueness checks: duplicate or near-duplicate titles, repeated short-description formulas, repeated meta descriptions, and products whose long descriptions still need manual product facts.
 - Expected featured/gallery/body image counts and actual sampled results.
+- Brand replacement URL safety: confirmation that image URLs, inline `<img src>`, media attachment IDs, CDN paths, and download URLs were preserved unless intentionally changed.
+- Image localization/WebP status: plugin or workflow used, remote image count, localized attachment count, failed sideloads, WebP conversion/serving evidence, and sampled product/category/article/page URLs.
 - Import warnings, failed rows, failed image URLs, and remediation steps.
 - Large-file transport details when used: media attachment ID, CSV URL, file size, SHA-256 hash, dry-run result, importer snippet ID, cleanup status, and manual-upload fallback if automation was not safe.
 - Sample verification URLs for product, category/archive, cart, and sitemap.

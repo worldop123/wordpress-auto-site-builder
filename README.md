@@ -17,6 +17,7 @@ The skill is designed for Codex, Claude, Trae, Cursor, OpenHands, Aider, and oth
 - New WordPress/WooCommerce site builds
 - Old-site rebuilds that preserve products and media
 - Existing-site full SEO optimization without redesigning or rebuilding pages
+- Reference-site inspired builds that capture public/authorized HTML snapshots for transformed WordPress implementation
 - Full-store page architecture
 - Homepage, policy pages, product pages, product archives, blog archives, single posts, cart, checkout, and account pages
 - Autonomous mode and ask-user mode
@@ -61,6 +62,7 @@ Every project starts by identifying the service mode:
    - [`references/phase-playbook.md`](references/phase-playbook.md)
    - [`references/qa-and-launch.md`](references/qa-and-launch.md)
    - [`references/product-csv-originality-seo.md`](references/product-csv-originality-seo.md) for CSV work
+   - [`references/reference-site-capture.md`](references/reference-site-capture.md) for clone-style/reference-site builds
    - [`references/code-snippets-implementation-guide.md`](references/code-snippets-implementation-guide.md) for snippets
    - [`references/woocommerce-customizations-guide.md`](references/woocommerce-customizations-guide.md) for store UX
 3. Build a site ledger with mode, protected data, required pages, snippets, SEO tasks, articles, and QA gates.
@@ -107,12 +109,19 @@ Generate a build plan and launch-gate checklist:
 python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json
 python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json --format json
 python scripts/site_plan.py docs/SITE_CONFIG_EXISTING_SEO_EXAMPLE.json
+python scripts/site_plan.py docs/SITE_CONFIG_REFERENCE_CLONE_EXAMPLE.json
 ```
 
 Inspect a WooCommerce product CSV for identity fields, image/gallery columns, inline body images, variations, Rank Math fields, and import blockers:
 
 ```bash
 python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
+```
+
+Capture public reference-site HTML snapshots for local layout analysis:
+
+```bash
+python scripts/reference_site_capture.py https://example.com --max-pages 40
 ```
 
 Create and update a resumable ledger for interrupted AI runs:

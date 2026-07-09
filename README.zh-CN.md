@@ -29,6 +29,7 @@
 - 新 WordPress/WooCommerce SEO 站点搭建。
 - 旧站重建并保护产品和媒体库。
 - 现有网站全盘 SEO 优化，不改页面视觉结构。
+- 仿站/参考站构建：抓取公开或已授权网站的 HTML 快照做布局分析，再转成差异化 WordPress 实现。
 - 首页、政策页、产品页、产品归档、博客归档、单篇文章、购物车、结账、账户页重构。
 - 国家、语言、市场差异化设计，避免千篇一律。
 - SEO 文章批量生成、草稿、定时发布规划。
@@ -63,12 +64,19 @@
 python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json
 python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json --format json
 python scripts/site_plan.py docs/SITE_CONFIG_EXISTING_SEO_EXAMPLE.json
+python scripts/site_plan.py docs/SITE_CONFIG_REFERENCE_CLONE_EXAMPLE.json
 ```
 
 检查 WooCommerce 产品 CSV：
 
 ```bash
 python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
+```
+
+抓取公开参考站 HTML 快照用于本地布局分析：
+
+```bash
+python scripts/reference_site_capture.py https://example.com --max-pages 40
 ```
 
 创建或更新中断续做台账：

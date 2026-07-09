@@ -5,6 +5,7 @@ All notable project changes should be recorded here.
 ## [Unreleased]
 
 - Add GitHub community health files, CI, documentation index, support policy, roadmap, and publishing guide.
+- Add reference-site capture / clone-style adaptation workflow, including local HTML snapshot capture, page-type manifest generation, and WordPress/WooCommerce transformation rules.
 
 ## [0.1.0] - 2026-07-09
 

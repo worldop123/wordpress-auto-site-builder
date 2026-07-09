@@ -16,6 +16,7 @@ ALLOWED_BUILD_MODES = {
     "new",
     "old_rebuild",
     "existing_seo_optimization",
+    "reference_site_clone",
     "repair",
     "seo_content",
     "woocommerce_ux",
@@ -99,6 +100,27 @@ PHASES = [
     "final_launch_report",
 ]
 
+REFERENCE_SITE_PHASES = [
+    "select_service_mode_new_old_rebuild_existing_seo_or_reference_clone",
+    "resume_read_ledger_and_verify_live_state_if_interrupted",
+    "collect_reference_url_permission_scope_and_target_site_type",
+    "capture_reference_site_html_snapshots_to_gitignored_folder",
+    "classify_reference_surfaces_home_shop_product_blog_policy_checkout_and_other_pages",
+    "create_reference_site_analysis_report",
+    "map_reference_surfaces_to_wordpress_pages_woocommerce_templates_and_snippets",
+    "define_transformation_rules_to_avoid_verbatim_copying",
+    "collect_or_infer_user_brand_content_products_language_and_compliance",
+    "set_foundation_baseline_rankmath_menus_bindings",
+    "generate_transformed_homepage_style_preview_or_record_autonomous_mode",
+    "create_pages_menus_logo_site_icon_and_global_shell",
+    "generate_transformed_page_html_from_reference_patterns",
+    "build_or_preserve_woocommerce_surfaces_if_ecommerce",
+    "write_original_rankmath_metadata_and_schema",
+    "run_interaction_mobile_overflow_and_no_copy_qa",
+    "verify_no_reference_text_assets_tokens_or_urls_remain",
+    "final_reference_site_adaptation_report",
+]
+
 EXISTING_SEO_PHASES = [
     "select_service_mode_new_old_rebuild_or_existing_seo",
     "resume_read_ledger_and_verify_live_state_if_interrupted",
@@ -165,8 +187,9 @@ def validate(config: dict[str, Any]) -> dict[str, Any]:
     if build_mode not in ALLOWED_BUILD_MODES:
         warnings.append(f"Unknown site.build_mode: {build_mode}")
     existing_seo_mode = build_mode == "existing_seo_optimization"
+    reference_clone_mode = build_mode == "reference_site_clone"
 
-    if site.get("site_type") == "ecommerce" and not existing_seo_mode:
+    if site.get("site_type") == "ecommerce" and not existing_seo_mode and not reference_clone_mode:
         if not commerce.get("currency"):
             missing.append("commerce.currency")
         if not commerce.get("payment_methods"):
@@ -177,6 +200,8 @@ def validate(config: dict[str, Any]) -> dict[str, Any]:
             missing.append("products[] or product_import.csv_source")
     elif site.get("site_type") == "ecommerce" and existing_seo_mode:
         warnings.append("Existing-site SEO mode: preserve products/prices/stock/checkout; inventory live products instead of requiring CSV.")
+    elif site.get("site_type") == "ecommerce" and reference_clone_mode:
+        warnings.append("Reference-site clone mode: product data may come later; WooCommerce surfaces must be rebuilt as dynamic templates, not copied static HTML.")
 
     if interaction_mode == "autonomous":
         warnings.append("Autonomous mode: record AI decisions and do not pause for routine approvals.")
@@ -196,6 +221,14 @@ def validate(config: dict[str, Any]) -> dict[str, Any]:
             else:
                 launch_blockers.append("code_snippets_install_permission_required_for_rank_math_writer")
         warnings.append("Existing-site SEO mode: do not rebuild pages/layouts or change commerce settings unless separately authorized.")
+
+    reference_site = config.get("reference_site") or {}
+    if reference_clone_mode:
+        if not reference_site.get("url"):
+            missing.append("reference_site.url")
+        if not reference_site.get("permission_basis"):
+            warnings.append("reference_site.permission_basis missing; record owned, authorized, or public_inspiration before capture.")
+        warnings.append("Reference-site clone mode: save HTML snapshots locally for analysis, then transform; do not publish copied third-party HTML/assets/text.")
 
     if site.get("adult_or_regulated"):
         launch_blockers.append("regulated_product_compliance_must_be_verified")
@@ -221,7 +254,7 @@ def validate(config: dict[str, Any]) -> dict[str, Any]:
 
     expected_surfaces = set(FULL_STORE_SURFACES)
     configured_surfaces = set(as_list(config.get("surfaces")))
-    if existing_seo_mode:
+    if existing_seo_mode or reference_clone_mode:
         missing_surfaces = []
     else:
         missing_surfaces = sorted(expected_surfaces - configured_surfaces) if configured_surfaces else sorted(expected_surfaces)
@@ -243,11 +276,12 @@ def validate(config: dict[str, Any]) -> dict[str, Any]:
         "required_surfaces": FULL_STORE_SURFACES,
         "missing_or_unconfirmed_surfaces": missing_surfaces,
         "interaction_qa": INTERACTION_QA,
-        "phase_checklist": EXISTING_SEO_PHASES if existing_seo_mode else PHASES,
+        "phase_checklist": EXISTING_SEO_PHASES if existing_seo_mode else (REFERENCE_SITE_PHASES if reference_clone_mode else PHASES),
         "service_mode_choices": [
             "new: New site build",
             "old_rebuild: Old-site rebuild preserving protected products/media",
             "existing_seo_optimization: Existing-site SEO optimization without page rebuild",
+            "reference_site_clone: Reference-site inspired build using captured HTML snapshots and transformed WordPress implementation",
         ],
         "rank_math_first_use": "Prompt user to connect Rank Math account; record connected, user_skipped, or blocked.",
         "resume_rule": "If interrupted, read ledger, verify live state read-only, revoke temporary credentials, and continue from smallest safe unfinished step.",

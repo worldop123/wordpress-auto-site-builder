@@ -1,0 +1,82 @@
+{
+  "site": {
+    "domain": "example-clone-build.com",
+    "brand": "Example Clone Build",
+    "site_type": "ecommerce",
+    "build_mode": "reference_site_clone",
+    "interaction_mode": "ask_user",
+    "language": "en",
+    "market": "United States",
+    "adult_or_regulated": true
+  },
+  "access": {
+    "wp_admin_url": "https://example-clone-build.com/wp-admin",
+    "auth_method": "browser_login|application_password|manual_paste"
+  },
+  "reference_site": {
+    "url": "https://vapesourcing.com/",
+    "permission_basis": "public_inspiration",
+    "capture_scope": "full_public_site",
+    "max_pages": 40,
+    "target_site_type": "ecommerce",
+    "required_surfaces": [
+      "home",
+      "shop_or_catalog",
+      "product",
+      "blog_index_or_archive",
+      "policy",
+      "about",
+      "contact",
+      "cart",
+      "checkout"
+    ],
+    "transformation_level": "same_information_architecture",
+    "do_not_copy": [
+      "text",
+      "images",
+      "logos",
+      "reviews",
+      "product_data",
+      "code",
+      "trackers",
+      "trademarks"
+    ]
+  },
+  "brand_assets": {
+    "logo_url": "",
+    "generate_logo": true,
+    "generate_site_icon": true,
+    "site_icon_url": "",
+    "site_icon_requirements": "separate simplified square icon, clear at 32x32/64x64, not dark or muddy",
+    "style_references": [
+      "Use the reference site for structure and density only; create a distinct brand system."
+    ],
+    "avoid_styles": [
+      "verbatim copied reference HTML",
+      "reference logos",
+      "reference product images",
+      "reference text"
+    ]
+  },
+  "commerce": {
+    "currency": "USD",
+    "shipping_origin": "",
+    "shipping_countries": [],
+    "shipping_time": "",
+    "payment_methods": [],
+    "cod_regions": []
+  },
+  "seo": {
+    "seed_keywords": [],
+    "competitors": [
+      "https://vapesourcing.com/"
+    ],
+    "preserve_existing_custom_meta": true,
+    "optimize_scope": "full_site"
+  },
+  "articles": {
+    "initial_batch_count": 10,
+    "opt_out": false
+  },
+  "products": []
+}

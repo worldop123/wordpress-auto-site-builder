@@ -23,6 +23,8 @@ uploads/
 exports/
 backups/
 .uploads/
+.reference-captures/
+reference-captures/
 
 # Python
 __pycache__/

@@ -1,6 +1,6 @@
 ---
 name: wordpress-auto-site-builder
-description: Universal AI-agent workflow for building or repairing customizable WordPress/WooCommerce SEO sites using Hello Elementor, Elementor HTML blocks, Code Snippets PHP/CSS/JS, Rank Math, varied page designs, full-store QA, CSV product/media integrity, and autonomous or ask-user execution modes. Use with Codex, Claude, Trae, Cursor, OpenHands, Aider, or other AI coding agents when the user wants requirements intake, WordPress operation, old-site rebuilds, homepage/style previews, pages/products/categories/policies/blogs, product CSV originality rewriting, Rank Math metadata, non-repetitive layouts, snippet implementation, interaction testing, launch gating, or a reusable automated WordPress site-building workflow.
+description: Universal AI-agent workflow for building or repairing customizable WordPress/WooCommerce SEO sites using Hello Elementor, Elementor HTML blocks, Code Snippets PHP/CSS/JS, Rank Math, varied page designs, full-store QA, CSV product/media integrity, reference-site layout capture/adaptation, and autonomous or ask-user execution modes. Use with Codex, Claude, Trae, Cursor, OpenHands, Aider, or other AI coding agents when the user wants requirements intake, WordPress operation, old-site rebuilds, reference-site/clone-style builds, homepage/style previews, pages/products/categories/policies/blogs, product CSV originality rewriting, Rank Math metadata, non-repetitive layouts, snippet implementation, interaction testing, launch gating, or a reusable automated WordPress site-building workflow.
 ---
 
 # WordPress Auto Site Builder
@@ -54,8 +54,24 @@ The first user-facing step for any WordPress project MUST be to identify which s
 1. **New site build**: build a new WordPress/WooCommerce SEO site from requirements.
 2. **Old-site rebuild**: rebuild an existing site while preserving protected products/media.
 3. **Existing-site SEO optimization**: do not redesign/rebuild pages; audit and optimize existing pages, products, posts, categories, Rank Math metadata, schema, internal links, image ALT text, sitemap/noindex, and SEO content gaps.
+4. **Reference-site inspired build / clone-style adaptation**: capture a public or user-authorized reference site's page structure and HTML snapshots for analysis, then rebuild a transformed WordPress/WooCommerce site with the user's brand, products, language, compliance, and SEO. Do not publish copied HTML, text, assets, trademarks, or protected designs verbatim.
 
-In autonomous mode, infer the mode from the user's wording and record the decision. In ask-user mode, list these three options and wait for the user's choice before changing the site.
+In autonomous mode, infer the mode from the user's wording and record the decision. In ask-user mode, list these service options and wait for the user's choice before changing the site.
+
+## CRITICAL: Reference-Site Capture and Clone-Style Adaptation
+
+When the user asks to clone, imitate, copy, replicate, reference, or rebuild from another website URL, treat it as a reference-site adaptation workflow.
+
+- Read `references/reference-site-capture.md` before acting.
+- Capture the reference site's relevant page HTML snapshots locally for analysis, including homepage, navigation, category/listing pages, product/detail pages, blog/news pages, policy/legal pages, contact/about pages, cart/checkout/account pages when publicly accessible, and any site-type-specific pages such as service, pricing, case study, documentation, location, booking, or portfolio pages.
+- Store captures under `.reference-captures/` or another gitignored directory. Do not commit captured third-party HTML, screenshots, assets, cookies, or private data.
+- Use `scripts/reference_site_capture.py` to build a manifest of URLs, page types, titles, H1s, meta descriptions, links, and saved HTML file paths.
+- Use captured HTML as layout intelligence only: section order, navigation depth, grid density, CTA placement, filter patterns, trust blocks, footer structure, responsive behavior, and content modules.
+- Do not publish copied HTML/CSS/JS, copyrighted text, images, logos, brand names, trademarks, structured data, product data, reviews, or policies from the reference site. Rebuild transformed pages using the user's own brand, products, media, language, and compliance facts.
+- For non-WordPress reference sites, map the discovered surfaces into WordPress page types, WooCommerce templates when ecommerce is required, Elementor HTML widgets for custom pages, and Code Snippets for global shell/dynamic behavior.
+- For ecommerce reference sites, preserve WooCommerce transactional ownership: cart, checkout, account, product pages, archives, and variation forms must remain functional WooCommerce surfaces, not static copied HTML.
+- Produce a reference-site analysis report before building: captured URL count, page-type coverage, reusable layout patterns, elements to avoid copying, WordPress/WooCommerce mapping, SEO opportunities, and QA risks.
+- If robots.txt, login walls, payment steps, geoblocking, anti-bot checks, or terms restrictions block capture, stop or reduce scope. Never bypass authentication, paywalls, checkout payment steps, or access controls.
 
 ## CRITICAL: Existing-Site SEO Optimization Mode
 
@@ -545,6 +561,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 9. Read `references/elementor-html-automation.md` before opening Elementor, setting Elementor Canvas, adding HTML widgets, or pasting page HTML.
 10. Read `references/style-preview-gate.md` before building the full site; produce a homepage style preview and wait for user approval before broad page import.
 11. Read `references/product-csv-originality-seo.md` when the user provides a WordPress/WooCommerce product export CSV for product title, description, content, or Rank Math SEO rewriting before import.
+11a. Read `references/reference-site-capture.md` when the user provides a site URL to clone, imitate, reference, or rebuild from. Capture public/authorized HTML snapshots locally and transform the layout into original WordPress/WooCommerce implementation.
 12. Read `references/design-variation.md` before generating page HTML/CSS so every site and article batch has a distinct, non-AI-looking design direction.
 13. Read `references/automation-and-safety.md` before touching wp-admin, WooCommerce settings, snippets, or live content.
 14. Read `references/google-seo-guidelines.md` for comprehensive Google SEO official guidelines, E-E-A-T, spam policies, and best practices.
@@ -563,6 +580,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 27. Use `scripts/site_plan.py` when a structured intake JSON needs to be validated or converted into a phase checklist.
 28. Use `scripts/rank_math_content_audit.py` before Rank Math metadata writing to check focus keyword placement, subheadings, image ALT, keyword density, internal links, readability, and rich media.
 29. Use `scripts/rank_math_meta_writer.py` to generate a Code Snippets one-time writer from an approved SEO mapping JSON for Rank Math Free sites.
+29a. Use `scripts/reference_site_capture.py` before reference-site/clone-style builds to capture public/authorized HTML snapshots and generate a page-type manifest.
 30. Use `scripts/resume_ledger.py` to initialize, update, summarize, and recover a resumable build ledger after interruptions.
 31. Read `references/code-snippets-implementation-guide.md` for REAL, ready-to-use Code Snippets code. Contains WordPress core configuration, WooCommerce customizations, performance optimization, SEO enhancements, dynamic product renderers, security hardening, custom shortcodes, age/compliance gate, cookie consent, and custom REST API endpoints. Use these snippets instead of writing code from scratch.
 32. Read `references/wordpress-settings-implementation.md` for practical WordPress/WooCommerce/Elementor/Rank Math settings configuration via REST API and Code Snippets PHP. Contains exact curl commands and PHP code for configuring shipping zones, payment gateways, menus, and all settings programmatically.
@@ -689,6 +707,7 @@ Each snippet file must say whether it is persistent, one-time, scanner, UX polis
 - `references/elementor-html-automation.md`: Elementor Canvas and HTML-widget automation for old and new Elementor UI.
 - `references/style-preview-gate.md`: homepage style preview, approval gate, and anti-AI review rules.
 - `references/product-csv-originality-seo.md`: WooCommerce product export CSV rewriting, import safety, and Rank Math product SEO mapping.
+- `references/reference-site-capture.md`: reference-site/clone-style capture, page-type classification, HTML snapshot handling, WordPress mapping, and transformation rules.
 - `references/design-variation.md`: reusable but non-repetitive design system rules.
 - `references/automation-and-safety.md`: credentials, API/admin choices, snippets, rollback.
 - `references/qa-and-launch.md`: storefront, SEO, mobile, link/button/image verification, WebP, code quality, performance, indexing, and launch checks.

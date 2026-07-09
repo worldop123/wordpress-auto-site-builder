@@ -26,6 +26,7 @@ jobs:
         run: |
           python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json --format json
           python scripts/site_plan.py docs/SITE_CONFIG_EXISTING_SEO_EXAMPLE.json --format json || true
+          python scripts/site_plan.py docs/SITE_CONFIG_REFERENCE_CLONE_EXAMPLE.json --format json
 
       - name: CSV inspector smoke test
         run: |

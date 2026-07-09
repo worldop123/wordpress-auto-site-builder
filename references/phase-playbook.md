@@ -42,6 +42,7 @@ The first user-facing step is to list the three primary service choices and reco
 1. **New site build** (`new`): build a new WordPress/WooCommerce SEO site from requirements.
 2. **Old-site rebuild** (`old_rebuild`): rebuild an existing site while preserving protected WooCommerce products, product data, and media.
 3. **Existing-site SEO optimization** (`existing_seo_optimization`): do not redesign or rebuild pages; audit and optimize SEO data for the current pages, products, posts, categories, media, Rank Math settings, schema, sitemap, image ALT text, and internal-link gaps.
+4. **Reference-site inspired build / clone-style adaptation** (`reference_site_clone`): capture a public or authorized reference site's page HTML snapshots, analyze all relevant page types, and rebuild transformed WordPress/WooCommerce pages with the user's own brand/content/assets.
 
 In `ask_user` mode, show these choices and wait for the user's selection before changing the site. In `autonomous` mode, infer the service mode from the user's wording, record the reason, and continue with the safest branch.
 
@@ -55,6 +56,7 @@ In `ask_user` mode, show these choices and wait for the user's selection before 
   - After cleanup, verify product data integrity before continuing.
   - After cleanup verification, continue to 0b.
 - **If existing-site SEO optimization**: Continue to 0b, then follow "Existing-site SEO optimization flow" in Phase 10. Do not run old-site cleanup, create replacement layouts, overwrite Elementor pages, change WooCommerce commerce data, or regenerate the visual design unless the user separately approves repair work.
+- **If reference-site clone/adaptation**: Read `reference-site-capture.md`, capture authorized/public HTML snapshots to a gitignored folder, produce a page-type analysis report, then continue through the build phases using transformed layouts and original user content. Do not publish copied third-party HTML, text, images, logos, product data, reviews, policies, trackers, or private endpoints.
 
 ### 0b. Prerequisite verification
 

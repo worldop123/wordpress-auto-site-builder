@@ -8,13 +8,14 @@ Collect only what is needed. Infer anything that can be safely observed from Wor
   - New site build.
   - Old-site rebuild.
   - Existing-site SEO optimization only.
+  - Reference-site inspired build / clone-style adaptation.
 - WordPress admin URL.
 - Authentication method: username/password, temporary admin account, application password, or user-guided browser login.
 - Brand name and domain.
 - Site type: ecommerce, lead-gen, catalog, blog, landing, hybrid.
 - Target market and language. Ask which country/region the site targets. Read `global-design-preferences.md` to understand regional design conventions, color preferences, trust signals, payment methods, and cultural habits for the target market.
 - Build mode and permission boundary:
-  - New build, old-site rebuild, existing-site SEO optimization, repair-only, SEO/content-only, WooCommerce UX-only, or skill/workflow update.
+  - New build, old-site rebuild, existing-site SEO optimization, reference-site clone/adaptation, repair-only, SEO/content-only, WooCommerce UX-only, or skill/workflow update.
   - Interaction mode: `ask_user` or `autonomous`.
   - `ask_user`: collect approvals for target market, homepage style, destructive cleanup, plugin/settings changes, and publishing.
   - `autonomous`: only when explicitly authorized by the user. Record that the user waived approval gates, then let AI choose market, language, design, page layouts, article topics, menus, SEO structure, and non-destructive implementation details from the available facts.
@@ -39,6 +40,25 @@ Collect only what is needed. Infer anything that can be safely observed from Wor
   - Product-card priorities: image size, title lines, price prominence, quick add/detail button, category label, shipping badge.
   - Header behavior: sticky, compact, bottom actions, search, WhatsApp, cart count, or no floating widgets.
 - SEO seed keywords, priority products/categories, competitors or style references, and prohibited claims.
+
+## Reference-Site Clone/Adaptation Intake
+
+Use this when the customer gives a website URL to imitate, clone, reference, or rebuild from.
+
+- Reference URL.
+- Permission basis: owned site, authorized client site, or public inspiration only.
+- Target site type: ecommerce, official/company site, catalog, blog/media, service/lead-gen, SaaS, portfolio, local business, documentation, booking, community, or hybrid.
+- Target build type: WordPress/WooCommerce, WordPress non-ecommerce, existing WordPress rebuild, or mixed.
+- Capture scope: homepage only, selected pages, or full public site surface.
+- Maximum capture depth/page count.
+- Must-capture surfaces: home, navigation, footer, shop/catalog, category/listing, product/detail, blog/news, article, policies, about, contact, service, pricing, case study, FAQ, cart, checkout, account, or other.
+- Whether the agent may capture and save public HTML snapshots locally for analysis. Captures must remain in a gitignored folder.
+- Elements that may be inspired by: layout rhythm, menu structure, section ordering, grid density, CTA placement, filter/search patterns, footer structure.
+- Elements that must not be copied: text, images, logos, reviews, product data, code, brand names, trademarks, policy copy, trackers, API keys, private endpoints.
+- User brand/content/products/media that will replace reference content.
+- Required transformation level: close layout inspiration, same information architecture but different visual system, or loose competitive reference.
+
+If the user authorizes autonomous execution, infer a conservative capture scope and stop if the reference site blocks public access.
 
 ## Existing-Site SEO Optimization Intake
 
@@ -122,7 +142,7 @@ Collect or infer whether each surface needs a custom layout pass:
     "site_type": "ecommerce",
     "industry": "",
     "adult_or_regulated": false,
-    "build_mode": "new|old_rebuild|existing_seo_optimization|repair|seo_content|woocommerce_ux|skill_update|mixed",
+    "build_mode": "new|old_rebuild|existing_seo_optimization|reference_site_clone|repair|seo_content|woocommerce_ux|skill_update|mixed",
     "interaction_mode": "ask_user|autonomous"
   },
   "access": {
@@ -137,6 +157,16 @@ Collect or infer whether each surface needs a custom layout pass:
     "site_icon_requirements": "separate simplified square icon, clear at 32x32/64x64, not dark or muddy",
     "style_references": [],
     "avoid_styles": []
+  },
+  "reference_site": {
+    "url": "",
+    "permission_basis": "owned|authorized|public_inspiration",
+    "capture_scope": "full_public_site|selected_pages|homepage_only",
+    "max_pages": 40,
+    "target_site_type": "ecommerce|official|catalog|blog|service|saas|portfolio|local_business|documentation|booking|community|hybrid",
+    "required_surfaces": [],
+    "transformation_level": "close_layout_inspiration|same_information_architecture|loose_reference",
+    "do_not_copy": ["text", "images", "logos", "reviews", "product_data", "code", "trackers", "trademarks"]
   },
   "contact": {
     "email": "",

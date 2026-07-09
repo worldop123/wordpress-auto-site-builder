@@ -25,7 +25,7 @@ The skill is designed for Codex, Claude Code, Cursor, Devin Desktop/Windsurf, Gi
 - Critical-judgment rules so agents do not blindly agree with risky or wrong user instructions
 - Country/language-specific design variation
 - SEO article batch generation
-- WooCommerce product CSV rewriting and import integrity, including intelligent product name, short description, long description/body, image text, and Rank Math metadata rewrites instead of translation-only or repeated source-copy patterns
+- WooCommerce product CSV rewriting and import integrity, including intelligent product name, short description, long description/body, image text, and Rank Math metadata rewrites aligned with target language, market design style, brand replacement, payment/shipping facts, currency, and SEO strategy instead of translation-only or repeated source-copy patterns
 - Product knowledge ledger before homepage/page HTML, article plans, and Rank Math SEO generation
 - Product price currency conversion for localized/small-language WooCommerce sites
 - Official WooCommerce CSV custom metadata inspection, including protected runtime meta and editable SEO meta

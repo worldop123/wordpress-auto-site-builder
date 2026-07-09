@@ -86,6 +86,32 @@ Before building a website for any target market, understand regional design pref
 - Consumer protection laws (14-day return right in EU)
 - Impressum (legal notice) required in Germany/Austria
 
+### Central and Eastern Europe (Poland, Hungary, Czechia, Slovakia, Romania, Bulgaria)
+#### Color Preferences
+- Practical, trustworthy palettes: navy, graphite, white, muted green, restrained red accents for offers or warnings.
+- Avoid overly glossy luxury styling unless the brand/product tier supports it.
+#### Layout Conventions
+- Moderate to compact ecommerce density; users often compare price, specs, delivery, and payment quickly.
+- Category-first navigation, visible search, clear product cards, and concise trust/shipping badges are helpful.
+- Mobile layouts should usually support two-column or mixed product grids when text length fits at 360px.
+#### Typography
+- Use fonts with strong Latin Extended support for local characters such as Hungarian accents, Czech/Slovak marks, Polish diacritics, and Romanian characters.
+- Keep product-card text concise enough for longer translated words.
+#### Trust Signals
+- Local-language content is important; English-only storefronts look less trustworthy.
+- Show delivery timing, shipping origin, support channel, return/payment policy, age/compliance warnings for regulated products, and local currency clearly.
+- For Hungary specifically, use Hungarian copy, HUF currency display, clear delivery expectations, and practical support/payment explanations.
+#### Payment Preferences
+- Cards, bank transfer, local gateways, PayPal where available, and COD where the merchant supports it.
+- If COD is offered, show it as a trust signal on product/category/cart/checkout surfaces, but keep the exact regions and conditions consistent with checkout.
+#### Content Style
+- Clear, factual, specification-led copy usually performs better than inflated hype.
+- Product names can include type, key spec, flavor/color/size, model/series, and pack count when verified.
+- Short descriptions should quickly answer what it is, why it is different, and any important delivery/payment/compliance note.
+#### Regulatory Considerations
+- EU GDPR/cookie expectations apply.
+- VAT, consumer rights, returns, and regulated-product age/compliance language must be market-appropriate.
+
 ### East Asia (Japan, South Korea, China)
 #### Japan
 ##### Color Preferences
@@ -361,6 +387,7 @@ Based on target market, select:
 |--------|---------|----------------|-------------|----------|---------------|
 | USA/Canada | Spacious | Blue, White | Cards, PayPal | English | Reviews critical |
 | UK/Germany/France | Moderate | Navy, Charcoal | SEPA, iDEAL, Cards | Local language | GDPR, VAT |
+| Central/Eastern Europe | Moderate/Compact | Navy, Graphite, Muted Green | Cards, Bank transfer, COD where supported | Local language | Currency clarity, delivery/payment trust |
 | Japan | Dense | Red, White | Konbini, Cards | Japanese | Detail-oriented |
 | South Korea | Dynamic | Vibrant | KakaoPay, Cards | Korean | Live commerce |
 | China | Very Dense | Red, Gold | Alipay, WeChat Pay | Simplified Chinese | Livestream commerce |

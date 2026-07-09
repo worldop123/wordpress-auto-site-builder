@@ -13,12 +13,12 @@ Collect only what is needed. Infer anything that can be safely observed from Wor
 - Authentication method: username/password, temporary admin account, application password, or user-guided browser login.
 - Brand name and domain.
 - Site type: ecommerce, lead-gen, catalog, blog, landing, hybrid.
-- Target market and language. Ask which country/region the site targets. Read `global-design-preferences.md` to understand regional design conventions, color preferences, trust signals, payment methods, and cultural habits for the target market.
+- Target market and language. Ask which country/region the site targets, whether the site should be single-language or multilingual, the primary language/locale code, any secondary languages, and whether the agent may decide these in autonomous mode. Read `global-design-preferences.md` to understand regional design conventions, color preferences, trust signals, payment methods, and cultural habits for the target market.
 - Build mode and permission boundary:
   - New build, old-site rebuild, existing-site SEO optimization, reference-site clone/adaptation, repair-only, SEO/content-only, WooCommerce UX-only, or skill/workflow update.
   - Interaction mode: `ask_user` or `autonomous`.
   - `ask_user`: collect approvals for target market, homepage style, destructive cleanup, plugin/settings changes, and publishing.
-  - `autonomous`: only when explicitly authorized by the user. Record that the user waived approval gates, then let AI choose market, language, design, page layouts, article topics, menus, SEO structure, and non-destructive implementation details from the available facts.
+  - `autonomous`: only when explicitly authorized by the user. Record that the user waived approval gates, then let AI choose market, single-language vs multilingual strategy, language/locale, design, page layouts, article topics, menus, SEO structure, and non-destructive implementation details from the available facts.
   - What may be deleted, preserved, disabled, or rewritten.
   - Whether homepage style approval is required or explicitly waived.
   - Whether article publishing is draft-review, batch pre-approved scheduling, or no article work.
@@ -28,6 +28,8 @@ Collect only what is needed. Infer anything that can be safely observed from Wor
 - Product or service list with names, prices, images, categories, variants/options, inventory status, shipping limits, and purchase rules.
 - Product import/media details when CSV is involved:
   - Source CSV type, row count, encoding, delimiter, and whether it updates existing products.
+  - Brand replacement rules, such as old brand names to replace, new brand names to use, affected columns, and protected fields that must not be changed.
+  - Target-market rewrite context: primary language/locale, optional secondary languages, design/content tone, mobile density, buyer trust signals, payment/shipping facts, and compliance limits that must shape product names, short descriptions, long descriptions, image text, and Rank Math fields.
   - Source price currency, target WooCommerce currency, exchange-rate source, conversion permission, rounding strategy, and whether original prices must be backed up.
   - Featured image column, gallery image column, inline/body image handling, and whether images are remote URLs or media-library URLs.
   - Variation parent/SKU strategy, attribute columns, stock/pricing fields, category/tag fields, and Rank Math columns.
@@ -139,6 +141,9 @@ Collect or infer whether each surface needs a custom layout pass:
     "domain": "",
     "brand": "",
     "language": "en",
+    "languages": ["en"],
+    "language_mode": "single|multilingual|agent_decide",
+    "locale": "en_US",
     "market": "",
     "site_type": "ecommerce",
     "industry": "",
@@ -201,6 +206,24 @@ Collect or infer whether each surface needs a custom layout pass:
   "product_import": {
     "csv_source": "",
     "expected_row_count": null,
+    "brand_replacements": [
+      {
+        "from": "",
+        "to": "",
+        "editable_fields": ["Name", "Short description", "Description", "Tags", "image_alt", "rank_math"],
+        "protected_fields": ["ID", "SKU", "Slug", "Parent", "image_urls"]
+      }
+    ],
+    "rewrite_context": {
+      "target_language": "",
+      "secondary_languages": [],
+      "locale": "",
+      "design_tone": "target_market_default|compact_specs|promotion_first|trust_first|editorial|premium_minimal",
+      "mobile_density": "target_market_default|compact|spacious|mixed",
+      "payment_trust_points": [],
+      "shipping_trust_points": [],
+      "compliance_limits": []
+    },
     "source_currency": "",
     "target_currency": "",
     "exchange_rate": null,

@@ -6,7 +6,7 @@ Use this when the user provides an official WordPress/WooCommerce product export
 
 Produce a re-import-ready CSV that keeps WooCommerce product identity and commerce data intact while making customer-facing product copy original, useful, compliant, and aligned with Rank Math product SEO.
 
-The rewrite must be intelligent content transformation, not simple translation, synonym swapping, or preserving the source CSV title/description/body pattern. Treat the source CSV as raw product facts and evidence, then create differentiated product names, short descriptions, long descriptions, SEO fields, and image text for the target market.
+The rewrite must be intelligent content transformation, not simple translation, synonym swapping, or preserving the source CSV title/description/body pattern. Treat the source CSV as raw product facts and evidence, then create differentiated product names, short descriptions, long descriptions, SEO fields, and image text for the target market, language architecture, and approved or autonomous design direction.
 
 ## First inspect the CSV
 
@@ -20,6 +20,7 @@ Before editing, identify:
 - Product row types: simple, variable, variation, grouped, external.
 - Identity fields: `ID`, `Type`, `SKU`, `Name`, `Published`, `Is featured?`, `Visibility in catalog`, `Short description`, `Description`, `Categories`, `Tags`, `Images`, `Parent`, attributes, prices, stock, shipping, tax.
 - Price currency context: source currency of `Regular price` and `Sale price`, target WooCommerce currency, exchange-rate source, timestamp, rounding rule, and whether original prices need backup columns.
+- Site localization context: target country/region, target language(s), single-language vs multilingual decision, locale code(s), design tone from `global-design-preferences.md`, payment methods, shipping origin/timing, support channels, brand replacement rules, and regulated-product limits.
 - Media fields: featured image URL/ID, gallery image list, inline/body images inside `Description`, image ALT/title/caption columns, remote image URLs, attachment IDs, and any CDN/proxy URLs.
 - Rank Math fields, often exported as `Meta:` columns or plugin-specific columns. Detect columns containing `rank_math`, `seo`, `focus`, `robots`, `title`, or `description`.
 - Custom metadata columns. Every `Meta: ...` column must be classified by exact meta key before editing.
@@ -35,10 +36,12 @@ Create a product knowledge ledger with:
 - Product counts by type: simple, variable, variation, grouped, external.
 - Category, tag, attribute, flavor/color/size/spec, and parent/variation structure.
 - Representative product names, SKUs, slugs, price range, sale-price patterns, stock/catalog visibility, shipping/compliance notes, and targetable differentiators.
+- Brand normalization and replacement rules: old brand strings, new brand strings, affected columns/HTML/media alt text/meta fields, and fields where replacement must not happen such as SKU, URL, IDs, or protected supplier metadata unless explicitly authorized.
 - Description quality: missing short descriptions, thin long descriptions, duplicate wording, body/detail image usage, FAQ/spec opportunities, and prohibited claims.
 - Media coverage: featured image availability, gallery counts, inline body images, image ALT/title/caption fields, remote URLs, and WebP/conversion needs.
 - SEO state: existing Rank Math title, description, focus keyword, robots/canonical fields, duplicate/missing values, and keyword cannibalization risks.
 - Content outputs unlocked by this knowledge: homepage product/category sections, shop/category introductions, product-page trust/FAQ blocks, policy wording, article topics, internal-link plan, schema evidence, and image ALT themes.
+- Local market rewrite signals: buyer tone, preferred information density, payment/shipping trust points, currency display format, local compliance language, and whether descriptions should support a compact mobile grid, category-first layout, promotion-first layout, or more specification-heavy product page.
 
 Do not generate generic page sections such as "featured products", "premium quality", or "best sellers" without mapping them to real products/categories or dynamic WooCommerce queries. If product facts are missing or the CSV parser report shows blockers, fix inspection first.
 
@@ -130,6 +133,10 @@ Use `--charm-ending 0.99` only when the target market uses psychological pricing
 
 - Rewrite product copy from the product's actual facts, not generic adjectives.
 - Do not only translate the original product name, short description, or long description. Translation can be a starting point only; the final copy must be newly planned for the target market, buyer intent, SEO opportunity, and category context.
+- Write in the target website language, not the chat language. For small-language/localized sites, use natural local phrasing, local decimal/currency conventions, and culturally appropriate purchase language instead of English sentence structure translated word-for-word.
+- If the user asks the agent to decide single-language vs multilingual in autonomous mode, record the decision before rewriting. Single-language CSV rewrites should use the primary target language consistently; multilingual builds need a per-language field/export plan or separate translated SEO mapping instead of mixing languages inside one product field.
+- Match the rewrite to the chosen design/content style. A compact, specification-led Central/Eastern European store needs clearer specs and concise product cards; a promotion-first mobile market may need stronger offer snippets and support/payment trust cues; an editorial/luxury design may need more restrained copy. Do not use one generic ecommerce tone for every market.
+- Reflect verified commerce facts where useful: payment method, COD availability, shipping origin, delivery estimate, return/payment notes, support email/WhatsApp, and target currency. Do not turn these into unsupported promises; keep them consistent with policy pages and checkout notices.
 - Do not preserve the same source CSV content with minor synonym changes. If the source has repetitive manufacturer text, thin descriptions, duplicated bodies, or formulaic names, rebuild the copy architecture.
 - Preserve factual specs, sizes, flavors, colors, compatibility, package contents, materials, shipping notes, and usage limits.
 - Vary title patterns across products; do not make every title the same formula.
@@ -149,6 +156,10 @@ Use `--charm-ending 0.99` only when the target market uses psychological pricing
 
 Before rewriting the full CSV, create a short rewrite plan:
 
+- Localization strategy: target country, primary language, optional secondary languages, locale code(s), tone/register, currency format, and whether the site is single-language or multilingual.
+- Design-content alignment: how the approved/autonomous visual style, mobile density, product-card layout, and homepage/category merchandising influence title length, short-description length, body section structure, and image ALT style.
+- Commerce trust strategy: where payment method, COD, shipping origin/timing, support channel, return/payment notes, and compliance wording should appear across product descriptions, SEO descriptions, category copy, and policy pages.
+- Brand replacement strategy: source brand strings, target brand strings, exact fields to rewrite, protected fields to preserve, and a post-rewrite scan for leftover old brand mentions.
 - Naming strategy by category: which product facts belong in names, which facts belong in descriptions, and which words should be avoided.
 - Description strategy by product group: expected short-description angle, long-description section pattern, FAQ/spec use, and compliance limits.
 - SEO strategy: primary keyword pattern, category keyword boundaries, cannibalization risks, and Rank Math field format.

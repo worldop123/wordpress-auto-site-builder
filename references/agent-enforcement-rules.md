@@ -349,7 +349,7 @@ These rules are DEAD RULES. The agent MUST NOT skip, forget, or work around any 
 
 Every custom page built with Elementor MUST have its Page Layout set to `elementor_canvas` BEFORE pasting any HTML.
 
-- **Enforcement**: Set Canvas → Update → Reload front-end → Verify no theme header/footer → ONLY THEN add HTML widget.
+- **Enforcement**: Set Canvas → Update → Reload front-end → Verify no theme header/footer → record Canvas ready. Add the HTML widget only later in the page HTML phase after the global shell is active and verified.
 - **If Canvas is not set**: Hello Elementor's default header, footer, and menu appear, duplicating the global shell. The page is broken.
 - **Record**: `"canvas_set": true` in page ledger only after verification passes.
 - **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.

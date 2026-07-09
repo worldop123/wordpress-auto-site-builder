@@ -21,6 +21,7 @@ Use this before publishing the skill to GitHub.
 - [ ] `SECURITY.md` explains vulnerability and secret policy.
 - [ ] `LICENSE` is present.
 - [ ] `docs/AI_TOOL_COMPATIBILITY.md` explains multi-agent usage.
+- [ ] `references/ai-agent-compatibility.md` explains anti-skip behavior, capability fallbacks, and critical-judgment rules for domestic and international AI coding tools.
 - [ ] `docs/RESUME_PROTOCOL.md` explains interruption recovery.
 - [ ] `TRAE_CN_USAGE.md` is readable and generic.
 
@@ -32,6 +33,8 @@ Use this before publishing the skill to GitHub.
 - [ ] No reference contradicts autonomous/ask-user mode.
 - [ ] No reference contradicts the interruption resume protocol.
 - [ ] No reference allows launch before articles, products, pages, SEO, and QA are complete.
+- [ ] No reference allows page HTML, article planning, or Rank Math SEO generation before product CSV/live product understanding.
+- [ ] No reference tells agents to blindly agree with risky user instructions; risky requests require pros/cons, safer alternatives, and confirmation or a safe autonomous choice.
 - [ ] No snippet guide recommends unsafe global DOM loops or unverified auto-submit.
 - [ ] Rank Math Free workflow uses content-aware audit plus Code Snippets one-time writer, not unavailable CSV SEO import.
 
@@ -41,6 +44,7 @@ Use this before publishing the skill to GitHub.
 - [ ] Full store surface is required: home, custom pages, products, product archives, blog archives, single posts, cart, checkout, account, policies.
 - [ ] CSV import integrity covers featured images, galleries, body images, long descriptions, variations, attributes, and Rank Math fields.
 - [ ] Official WooCommerce CSV parsing prefers double-quote-safe Excel/RFC parsing and validates `Images`, `Parent`, `Position`, and `Meta:` columns before rewriting.
+- [ ] Product knowledge ledger is required before homepage preview, page HTML, article planning, image ALT planning, and Rank Math metadata.
 - [ ] Custom metadata policy distinguishes editable Rank Math/Yoast SEO fields from protected runtime, analytics, serialized, or unknown meta fields.
 - [ ] Logo generation also requires a separate verified site icon/favicon configured in WordPress Site Identity.
 - [ ] Initial SEO article batch is required unless the user opts out.

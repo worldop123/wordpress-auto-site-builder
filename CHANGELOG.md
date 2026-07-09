@@ -9,6 +9,7 @@ All notable project changes should be recorded here.
 - Add product price currency conversion workflow for localized WooCommerce imports, including original-price backup meta columns and exchange-rate ledger requirements.
 - Add a product knowledge gate requiring CSV/live product inspection before homepage previews, page HTML, article planning, and Rank Math SEO metadata generation.
 - Add universal AI coding agent compatibility guidance, including anti-skip protocol, capability fallback matrix, and critical-judgment rules so agents do not blindly follow risky user instructions.
+- Tighten workflow consistency so the product knowledge ledger is explicitly required before homepage previews/content generation in both `SKILL.md` and phase gates.
 
 ## [0.1.0] - 2026-07-09
 

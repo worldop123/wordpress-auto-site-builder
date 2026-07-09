@@ -2,6 +2,8 @@
 
 这个 skill 是工具无关的。任何能读取文件、编辑文本、操作浏览器、调用 WordPress REST API，或能引导用户在后台手动操作的 AI 编程工具都可以使用。
 
+完整的通用适配契约、防跳步骤协议、能力缺失回退矩阵和风险判断规则，请阅读 [`../references/ai-agent-compatibility.md`](../references/ai-agent-compatibility.md)。
+
 ## 支持的工具形态
 
 | 工具 | 推荐方式 |
@@ -12,6 +14,7 @@
 | Cursor | 作为项目文档或上下文，要求 Agent 指向 `SKILL.md`。 |
 | OpenHands | 挂载本仓库，先读工作流 references 再执行。 |
 | Aider | 作为仓库参考，只编辑 skill 文件或生成物，不写入 live secrets。 |
+| 其他国内外 IDE/Agent 工具 | Qwen Code、通义灵码、Qoder、百度 Comate、CodeGeeX、MarsCode、腾讯 CodeBuddy、Gemini Code Assist、GitHub Copilot、Devin Desktop/Windsurf、Cline/Roo/Kilo 等工具，都必须按 `references/ai-agent-compatibility.md` 的阶段门禁和能力回退规则执行。 |
 
 ## 最小能力要求
 
@@ -40,3 +43,5 @@
 - 如果工具不能执行脚本，仍必须遵守 references 清单并生成交付物。
 - 如果工具不能安全存储凭据，应使用用户引导登录或短期 Application Password，并在使用后撤销。
 - 如果工具不能完成完整 QA，必须把缺失检查标为 blocker，不能声称 ready to launch。
+- 如果工具不能读取或检查产品 CSV/现有产品，就不能生成首页 HTML、页面文案、文章主题、图片 ALT 规划或 Rank Math SEO 数据。
+- 如果用户请求有风险或明显不合理，AI 必须先说明好处、风险和更安全替代方案。不能盲目同意会破坏结账、删除受保护数据、跳过 QA、复制受保护内容、硬编码密钥或提前上线的请求。

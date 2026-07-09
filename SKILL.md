@@ -1,4 +1,4 @@
----
+﻿---
 name: wordpress-auto-site-builder
 description: Universal AI-agent workflow for building or repairing customizable WordPress/WooCommerce SEO sites using Hello Elementor, Elementor HTML blocks, Code Snippets PHP/CSS/JS, Rank Math, varied page designs, full-store QA, CSV product/media integrity, reference-site layout capture/adaptation, and autonomous or ask-user execution modes. Use with Codex, Claude, Trae, Cursor, OpenHands, Aider, or other AI coding agents when the user wants requirements intake, WordPress operation, old-site rebuilds, reference-site/clone-style builds, homepage/style previews, pages/products/categories/policies/blogs, product CSV originality rewriting, Rank Math metadata, non-repetitive layouts, snippet implementation, interaction testing, launch gating, or a reusable automated WordPress site-building workflow.
 ---
@@ -206,7 +206,7 @@ When generating or replacing a website logo, the agent MUST also generate and co
 Rank Math Free can import/export basic settings as JSON, but bulk SEO metadata CSV import is a Pro workflow. For free-version sites, use a Code Snippets one-time writer for page/product/post/category SEO metadata.
 
 - Before writing SEO metadata, identify the actual content first: page title/content, Elementor HTML, product title/short description/long description/categories/attributes/images, blog title/content/excerpt/category, and taxonomy descriptions.
-- Reuse the build ledger, resume ledger, site_config, generated article plan, CSV rewrite report, and any approved memory/knowledge-base artifacts from the build. Treat memory as assistance, not proof; verify against live WordPress content before writing.
+- Reuse the build ledger, resume ledger, site_config, product knowledge ledger, generated article plan, CSV rewrite report, and any approved memory/knowledge-base artifacts from the build. Treat memory as assistance, not proof; verify against live WordPress content before writing.
 - Generate a mapping per object: WordPress ID, object type, SEO title, meta description, focus keyword, robots/index state, schema type where applicable, and source evidence.
 - Use a classified `one_time_writer` Code Snippet to update Rank Math post meta/term meta in bulk. Keep the mapping in the snippet or load from a safe generated artifact; never include secrets.
 - After execution, verify sampled pages, all priority URLs, sitemap inclusion, source HTML meta tags, and Rank Math admin fields.
@@ -265,7 +265,7 @@ Every step in every phase MUST be executed carefully and in order. This is a HAR
 - **Do NOT combine steps to save time.** Each step must be completed and verified independently.
 - **Do NOT reorder steps for convenience.** The order is designed for safety and correctness.
 - **Do NOT switch to an alternative method because a step is difficult.** Follow the defined procedure. If a step fails, fix the issue and retry that step.
-- **Do NOT assume a step was completed without verifying.** Every step has a verification requirement — check it.
+- **Do NOT assume a step was completed without verifying.** Every step has a verification requirement 鈥?check it.
 - **If a step fails, STOP.** Fix the issue, retry the step, and only proceed after it succeeds.
 - **Do NOT rush.** Completing thoroughly is more important than completing quickly.
 
@@ -278,7 +278,7 @@ The agent MUST read and follow `references/agent-enforcement-rules.md` at all ti
 - **No autonomous decisions.** The agent MUST NOT make any decision affecting the site's appearance, functionality, data, or SEO without explicit user approval. When in doubt, STOP and ASK.
 - **No method switching.** When a defined procedure exists, the agent MUST follow it. Do NOT switch to alternative methods because the defined method is difficult, slow, or failed. Fix and retry instead.
 - **No shortcuts.** The agent MUST NOT skip verification, combine steps, use hardcoded values, use fake data, skip mobile testing, skip link verification, or mark QA as "pass" without testing.
-- **Verification gate after every step.** Execute → Verify → Record → Gate (only proceed if verification passes).
+- **Verification gate after every step.** Execute 鈫?Verify 鈫?Record 鈫?Gate (only proceed if verification passes).
 - **Three-strike rule.** First deviation: self-correct. Second deviation: notify user. Third deviation: STOP all work, re-read all reference files.
 - **Context refresh.** If uncertain about a procedure, re-read the relevant reference file. Do NOT rely on memory for procedural details.
 - **User override only.** Only the user can override a defined procedure. The agent MUST NOT override on its own. Document all user-approved deviations.
@@ -291,8 +291,8 @@ Many sites built with this skill run on SiteGround hosting. SiteGround implement
 
 - **Detect SiteGround hosting** by checking for SG Optimizer plugin or Site Tools references during environment inspection.
 - **If a CAPTCHA or verification challenge appears**: STOP all automation, notify the user, and wait for them to solve it manually. Do NOT retry or refresh.
-- **If IP is blocked**: Notify the user and provide unblock options (Site Tools → Security → Blocked IPs, or wait 15-30 minutes).
-- **If WAF blocks API calls**: Ask user to set WAF to Standard mode in Site Tools → Security → WAF.
+- **If IP is blocked**: Notify the user and provide unblock options (Site Tools 鈫?Security 鈫?Blocked IPs, or wait 15-30 minutes).
+- **If WAF blocks API calls**: Ask user to set WAF to Standard mode in Site Tools 鈫?Security 鈫?WAF.
 - **Always purge SG Optimizer cache** after content changes (page updates, product imports, snippet activation).
 - **Configure SG Optimizer for Elementor**: Do NOT enable "Combine CSS" or "Combine JS" (breaks Elementor). Enable Dynamic Cache, Memcached, HTTPS Enforce, Gzip, Browser Caching, CSS/JS Minify, Defer JS.
 - **Use REST API with application passwords** as the preferred access method (less likely to trigger challenges than browser automation).
@@ -314,11 +314,11 @@ When the user wants to rebuild an existing WordPress site (not a new build), the
 
 ## CRITICAL: Global Shell Architecture (Header/Footer/CSS/JS)
 
-The agent MUST use the global shell architecture defined in `references/global-shell-architecture.md`. Header, footer, global CSS, and global JS are injected globally — NOT embedded in every Elementor HTML page.
+The agent MUST use the global shell architecture defined in `references/global-shell-architecture.md`. Header, footer, global CSS, and global JS are injected globally 鈥?NOT embedded in every Elementor HTML page.
 
 - **Global Header**: Implemented as a persistent Code Snippet using `wp_body_open` hook. Renders header HTML with logo, navigation menu, and cart icon on ALL pages automatically.
 - **Global Footer**: Implemented as a persistent Code Snippet using `wp_footer` hook. Renders footer HTML with links, contact info, and copyright on ALL pages automatically.
-- **Global CSS**: Added via WordPress Appearance → Customize → Additional CSS. Contains CSS variables (design tokens), header styles, footer styles, shared component styles, and responsive breakpoints.
+- **Global CSS**: Added via WordPress Appearance 鈫?Customize 鈫?Additional CSS. Contains CSS variables (design tokens), header styles, footer styles, shared component styles, and responsive breakpoints.
 - **Global JS**: Added via Code Snippets HTML/JS snippet using `wp_footer` hook. Contains mobile menu toggle, cart counter, smooth scroll, analytics, cookie consent, etc.
 - **Page-specific content only**: Each Elementor HTML widget contains ONLY the page-unique HTML, scoped CSS, and scoped JS. No header, no footer, no menu, no global CSS, no global JS.
 - **No duplicate code**: Never embed header/footer/menu HTML in individual page HTML widgets. The global shell handles all shared elements.
@@ -327,7 +327,7 @@ The agent MUST use the global shell architecture defined in `references/global-s
 
 ## CRITICAL: Code Snippets Implementation (Use the Code, Not Just Reference It)
 
-The agent MUST implement functionality using the Code Snippets plugin — not just document what settings exist. Read `references/code-snippets-implementation-guide.md` for REAL, ready-to-use code snippets.
+The agent MUST implement functionality using the Code Snippets plugin 鈥?not just document what settings exist. Read `references/code-snippets-implementation-guide.md` for REAL, ready-to-use code snippets.
 
 - **Use Code Snippets for ALL functional implementations.** Every feature that can be implemented via Code Snippets MUST be implemented via Code Snippets, not via theme files or hardcoded HTML.
 - **Reference the implementation guide.** Before implementing any feature, check `code-snippets-implementation-guide.md` for existing, tested code. Do NOT write code from scratch if a working snippet exists in the guide.
@@ -335,7 +335,7 @@ The agent MUST implement functionality using the Code Snippets plugin — not ju
 - **WooCommerce customizations via Code Snippets.** Use WooCommerce hooks (`woocommerce_*`) in Code Snippets for product page, cart, checkout, and account customizations. Read `references/woocommerce-customizations-guide.md` for real implementations.
 - **Every snippet must be classified.** Classify each snippet as: `persistent`, `ux_polish`, `one_time_writer`, `read_only_scanner`, or `deprecated`. Document the lifecycle in the snippet title or description.
 - **Test every snippet before marking it complete.** After activating a snippet, verify on the front-end that it works, doesn't cause errors, and doesn't break mobile layout.
-- **One snippet per function.** Each Code Snippet should implement ONE feature. Do not combine multiple unrelated functions in a single snippet — this makes debugging and rollback difficult.
+- **One snippet per function.** Each Code Snippet should implement ONE feature. Do not combine multiple unrelated functions in a single snippet 鈥?this makes debugging and rollback difficult.
 - **Use correct hook priorities.** When multiple snippets hook the same action/filter, use priority parameters to control execution order.
 - **Verify snippet compatibility.** Before activating a new snippet, check it doesn't conflict with existing snippets (same hook, same priority, same output location).
 - **Purge cache after snippet changes.** After activating, deactivating, or modifying any Code Snippet, purge all caches (WordPress, Elementor, WooCommerce, SG Optimizer if applicable).
@@ -349,18 +349,18 @@ These four rules are DEAD RULES. The agent MUST NOT skip, forget, or work around
 Every custom page built with Elementor MUST have its Page Layout set to `elementor_canvas` BEFORE pasting any HTML into the HTML widget.
 
 - **If Canvas is not set**: Hello Elementor's default header, footer, and menu appear on the page, duplicating the global shell. The page layout breaks.
-- **Enforcement**: Set Canvas → Click Update → Reload front-end → Verify no theme header/footer → ONLY THEN add HTML widget.
+- **Enforcement**: Set Canvas 鈫?Click Update 鈫?Reload front-end 鈫?Verify no theme header/footer 鈫?record Canvas ready. Add the HTML widget only later in the page HTML phase after the global shell is active and verified.
 - **Record in page ledger**: `"canvas_set": true` only after verification passes.
 - **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.
 - **Pages that MUST NOT use Canvas**: Shop, Cart, Checkout, My Account, product archives, single product pages (these use WooCommerce templates).
 - Read `references/elementor-html-automation.md` for the complete enforcement procedure.
 
-### Dead Rule 2: Age Gate MUST Be Global Code Snippet — NEVER in Page HTML
+### Dead Rule 2: Age Gate MUST Be Global Code Snippet 鈥?NEVER in Page HTML
 
 The age verification gate MUST be implemented as a global Code Snippets PHP snippet using `wp_footer` hook. The agent MUST NEVER place age gate HTML/CSS/JS inside any Elementor HTML widget.
 
 - **Why**: Age gate code (2,000-4,000 characters) bloats page HTML, causing Elementor paste to fail, truncate, or timeout. The age gate must be site-wide (one snippet), not duplicated per page.
-- **Implementation**: Code Snippets → Add New → PHP snippet → `add_action('wp_footer', function() { ... }, 5)` → Scope: Front-end → Lifecycle: persistent.
+- **Implementation**: Code Snippets 鈫?Add New 鈫?PHP snippet 鈫?`add_action('wp_footer', function() { ... }, 5)` 鈫?Scope: Front-end 鈫?Lifecycle: persistent.
 - **Prohibited**: Never copy age gate code into Elementor HTML widget, page content, or post content.
 - Read `references/code-snippets-implementation-guide.md` Section 8 for the complete code.
 
@@ -379,14 +379,14 @@ When the HTML payload for a page exceeds approximately 30,000 characters, or whe
 
 For BOTH new websites AND old website rebuilds, the agent MUST regenerate and bind WooCommerce pages. This is not optional and applies to every build.
 
-- **Regenerate WooCommerce pages**: WooCommerce → Status → Tools → Click "Install pages" (or "Create default WooCommerce pages"). This creates/updates Shop, Cart, Checkout, My Account, Terms pages with correct shortcodes.
+- **Regenerate WooCommerce pages**: WooCommerce 鈫?Status 鈫?Tools 鈫?Click "Install pages" (or "Create default WooCommerce pages"). This creates/updates Shop, Cart, Checkout, My Account, Terms pages with correct shortcodes.
 - **Bind WooCommerce pages programmatically**: Use Code Snippets PHP with `update_option()` to bind:
-  - `woocommerce_shop_page_id` → Shop page ID
-  - `woocommerce_cart_page_id` → Cart page ID
-  - `woocommerce_checkout_page_id` → Checkout page ID
-  - `woocommerce_myaccount_page_id` → My Account page ID
-  - `woocommerce_terms_page_id` → Terms page ID
-- **Verify bindings**: After binding, check WooCommerce → Settings → Advanced tab — all page selectors must show the correct pages.
+  - `woocommerce_shop_page_id` 鈫?Shop page ID
+  - `woocommerce_cart_page_id` 鈫?Cart page ID
+  - `woocommerce_checkout_page_id` 鈫?Checkout page ID
+  - `woocommerce_myaccount_page_id` 鈫?My Account page ID
+  - `woocommerce_terms_page_id` 鈫?Terms page ID
+- **Verify bindings**: After binding, check WooCommerce 鈫?Settings 鈫?Advanced tab 鈥?all page selectors must show the correct pages.
 - **For old site rebuilds**: After the 13-step cleanup, WooCommerce page bindings may be broken. Regenerate and rebind ALL WooCommerce pages before proceeding to product import.
 - **For new sites**: After creating all pages, regenerate WooCommerce pages and bind them before any product work.
 - Read `references/code-snippets-implementation-guide.md` Section 2.2 and `references/wordpress-settings-implementation.md` for the exact binding code.
@@ -395,11 +395,11 @@ For BOTH new websites AND old website rebuilds, the agent MUST regenerate and bi
 
 These rules are DEAD RULES that complement the Four Dead Rules above. The agent MUST follow them without deviation.
 
-### Dead Rule 5: Dynamic Data via Code Snippets — No Static Data in Pages
+### Dead Rule 5: Dynamic Data via Code Snippets 鈥?No Static Data in Pages
 
 Homepage and Blog pages MUST use dynamic data fetched via Code Snippets PHP, NOT hardcoded static product/article HTML.
 
-- **Homepage products**: Use Code Snippets PHP with `wc_get_products()` or `WP_Query` to fetch real products. Output into a container (`data-site-render="home-products"`). The page HTML widget contains only the container + scoped CSS/JS — the PHP snippet fills it with real product data.
+- **Homepage products**: Use Code Snippets PHP with `wc_get_products()` or `WP_Query` to fetch real products. Output into a container (`data-site-render="home-products"`). The page HTML widget contains only the container + scoped CSS/JS 鈥?the PHP snippet fills it with real product data.
 - **Blog posts**: Use Code Snippets PHP with `WP_Query` to fetch real posts into containers (`data-site-render="home-posts"` or `data-site-render="blog-posts"`).
 - **NEVER hardcode product names, prices, images, or article titles in page HTML.** Pages must update automatically when products/posts change.
 - **NEVER hardcode product IDs** unless the user explicitly requested specific products. Ask the user which products to feature if a curated set is needed.
@@ -419,11 +419,11 @@ When creating page HTML, the agent MAY use real product images from the WooComme
 
 The agent MUST follow this import order. No exceptions. No reordering.
 
-1. **FIRST: Global shell** — Create global header (`wp_body_open` hook) and global footer (`wp_footer` hook) via Code Snippets PHP. Verify on front-end BEFORE any page HTML.
-2. **SECOND: Global CSS** — Add to Appearance → Customize → Additional CSS. Verify loads on all pages.
-3. **THIRD: Global JS** — Add via Code Snippets HTML/JS on `wp_footer` hook. Verify works on all pages.
-4. **FOURTH: Page HTML — one page at a time** — For each page: Set Canvas → verify → add HTML widget → paste HTML → Update → verify front-end → move to next page.
-5. **FIFTH: Dynamic renderers** — Activate Code Snippets PHP for dynamic product/post rendering. Verify containers filled with real data.
+1. **FIRST: Global shell** 鈥?Create global header (`wp_body_open` hook) and global footer (`wp_footer` hook) via Code Snippets PHP. Verify on front-end BEFORE any page HTML.
+2. **SECOND: Global CSS** 鈥?Add to Appearance 鈫?Customize 鈫?Additional CSS. Verify loads on all pages.
+3. **THIRD: Global JS** 鈥?Add via Code Snippets HTML/JS on `wp_footer` hook. Verify works on all pages.
+4. **FOURTH: Page HTML 鈥?one page at a time** 鈥?For each page: Set Canvas 鈫?verify 鈫?add HTML widget 鈫?paste HTML 鈫?Update 鈫?verify front-end 鈫?move to next page.
+5. **FIFTH: Dynamic renderers** 鈥?Activate Code Snippets PHP for dynamic product/post rendering. Verify containers filled with real data.
 6. **NEVER import all page HTML before the global shell is active.**
 
 ### Dead Rule 8: Global SEO, Speed, and WebP Optimization (MANDATORY)
@@ -432,7 +432,7 @@ After all pages are built and content imported, the agent MUST perform global op
 
 - **SEO**: Rank Math metadata for all pages/products/categories/posts. Noindex Cart/Checkout/My Account. Index content pages.
 - **Speed**: Disable cart fragments on non-shop pages. Defer JS. Remove query strings. Enable Gzip/browser caching. PageSpeed mobile 90+, LCP < 2.5s, INP < 200ms, CLS < 0.1.
-- **WebP**: Convert ALL images to WebP — products, galleries, categories, blog posts, page banners, logo. Verify after conversion.
+- **WebP**: Convert ALL images to WebP 鈥?products, galleries, categories, blog posts, page banners, logo. Verify after conversion.
 
 ## CRITICAL: Prerequisite Check (Mandatory First Step)
 
@@ -464,7 +464,7 @@ The agent MUST create all WordPress pages FIRST, then generate HTML code that re
 3. Build a URL map of all page paths.
 4. Generate HTML code using the URL map for all internal links.
 5. Every link, menu item, button, and navigation reference in generated HTML must point to a real, existing page.
-6. Verify all links after HTML insertion — no 404s allowed.
+6. Verify all links after HTML insertion 鈥?no 404s allowed.
 
 ## CRITICAL: Code Quality Requirements
 
@@ -543,6 +543,7 @@ This skill generates SEO-optimized blog articles based on the site's products, t
 ### Context Awareness for Article Generation
 Before generating articles, the agent MUST understand:
 - Site products and categories (from WooCommerce).
+- Product CSV facts or the product knowledge ledger when a CSV was provided.
 - Target market and language (from site_config).
 - SEO seed keywords and priority products.
 - Brand voice and tone.
@@ -594,9 +595,9 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 20. Read `references/scheduled-article-publishing.md` before generating blog articles. Understand the draft-review-then-publish workflow, article content requirements, and scheduled publishing configuration.
 21. Read `references/post-build-actions.md` after QA passes. Present the 4 post-build action recommendations to the user.
 22. Read `references/siteground-bypass-guide.md` when the site is hosted on SiteGround. Follow the handling procedures for CAPTCHA, IP blocks, WAF, and caching challenges.
-23. Read `references/old-site-rebuild-procedure.md` when rebuilding an existing site. Follow the 13-step cleanup procedure exactly — no skipping.
+23. Read `references/old-site-rebuild-procedure.md` when rebuilding an existing site. Follow the 13-step cleanup procedure exactly 鈥?no skipping.
 24. Read `references/global-shell-architecture.md` before creating any page HTML. Understand that header, footer, global CSS, and global JS are injected globally via Code Snippets and Additional CSS, NOT embedded in each page.
-25. Read `references/agent-enforcement-rules.md` for the binding enforcement framework. This governs ALL agent behavior — no autonomous decisions, no method switching, no shortcuts, verification gate after every step. The agent MUST follow these rules at all times.
+25. Read `references/agent-enforcement-rules.md` for the binding enforcement framework. This governs ALL agent behavior 鈥?no autonomous decisions, no method switching, no shortcuts, verification gate after every step. The agent MUST follow these rules at all times.
 26. Read `references/wordpress-plugins-themes-guide.md` for comprehensive WordPress core settings, WooCommerce settings, Elementor settings, Code Snippets configuration, Hello Elementor theme details, WordPress database structure, REST API, hook system, template hierarchy, user roles, and common security/performance/image optimization plugin settings. Use as the authoritative reference when configuring any plugin, theme, or WordPress setting.
 27. Use `scripts/site_plan.py` when a structured intake JSON needs to be validated or converted into a phase checklist.
 28. Use `scripts/rank_math_content_audit.py` before Rank Math metadata writing to check focus keyword placement, subheadings, image ALT, keyword density, internal links, readability, and rich media.
@@ -614,14 +615,14 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 - Treat WooCommerce as the source of truth for Shop, Cart, Checkout, My Account, products, variations, categories, prices, stock, and purchase flow.
 - Do not make `/shop/` a custom Elementor page full of static HTML. It should be bound as the WooCommerce shop page and use the normal product archive loop.
 - Use Elementor HTML blocks for page shells only. Keep dynamic products/posts in WordPress/WooCommerce/PHP snippets, not hardcoded into static HTML.
-- For Elementor pages, set Page Layout to `Elementor Canvas` before inserting the HTML widget, except WooCommerce-owned pages such as Shop, Cart, Checkout, and My Account. **This is a DEAD RULE — see "CRITICAL: Four Dead Rules for Page Building" above.** Canvas must be set, saved, and verified BEFORE adding any HTML widget. If the theme header/footer still appears after setting Canvas, it was not set correctly — fix before proceeding.
-- **When HTML payload is large (>30,000 characters) or paste fails, use batch import.** Split into batches at natural HTML boundaries, append to the same HTML widget, verify after each batch. **This is a DEAD RULE — see "CRITICAL: Four Dead Rules for Page Building" above.**
-- **Age verification gate MUST be a global Code Snippets PHP snippet using `wp_footer` hook. NEVER place age gate HTML/CSS/JS in any Elementor HTML widget.** **This is a DEAD RULE — see "CRITICAL: Four Dead Rules for Page Building" above.**
-- **For BOTH new sites AND old site rebuilds, regenerate and bind WooCommerce pages.** WooCommerce → Status → Tools → "Install pages", then bind page IDs via Code Snippets PHP. **This is a DEAD RULE — see "CRITICAL: Four Dead Rules for Page Building" above.**
-- **Homepage and Blog pages MUST use dynamic data via Code Snippets PHP.** Never hardcode product names, prices, images, or article titles in page HTML. Use `wc_get_products()` / `WP_Query` to fetch real data into containers. **This is a DEAD RULE — see "CRITICAL: Additional Dead Rules" above.**
-- **Use real product images from the media library in page HTML.** Ask the user which products to feature. Never use placeholder/stock/fake images. All images must be WebP. **This is a DEAD RULE — see "CRITICAL: Additional Dead Rules" above.**
-- **Follow the step-by-step import order: global shell first, then global CSS, then global JS, then page HTML one at a time, then dynamic renderers.** Never import page HTML before the global shell is active. **This is a DEAD RULE — see "CRITICAL: Additional Dead Rules" above.**
-- **After all pages are built, perform global SEO, speed, and WebP optimization.** Rank Math metadata for all content. Disable cart fragments on non-shop pages. Convert ALL images to WebP. Verify PageSpeed mobile 90+. **This is a DEAD RULE — see "CRITICAL: Additional Dead Rules" above.**
+- For Elementor pages, set Page Layout to `Elementor Canvas` before inserting the HTML widget, except WooCommerce-owned pages such as Shop, Cart, Checkout, and My Account. **This is a DEAD RULE 鈥?see "CRITICAL: Four Dead Rules for Page Building" above.** Canvas must be set, saved, and verified BEFORE adding any HTML widget. If the theme header/footer still appears after setting Canvas, it was not set correctly 鈥?fix before proceeding.
+- **When HTML payload is large (>30,000 characters) or paste fails, use batch import.** Split into batches at natural HTML boundaries, append to the same HTML widget, verify after each batch. **This is a DEAD RULE 鈥?see "CRITICAL: Four Dead Rules for Page Building" above.**
+- **Age verification gate MUST be a global Code Snippets PHP snippet using `wp_footer` hook. NEVER place age gate HTML/CSS/JS in any Elementor HTML widget.** **This is a DEAD RULE 鈥?see "CRITICAL: Four Dead Rules for Page Building" above.**
+- **For BOTH new sites AND old site rebuilds, regenerate and bind WooCommerce pages.** WooCommerce 鈫?Status 鈫?Tools 鈫?"Install pages", then bind page IDs via Code Snippets PHP. **This is a DEAD RULE 鈥?see "CRITICAL: Four Dead Rules for Page Building" above.**
+- **Homepage and Blog pages MUST use dynamic data via Code Snippets PHP.** Never hardcode product names, prices, images, or article titles in page HTML. Use `wc_get_products()` / `WP_Query` to fetch real data into containers. **This is a DEAD RULE 鈥?see "CRITICAL: Additional Dead Rules" above.**
+- **Use real product images from the media library in page HTML.** Ask the user which products to feature. Never use placeholder/stock/fake images. All images must be WebP. **This is a DEAD RULE 鈥?see "CRITICAL: Additional Dead Rules" above.**
+- **Follow the step-by-step import order: global shell first, then global CSS, then global JS, then page HTML one at a time, then dynamic renderers.** Never import page HTML before the global shell is active. **This is a DEAD RULE 鈥?see "CRITICAL: Additional Dead Rules" above.**
+- **After all pages are built, perform global SEO, speed, and WebP optimization.** Rank Math metadata for all content. Disable cart fragments on non-shop pages. Convert ALL images to WebP. Verify PageSpeed mobile 90+. **This is a DEAD RULE 鈥?see "CRITICAL: Additional Dead Rules" above.**
 - Use a resumable page ledger: each page has status `created`, `canvas_set`, `html_inserted`, `updated`, `verified`. If one step fails, resume from the failed step instead of deleting and starting over.
 - **Create all pages first, then generate HTML code with correct page paths.** Never write HTML with links to non-existent pages.
 - Generate homepage and blog page containers such as `data-site-render="home-products"`, `data-site-render="home-posts"`, and `data-site-render="blog-posts"`; adapt names per project.
@@ -656,12 +657,12 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 - **Every step must be executed carefully and in order.** No skipping, no combining, no reordering, no switching methods. This is a hard rule. If a step fails, fix and retry before proceeding.
 - **Detect and handle SiteGround hosting challenges.** Read `references/siteground-bypass-guide.md`. Do NOT switch to alternative methods when encountering CAPTCHA, IP blocks, or WAF. Follow the defined handling procedure.
 - **For old site rebuilds, follow the 13-step cleanup procedure.** Read `references/old-site-rebuild-procedure.md`. Preserve only products and media library. Clear everything else. Verify each step before proceeding.
-- **Use global shell architecture for header, footer, CSS, and JS.** Read `references/global-shell-architecture.md`. Header and footer are injected via Code Snippets PHP hooks (`wp_body_open` and `wp_footer`). Global CSS goes in Additional CSS. Global JS goes in Code Snippets. Page HTML contains only page-specific content — no header, no footer, no global CSS/JS.
+- **Use global shell architecture for header, footer, CSS, and JS.** Read `references/global-shell-architecture.md`. Header and footer are injected via Code Snippets PHP hooks (`wp_body_open` and `wp_footer`). Global CSS goes in Additional CSS. Global JS goes in Code Snippets. Page HTML contains only page-specific content 鈥?no header, no footer, no global CSS/JS.
 - **Never embed header/footer/menu HTML in individual page HTML widgets.** The global shell handles all shared elements. Each Elementor HTML page contains only page-unique content, scoped CSS, and scoped JS.
 - **The agent is bound by the enforcement framework in `references/agent-enforcement-rules.md`.** No autonomous decisions, no method switching, no shortcuts, verification gate after every step, three-strike rule, progress reporting, no silent actions.
 - **When configuring any WordPress plugin, theme, or core setting, consult `references/wordpress-plugins-themes-guide.md` for the correct option keys, default values, and REST API endpoints.** Never guess option keys or setting names.
 - **Never use hardcoded values when dynamic queries are available.** Use WordPress/WooCommerce queries, REST API, and `wp_nav_menu()` for dynamic data. Never hardcode product IDs, menu links, or page URLs when they can be queried.
-- **Never use fake, placeholder, or mock data.** All data must be real. If real data is unavailable, STOP and ask the user — do not substitute fake data.
+- **Never use fake, placeholder, or mock data.** All data must be real. If real data is unavailable, STOP and ask the user 鈥?do not substitute fake data.
 
 ## Standard Workflow
 
@@ -670,30 +671,31 @@ Run these phases in order unless repairing an existing site:
 0. **Determine build type**: Ask the user if this is a new build or a rebuild of an existing site.
    - If new build: Start from Phase 1.
    - If rebuild: Read `references/old-site-rebuild-procedure.md` and execute the 13-step cleanup procedure FIRST. Confirm with user, back up, preserve products and media, clear everything else. After cleanup verification, continue from Phase 1.
-1. **Prerequisite check**: Verify all required plugins, themes, SSL, and PHP version. Read `references/prerequisite-checklist.md`. Do not proceed until all pass. Detect if site is on SiteGround hosting — if so, read `references/siteground-bypass-guide.md` and configure SG Optimizer for Elementor compatibility.
+1. **Prerequisite check**: Verify all required plugins, themes, SSL, and PHP version. Read `references/prerequisite-checklist.md`. Do not proceed until all pass. Detect if site is on SiteGround hosting 鈥?if so, read `references/siteground-bypass-guide.md` and configure SG Optimizer for Elementor compatibility.
 2. **Collect requirements and credentials handling plan**: Read `references/intake-checklist.md` and `references/global-design-preferences.md`. Ask for target market, language, design preferences.
 3. **Inspect WordPress**: Check theme, plugins, WooCommerce, Rank Math, SSL, permalinks, cache, and existing pages.
-4. **Set baseline**: Permalink, homepage/blog reading settings, WooCommerce page bindings, Rank Math global basics (Advanced Mode, sitemap, schema, noindex), cache strategy, header menu, footer menu, and global snippet plan. Read `references/site-baseline-and-menus.md` and `references/rank-math-seo-guide.md`. **DEAD RULE: Regenerate WooCommerce pages (WooCommerce → Status → Tools → "Install pages") and bind page IDs via Code Snippets PHP for BOTH new and old sites.**
+4. **Set baseline**: Permalink, homepage/blog reading settings, WooCommerce page bindings, Rank Math global basics (Advanced Mode, sitemap, schema, noindex), cache strategy, header menu, footer menu, and global snippet plan. Read `references/site-baseline-and-menus.md` and `references/rank-math-seo-guide.md`. **DEAD RULE: Regenerate WooCommerce pages (WooCommerce 鈫?Status 鈫?Tools 鈫?"Install pages") and bind page IDs via Code Snippets PHP for BOTH new and old sites.**
 5. **Create all pages first** (as draft): Home, Shop, Blog, Contact, Cart, Checkout, My Account, policies, FAQ, About, age/compliance page. Read `references/wordpress-elementor-structure.md` for page slugs and URL paths. Build URL map. **After creating pages, re-run WooCommerce page regeneration and binding to ensure all page IDs are correct.**
-6. **Generate homepage style preview** using real site inputs, product/category signals, proposed navigation, and scoped HTML/CSS. Apply global design preferences for the target market. Pause for user approval. Read `references/style-preview-gate.md`.
-7. **After approval, set Elementor Canvas and import HTML** for custom pages. Read `references/elementor-html-automation.md`. Use the URL map for all links. Verify no 404s. **DEAD RULE: Set Elementor Canvas on EVERY custom page BEFORE pasting HTML — verify no theme header/footer appears. For large HTML (>30,000 chars), use batch import. Age gate goes in Code Snippets, NEVER in page HTML.**
-8. **Product CSV rewriting**: If the user provides a WooCommerce product export CSV, inspect the schema, rewrite product titles/descriptions/body content for originality, fill Rank Math product SEO fields, preserve import-critical identifiers, and produce a re-import-ready CSV plus change report. Read `references/product-csv-originality-seo.md` and `references/rank-math-seo-guide.md`.
-9. **Create product categories, attributes, products, variations**: SKU, slugs, prices, stock, images, galleries, and catalog visibility. Ensure all images are WebP.
-10. **Generate global shell (MUST be done BEFORE page HTML)**: Read `references/global-shell-architecture.md`. Create global header via Code Snippets PHP hook (`wp_body_open`), global footer via `wp_footer` hook, global CSS in Appearance → Customize → Additional CSS, global JS in Code Snippets. Include mobile menu, search, compliance notice, dynamic home/blog renderers. Use clean, lightweight, scoped code. NEVER embed header/footer in individual page HTML. **DEAD RULE: Global shell must be active and verified on front-end BEFORE any page HTML is imported. See "CRITICAL: Additional Dead Rules" Dead Rule 7.**
-11. **Generate page HTML (one page at a time)** for Home, Blog, Contact, policies, FAQ, and About using one Elementor HTML block per page. Each page contains ONLY page-specific HTML, scoped CSS (`.page-name .class`), and scoped JS (IIFE). No header, no footer, no menu, no global CSS/JS — the global shell handles all shared elements. Each page loads only its own CSS/JS. **DEAD RULE: Homepage and Blog MUST use dynamic data containers (`data-site-render="home-products"`, etc.) filled by Code Snippets PHP — never hardcode product/article data. See "CRITICAL: Additional Dead Rules" Dead Rule 5.** **Import one page at a time: Canvas → verify → HTML widget → paste → Update → verify front-end → next page.**
-12. **Add product page UX** only as a reversible snippet layer that preserves WooCommerce variation events.
-13. **Add cart/checkout rules** such as minimum quantity, shipping/address notices, terms defaults, and duplicate-message cleanup.
-14. **Add site-wide age/compliance gate** when required without hiding crawlable content in a way that blocks search indexing. **DEAD RULE: Age gate MUST be a global Code Snippets PHP snippet using `wp_footer` hook — NEVER in any Elementor HTML widget. See "CRITICAL: Four Dead Rules" Dead Rule 2.**
-15. **Write Rank Math metadata** with one-time writers; noindex Cart, Checkout, and My Account; index products, categories, posts, and policy pages. Read `references/rank-math-seo-guide.md`.
-16. **Implement structured data**: Product schema, Article schema, FAQPage schema, BreadcrumbList schema. Read `references/structured-data-guide.md`.
-17. **Generate SEO content**: product long descriptions, category descriptions, blog posts, internal links, outbound references, and image ALT/title metadata. Read `references/google-seo-guidelines.md` and `references/ecommerce-seo-guide.md`.
-18. **Convert all images to WebP (MANDATORY DEAD RULE)**. Use image optimization plugin or batch conversion. Verify all images load correctly. **DEAD RULE: ALL images — products, galleries, categories, blog posts, page banners, logo — must be WebP. See "CRITICAL: Additional Dead Rules" Dead Rule 8.**
-19. **Optimize Core Web Vitals (MANDATORY DEAD RULE)**: LCP, INP, CLS. Disable WooCommerce cart fragments on non-shop pages. Defer third-party scripts. Read `references/core-web-vitals-guide.md`. **DEAD RULE: PageSpeed mobile 90+, LCP < 2.5s, INP < 200ms, CLS < 0.1. See "CRITICAL: Additional Dead Rules" Dead Rule 8.**
-20. **Run full QA**: Read `references/qa-and-launch.md`. Verify every link, image, button, and menu on desktop AND mobile. Check for 404s. Verify code quality (no stacked code, per-page loading). Check performance metrics. **Verify all DEAD RULES were followed: Canvas set on all custom pages, age gate in Code Snippets (not page HTML), WooCommerce pages regenerated and bound, dynamic data containers on homepage/blog, all images WebP, no hardcoded product data.**
-21. **Generate SEO articles**: Read `references/scheduled-article-publishing.md`. Generate a batch of 10-20 SEO-optimized articles based on the site's products, target market, and language. Ask user for: article count, images per article (default 4-8), internal links per article (default 3-5), publishing frequency, days, time, and timezone. Create all articles as drafts. Send draft links to user for review. After approval, schedule publish dates to ensure continuous publishing for 3-6 months. Set Rank Math SEO metadata (title, description, focus keyword, Article schema, FAQPage schema) for each article.
-22. **Prepare sitemap/indexing package** and final launch report.
-23. **Present post-build actions**: Read `references/post-build-actions.md`. Present the 4 post-build action recommendations to the user: (1) Scheduled article publishing plan, (2) Search engine index submission, (3) Analytics and monitoring setup, (4) Social media auto-sharing. Wait for user to choose which actions to proceed with. Do NOT start any action without user confirmation.
-24. **For ongoing SEO**, generate new article batches with varied layouts, product images, internal links, and Search Console follow-up tasks.
+6. **Inspect product knowledge before preview/content**: If products already exist or the user provided a WooCommerce CSV, inspect products/CSV and create a product knowledge ledger before homepage preview, page HTML, article planning, or SEO mapping. Read `references/product-csv-originality-seo.md`.
+7. **Generate homepage style preview** using real site inputs, product/category signals from the product knowledge ledger, proposed navigation, and scoped HTML/CSS. Apply global design preferences for the target market. Pause for user approval. Read `references/style-preview-gate.md`.
+8. **After approval, set Elementor Canvas only for custom pages**. Read `references/elementor-html-automation.md`. Use the URL map for all links. Verify no 404s and verify Canvas removes theme chrome. **Do NOT import page HTML yet. DEAD RULE: global shell must be active and verified before any page HTML is pasted.**
+9. **Product CSV rewriting/import prep**: If the user provides a WooCommerce product export CSV, rewrite product titles/descriptions/body content for originality, fill Rank Math product SEO fields, preserve import-critical identifiers, and produce a re-import-ready CSV plus change report. The schema inspection and product knowledge ledger must already be complete before homepage preview/content generation. Read `references/product-csv-originality-seo.md` and `references/rank-math-seo-guide.md`.
+10. **Create product categories, attributes, products, variations**: SKU, slugs, prices, stock, images, galleries, and catalog visibility. Ensure all images are WebP.
+11. **Generate global shell (MUST be done BEFORE page HTML)**: Read `references/global-shell-architecture.md`. Create global header via Code Snippets PHP hook (`wp_body_open`), global footer via `wp_footer` hook, global CSS in Appearance 鈫?Customize 鈫?Additional CSS, global JS in Code Snippets. Include mobile menu, search, compliance notice, dynamic home/blog renderers. Use clean, lightweight, scoped code. NEVER embed header/footer in individual page HTML. **DEAD RULE: Global shell must be active and verified on front-end BEFORE any page HTML is imported. See "CRITICAL: Additional Dead Rules" Dead Rule 7.**
+12. **Generate page HTML (one page at a time)** for Home, Blog, Contact, policies, FAQ, and About using one Elementor HTML block per page. Each page contains ONLY page-specific HTML, scoped CSS (`.page-name .class`), and scoped JS (IIFE). No header, no footer, no menu, no global CSS/JS 鈥?the global shell handles all shared elements. Each page loads only its own CSS/JS. **DEAD RULE: Homepage and Blog MUST use dynamic data containers (`data-site-render="home-products"`, etc.) filled by Code Snippets PHP 鈥?never hardcode product/article data. See "CRITICAL: Additional Dead Rules" Dead Rule 5.** **Import one page at a time: Canvas 鈫?verify 鈫?HTML widget 鈫?paste 鈫?Update 鈫?verify front-end 鈫?next page.**
+13. **Add product page UX** only as a reversible snippet layer that preserves WooCommerce variation events.
+14. **Add cart/checkout rules** such as minimum quantity, shipping/address notices, terms defaults, and duplicate-message cleanup.
+15. **Add site-wide age/compliance gate** when required without hiding crawlable content in a way that blocks search indexing. **DEAD RULE: Age gate MUST be a global Code Snippets PHP snippet using `wp_footer` hook 鈥?NEVER in any Elementor HTML widget. See "CRITICAL: Four Dead Rules" Dead Rule 2.**
+16. **Write Rank Math metadata** with one-time writers; noindex Cart, Checkout, and My Account; index products, categories, posts, and policy pages. Read `references/rank-math-seo-guide.md`.
+17. **Implement structured data**: Product schema, Article schema, FAQPage schema, BreadcrumbList schema. Read `references/structured-data-guide.md`.
+18. **Generate SEO content**: product long descriptions, category descriptions, blog posts, internal links, outbound references, and image ALT/title metadata. Read `references/google-seo-guidelines.md` and `references/ecommerce-seo-guide.md`.
+19. **Convert all images to WebP (MANDATORY DEAD RULE)**. Use image optimization plugin or batch conversion. Verify all images load correctly. **DEAD RULE: ALL images 鈥?products, galleries, categories, blog posts, page banners, logo 鈥?must be WebP. See "CRITICAL: Additional Dead Rules" Dead Rule 8.**
+20. **Optimize Core Web Vitals (MANDATORY DEAD RULE)**: LCP, INP, CLS. Disable WooCommerce cart fragments on non-shop pages. Defer third-party scripts. Read `references/core-web-vitals-guide.md`. **DEAD RULE: PageSpeed mobile 90+, LCP < 2.5s, INP < 200ms, CLS < 0.1. See "CRITICAL: Additional Dead Rules" Dead Rule 8.**
+21. **Run full QA**: Read `references/qa-and-launch.md`. Verify every link, image, button, and menu on desktop AND mobile. Check for 404s. Verify code quality (no stacked code, per-page loading). Check performance metrics. **Verify all DEAD RULES were followed: Canvas set on all custom pages, age gate in Code Snippets (not page HTML), WooCommerce pages regenerated and bound, dynamic data containers on homepage/blog, all images WebP, no hardcoded product data.**
+22. **Generate SEO articles**: Read `references/scheduled-article-publishing.md`. Generate a batch of 10-20 SEO-optimized articles based on the site's products, target market, and language. Ask user for: article count, images per article (default 4-8), internal links per article (default 3-5), publishing frequency, days, time, and timezone. Create all articles as drafts. Send draft links to user for review. After approval, schedule publish dates to ensure continuous publishing for 3-6 months. Set Rank Math SEO metadata (title, description, focus keyword, Article schema, FAQPage schema) for each article.
+23. **Prepare sitemap/indexing package** and final launch report.
+24. **Present post-build actions**: Read `references/post-build-actions.md`. Present the 4 post-build action recommendations to the user: (1) Scheduled article publishing plan, (2) Search engine index submission, (3) Analytics and monitoring setup, (4) Social media auto-sharing. Wait for user to choose which actions to proceed with. Do NOT start any action without user confirmation.
+25. **For ongoing SEO**, generate new article batches with varied layouts, product images, internal links, and Search Console follow-up tasks.
 
 ## WordPress Automation Choices
 
@@ -725,6 +727,7 @@ Each snippet file must say whether it is persistent, one-time, scanner, UX polis
 - `references/prerequisite-checklist.md`: MANDATORY pre-build verification. Check plugins, themes, SSL, PHP before any work begins.
 - `references/intake-checklist.md`: fields to collect and default assumptions.
 - `references/phase-playbook.md`: full build and repair sequence.
+- `references/ai-agent-compatibility.md`: universal AI coding tool compatibility, anti-skip protocol, capability fallback matrix, and critical-judgment rules.
 - `references/site-baseline-and-menus.md`: global settings, Rank Math baseline, navigation, footer menus, WooCommerce page binding.
 - `references/elementor-html-automation.md`: Elementor Canvas and HTML-widget automation for old and new Elementor UI.
 - `references/style-preview-gate.md`: homepage style preview, approval gate, and anti-AI review rules.
@@ -736,30 +739,30 @@ Each snippet file must say whether it is persistent, one-time, scanner, UX polis
 - `references/deliverables.md`: file packaging and final reporting format.
 
 ### SEO Knowledge References
-- `references/google-seo-guidelines.md`: comprehensive Google SEO official guidelines — E-E-A-T, spam policies, content quality, site organization, international SEO, structured data overview.
-- `references/rank-math-seo-guide.md`: complete Rank Math configuration — all modules, Titles & Meta, sitemap, schema templates, WooCommerce product SEO, on-page 100/100 guide, CSV SEO field mapping.
+- `references/google-seo-guidelines.md`: comprehensive Google SEO official guidelines 鈥?E-E-A-T, spam policies, content quality, site organization, international SEO, structured data overview.
+- `references/rank-math-seo-guide.md`: complete Rank Math configuration 鈥?all modules, Titles & Meta, sitemap, schema templates, WooCommerce product SEO, on-page 100/100 guide, CSV SEO field mapping.
 - `references/core-web-vitals-guide.md`: LCP/INP/CLS optimization, WordPress performance stack, Elementor optimization, WooCommerce INP fixes, measurement tools.
-- `references/structured-data-guide.md`: Schema markup implementation — Product, Article, FAQ, Breadcrumb, Organization, LocalBusiness, JSON-LD templates, Rank Math schema configuration, validation tools.
-- `references/ecommerce-seo-guide.md`: WooCommerce SEO — product pages, category pages, internal linking, blog content strategy, technical SEO, conversion optimization, QA checklist.
+- `references/structured-data-guide.md`: Schema markup implementation 鈥?Product, Article, FAQ, Breadcrumb, Organization, LocalBusiness, JSON-LD templates, Rank Math schema configuration, validation tools.
+- `references/ecommerce-seo-guide.md`: WooCommerce SEO 鈥?product pages, category pages, internal linking, blog content strategy, technical SEO, conversion optimization, QA checklist.
 
 ### Structure and Design References
 - `references/wordpress-elementor-structure.md`: WordPress page types, slugs, template hierarchy, shortcodes, Elementor structure, settings, widgets, page creation workflow, URL mapping.
-- `references/global-design-preferences.md`: regional design preferences for 10+ global markets — colors, layout, trust signals, payment methods, content style, cultural habits, legal requirements.
+- `references/global-design-preferences.md`: regional design preferences for 10+ global markets 鈥?colors, layout, trust signals, payment methods, content style, cultural habits, legal requirements.
 
 ### Content and Post-Build References
 - `references/scheduled-article-publishing.md`: scheduled article publishing, draft-review-then-publish workflow, article topic generation, SEO content structure, product image and internal link requirements, Rank Math article metadata, scheduling configuration, E-E-A-T content quality standards.
-- `references/post-build-actions.md`: post-build action guide — scheduled article publishing plan, search engine index submission, analytics and monitoring setup, social media auto-sharing, checklists and user communication templates.
+- `references/post-build-actions.md`: post-build action guide 鈥?scheduled article publishing plan, search engine index submission, analytics and monitoring setup, social media auto-sharing, checklists and user communication templates.
 
 ### Hosting and Rebuild References
-- `references/siteground-bypass-guide.md`: SiteGround server handling — CAPTCHA challenges, IP blocking, WAF configuration, SG Optimizer caching, rate limiting, error recovery, prevention strategies, quick-fix table. Read when the site is hosted on SiteGround.
-- `references/old-site-rebuild-procedure.md`: old site rebuild procedure — 13-step cleanup workflow preserving products and media library, clearing all pages/posts/menus/snippets/CSS/Elementor templates/widgets/settings. Read when rebuilding an existing site.
-- `references/global-shell-architecture.md`: global shell architecture — header via `wp_body_open` hook, footer via `wp_footer` hook, global CSS in Additional CSS, global JS in Code Snippets, page HTML contains only page-specific content. Read before creating any page HTML.
+- `references/siteground-bypass-guide.md`: SiteGround server handling 鈥?CAPTCHA challenges, IP blocking, WAF configuration, SG Optimizer caching, rate limiting, error recovery, prevention strategies, quick-fix table. Read when the site is hosted on SiteGround.
+- `references/old-site-rebuild-procedure.md`: old site rebuild procedure 鈥?13-step cleanup workflow preserving products and media library, clearing all pages/posts/menus/snippets/CSS/Elementor templates/widgets/settings. Read when rebuilding an existing site.
+- `references/global-shell-architecture.md`: global shell architecture 鈥?header via `wp_body_open` hook, footer via `wp_footer` hook, global CSS in Additional CSS, global JS in Code Snippets, page HTML contains only page-specific content. Read before creating any page HTML.
 
 ### Enforcement and Configuration References
-- `references/agent-enforcement-rules.md`: binding enforcement framework — no autonomous decisions, no method switching, no shortcuts, verification gate after every step, three-strike rule, progress reporting, user override only, data integrity rules, code quality enforcement, phase gate enforcement, anti-deviation safeguards. The agent MUST follow these rules at all times.
-- `references/wordpress-plugins-themes-guide.md`: comprehensive WordPress reference — core settings (General, Reading, Permalinks, Media, Discussion), database structure (12 tables), REST API endpoints and authentication, hook system (actions, filters, common hooks), template hierarchy, user roles and capabilities, WooCommerce settings (all tabs, option keys, defaults, REST API, shortcodes, page bindings), Elementor settings (Settings, Experiments, Site Settings, Page Settings, data structure, widget types), Code Snippets (types, fields, hooks, auto-insert positions, conditions), Hello Elementor theme (features, menu locations, widget areas, assets, customizer, child theme), WordPress theme structure (files, style.css header, functions.php, child themes), common security plugins (Wordfence, Sucuri, iThemes, AIOS), performance plugins (WP Rocket, W3TC, WP Super Cache, LiteSpeed, SG Optimizer), image optimization plugins (Smush, ShortPixel, Imagify, EWWW).
+- `references/agent-enforcement-rules.md`: binding enforcement framework 鈥?no autonomous decisions, no method switching, no shortcuts, verification gate after every step, three-strike rule, progress reporting, user override only, data integrity rules, code quality enforcement, phase gate enforcement, anti-deviation safeguards. The agent MUST follow these rules at all times.
+- `references/wordpress-plugins-themes-guide.md`: comprehensive WordPress reference 鈥?core settings (General, Reading, Permalinks, Media, Discussion), database structure (12 tables), REST API endpoints and authentication, hook system (actions, filters, common hooks), template hierarchy, user roles and capabilities, WooCommerce settings (all tabs, option keys, defaults, REST API, shortcodes, page bindings), Elementor settings (Settings, Experiments, Site Settings, Page Settings, data structure, widget types), Code Snippets (types, fields, hooks, auto-insert positions, conditions), Hello Elementor theme (features, menu locations, widget areas, assets, customizer, child theme), WordPress theme structure (files, style.css header, functions.php, child themes), common security plugins (Wordfence, Sucuri, iThemes, AIOS), performance plugins (WP Rocket, W3TC, WP Super Cache, LiteSpeed, SG Optimizer), image optimization plugins (Smush, ShortPixel, Imagify, EWWW).
 
 ### Implementation and Customization References
-- `references/code-snippets-implementation-guide.md`: REAL, ready-to-use Code Snippets code library — WordPress core configuration (permalinks, reading settings, media sizes, disable comments, disable emojis, remove WP version, custom login page, custom admin dashboard), WooCommerce customizations (settings, page bindings, add-to-cart text, free shipping bar, minimum order, custom checkout fields, product tabs, recently viewed, auto-complete virtual orders, email templates), performance optimization (disable cart fragments, defer JS, remove query strings, preconnect, disable dashicons, lazy load), SEO enhancements (meta robots, OpenGraph tags, breadcrumbs, FAQPage schema), dynamic renderers (featured products grid, recent posts grid), security hardening (disable file edit, login attempt limiter, hide login errors, block user enumeration), custom shortcodes (contact info, product categories grid, trust badges), age/compliance gate, GDPR cookie consent banner, custom REST API endpoints.
-- `references/wordpress-settings-implementation.md`: practical settings configuration guide — WordPress core settings via REST API (read/update), WooCommerce settings via REST API (general, products, accounts, shipping zones, payment gateways), WooCommerce shipping zone creation via REST API and Code Snippets PHP, payment gateway configuration (BACS, COD, Stripe) with bank account details, Elementor configuration via Code Snippets (CPT support, CSS print method, experiments, Flexbox Container, optimized loading, global colors/fonts, canvas page templates), Rank Math SEO configuration via Code Snippets (general, titles & meta, sitemap, schema, noindex for WC pages), WordPress menu creation via REST API and Code Snippets PHP, wp-config.php essential additions, .htaccess security headers, Gzip, browser caching, and file protection.
-- `references/woocommerce-customizations-guide.md`: production-ready WooCommerce customizations — product page (trust badges under price, stock urgency counter, estimated delivery date, sale countdown timer, color/size variation swatches, sticky add-to-cart bar on mobile), cart (cross-sell products, custom item display, empty cart with featured products), checkout (two-column layout, trust signals, phone validation, custom thank you page), emails (logo header, first-time customer welcome email), product loop (custom sale badge with percentage, quick view button, infinite scroll/load more), account page (custom dashboard with order stats and quick links).
+- `references/code-snippets-implementation-guide.md`: REAL, ready-to-use Code Snippets code library 鈥?WordPress core configuration (permalinks, reading settings, media sizes, disable comments, disable emojis, remove WP version, custom login page, custom admin dashboard), WooCommerce customizations (settings, page bindings, add-to-cart text, free shipping bar, minimum order, custom checkout fields, product tabs, recently viewed, auto-complete virtual orders, email templates), performance optimization (disable cart fragments, defer JS, remove query strings, preconnect, disable dashicons, lazy load), SEO enhancements (meta robots, OpenGraph tags, breadcrumbs, FAQPage schema), dynamic renderers (featured products grid, recent posts grid), security hardening (disable file edit, login attempt limiter, hide login errors, block user enumeration), custom shortcodes (contact info, product categories grid, trust badges), age/compliance gate, GDPR cookie consent banner, custom REST API endpoints.
+- `references/wordpress-settings-implementation.md`: practical settings configuration guide 鈥?WordPress core settings via REST API (read/update), WooCommerce settings via REST API (general, products, accounts, shipping zones, payment gateways), WooCommerce shipping zone creation via REST API and Code Snippets PHP, payment gateway configuration (BACS, COD, Stripe) with bank account details, Elementor configuration via Code Snippets (CPT support, CSS print method, experiments, Flexbox Container, optimized loading, global colors/fonts, canvas page templates), Rank Math SEO configuration via Code Snippets (general, titles & meta, sitemap, schema, noindex for WC pages), WordPress menu creation via REST API and Code Snippets PHP, wp-config.php essential additions, .htaccess security headers, Gzip, browser caching, and file protection.
+- `references/woocommerce-customizations-guide.md`: production-ready WooCommerce customizations 鈥?product page (trust badges under price, stock urgency counter, estimated delivery date, sale countdown timer, color/size variation swatches, sticky add-to-cart bar on mobile), cart (cross-sell products, custom item display, empty cart with featured products), checkout (two-column layout, trust signals, phone validation, custom thank you page), emails (logo header, first-time customer welcome email), product loop (custom sale badge with percentage, quick view button, infinite scroll/load more), account page (custom dashboard with order stats and quick links).

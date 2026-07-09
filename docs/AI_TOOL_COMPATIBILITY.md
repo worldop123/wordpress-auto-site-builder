@@ -2,6 +2,8 @@
 
 This skill is tool-neutral. It should work with any AI coding agent that can read files and operate WordPress through browser automation, REST APIs, or user-guided manual steps.
 
+For the full compatibility contract, anti-skip protocol, capability fallback matrix, and critical-judgment rules, read [`../references/ai-agent-compatibility.md`](../references/ai-agent-compatibility.md).
+
 ## Supported Agent Patterns
 
 | Tool family | Recommended use |
@@ -12,6 +14,7 @@ This skill is tool-neutral. It should work with any AI coding agent that can rea
 | Cursor | Add as project context or docs, then point the agent to `SKILL.md`. |
 | OpenHands | Mount this repository and ask the agent to read the workflow references before acting. |
 | Aider | Use as a repository reference; ask Aider to edit only skill files or generated artifacts, not live secrets. |
+| Domestic/international IDE agents | For Qwen Code, Tongyi Lingma, Qoder, Baidu Comate, CodeGeeX, MarsCode, Tencent CodeBuddy, Gemini Code Assist, GitHub Copilot, Devin Desktop/Windsurf, Cline/Roo/Kilo, and similar tools, use the same phase gates and fallback matrix in `references/ai-agent-compatibility.md`. |
 
 ## Minimum Agent Capabilities
 
@@ -39,3 +42,5 @@ Start by asking which service mode I need: new site build, old-site rebuild, or 
 - If a tool cannot execute scripts, it should still follow the reference checklists and produce artifacts for the user.
 - If a tool cannot safely store credentials, use user-guided login or short-lived application passwords and revoke them after use.
 - If a tool cannot run full QA, it must mark the missing checks as blockers instead of claiming launch readiness.
+- If a tool cannot read or inspect the product CSV/live products, it must not generate homepage HTML, page copy, article topics, image ALT plans, or Rank Math SEO metadata.
+- If a user request is risky or likely wrong, the agent must explain benefits, risks, and safer alternatives before acting. It must not blindly agree with requests that break checkout, delete protected data, skip QA, copy protected content, hardcode secrets, or launch early.

@@ -200,8 +200,8 @@ Enforcement procedure for EACH custom page:
 3. Click Update to save the Canvas setting.
 4. Reload the front-end URL — verify NO theme header/footer/menu appears.
 5. If theme chrome still appears: Canvas was NOT set correctly. Re-set, Update, re-verify.
-6. Only after verification passes: add HTML widget, paste page HTML.
-7. Record `"canvas_set": true` in the page ledger.
+6. Record `"canvas_set": true` in the page ledger.
+7. Do NOT add the HTML widget or paste page HTML in this phase. Page HTML import happens only after the global shell is active and verified in Phase 5.
 
 **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.
 **Pages that MUST NOT use Canvas** (WooCommerce-owned): Shop, Cart, Checkout, My Account, product archives, single product pages.
@@ -400,7 +400,7 @@ Rank Math Free does not provide the same bulk CSV SEO metadata import workflow a
    - Products: title, slug, short description, long description, categories, tags, attributes, images, gallery, price context.
    - Posts: title, excerpt, content, category, tags, linked products, featured image.
    - Terms: category/tag/product-category name, slug, description, product/post count.
-2. Reuse the site ledger, resume ledger, approved copy, generated article plans, and product CSV rewrite report as a knowledge base. Verify against live content before writing.
+2. Reuse the site ledger, resume ledger, approved copy, generated article plans, product knowledge ledger, and product CSV rewrite report as a knowledge base. Verify against live content before writing.
 3. Generate an SEO mapping for every indexable object: ID, object type, SEO title, meta description, focus keyword, robots/index state, schema type, and source evidence.
 4. Run the Rank Math on-page audit: focus keyword in SEO title, meta description, content start, body, subheading, image ALT, natural keyword density, internal links, unique focus keyword, short paragraphs, and rich media.
 5. Fix content first when the audit fails because page/product/blog content is missing the keyword, image ALT, subheading, or rich media.
@@ -533,6 +533,7 @@ When resuming, the ledger is a starting point, not proof. Verify live state befo
 | Gate 2→3 | Environment inspected | Full environment report; no surprises |
 | Gate 3→4 | Baseline set | Permalinks, WC bindings, Rank Math baseline, menus, cache strategy; **DEAD RULE: WooCommerce pages regenerated and bound** |
 | Gate 4→5 | Pages created | All pages exist with correct slugs; URL map built; **WooCommerce page IDs re-verified after page creation** |
+| Gate 4a | Product knowledge ready | Product CSV or live products inspected; product knowledge ledger exists before homepage preview, page HTML, article planning, and SEO mapping |
 | Gate 5→6 | Preview approved | Homepage style preview approved by user; **DEAD RULE: Global shell (header/footer/CSS/JS) active and verified BEFORE any page HTML import** |
 | Gate 6→7 | HTML imported | **DEAD RULE: Elementor Canvas set on EVERY custom page (verified — no theme header/footer)**; All Elementor HTML pages contain only page-specific content; no header/footer; **Large HTML batch-imported correctly**; **DEAD RULE: Homepage/Blog use dynamic data containers (no hardcoded product/article data)**; **Page HTML imported one page at a time** |
 | Gate 7→8 | Products ready | CSV rewritten; categories/attributes/products/variations created; WebP images; gallery/body images and long descriptions verified |

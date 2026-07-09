@@ -32,6 +32,12 @@ jobs:
         run: |
           python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
 
+      - name: Product price currency conversion smoke test
+        run: |
+          python scripts/convert_product_prices.py docs/SAMPLE_PRODUCT_IMPORT.csv --output tmp-products-converted.csv --source-currency USD --target-currency EUR --rate 0.92 --rate-source "ci smoke test" --rate-timestamp "2026-07-09T00:00:00Z"
+          test -s tmp-products-converted.csv
+          rm tmp-products-converted.csv
+
       - name: Rank Math audit smoke test
         run: |
           python scripts/rank_math_content_audit.py docs/SAMPLE_RANK_MATH_META_MAP.json

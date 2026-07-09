@@ -24,6 +24,7 @@ The skill is designed for Codex, Claude, Trae, Cursor, OpenHands, Aider, and oth
 - Country/language-specific design variation
 - SEO article batch generation
 - WooCommerce product CSV rewriting and import integrity
+- Product price currency conversion for localized/small-language WooCommerce sites
 - Official WooCommerce CSV custom metadata inspection, including protected runtime meta and editable SEO meta
 - Logo plus separate favicon/site icon generation and verification
 - Header/footer background-aware logo variants so generated logos do not appear as mismatched pasted boxes
@@ -116,6 +117,12 @@ Inspect a WooCommerce product CSV for identity fields, image/gallery columns, in
 
 ```bash
 python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
+```
+
+Convert product prices before import when source and target currencies differ:
+
+```bash
+python scripts/convert_product_prices.py docs/SAMPLE_PRODUCT_IMPORT.csv --output products-converted.csv --source-currency USD --target-currency EUR --rate 0.92 --rate-source "manual/runtime checked" --rate-timestamp "2026-07-09T12:00:00Z"
 ```
 
 Capture public reference-site HTML snapshots for local layout analysis:

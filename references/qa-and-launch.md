@@ -247,6 +247,8 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - Home page and posts/blog page reading settings are correct.
 - Header, footer, and mobile menu locations are assigned or rendered from the global shell.
 - If products were prepared from CSV, row count, IDs, SKUs, slugs, parent/variation relationships, prices, stock, categories, and image URLs were preserved unless intentionally changed.
+- If product prices were converted from another currency, the import ledger records source currency, target currency, rate, rate source/timestamp, rounding rule, converted columns, original backup columns, and sample converted products.
+- Converted product prices display in the target WooCommerce currency on product pages, archives, cart, checkout, order review, and Product schema `priceCurrency`.
 - If products were imported from rewritten CSV, sample products show rewritten title, short description, long description, and correct Rank Math product SEO data.
 - If products were imported from CSV, featured images, every gallery image, inline/body images in product descriptions, ALT/title/caption metadata, and product detail HTML were checked against the import ledger.
 - Products with galleries must show the expected thumbnail count and open/switch gallery images on desktop and mobile.

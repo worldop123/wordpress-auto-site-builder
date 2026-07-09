@@ -52,6 +52,7 @@
 - [参考站/仿站捕获流程](../references/reference-site-capture.md)
 - [站点计划脚本](../scripts/site_plan.py)
 - [WooCommerce CSV 检查脚本](../scripts/inspect_product_csv.py)
+- [产品价格货币转换脚本](../scripts/convert_product_prices.py)
 - [参考站 HTML 捕获脚本](../scripts/reference_site_capture.py)
 - [Rank Math 内容审计脚本](../scripts/rank_math_content_audit.py)
 - [Rank Math 一次性写入器生成脚本](../scripts/rank_math_meta_writer.py)

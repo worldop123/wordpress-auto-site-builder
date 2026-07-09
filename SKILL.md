@@ -164,6 +164,8 @@ When importing or rewriting WooCommerce CSV data, product data and media integri
 
 - For official WooCommerce CSV exports, prefer RFC/Excel CSV parsing with doubled-quote support (`doublequote=True`) and verify parser quality before editing. Do not blindly trust delimiter sniffing when product descriptions contain HTML.
 - Preserve IDs/SKUs/slugs/parents/variations/attributes/prices/stock/categories unless explicitly changing them.
+- If the source product prices are in a different currency than the target site currency, convert prices before import using a recorded exchange rate. Do not hardcode exchange rates in the skill; use a user-provided rate or a live rate checked at build time and record source, timestamp, source currency, target currency, rounding rule, and sample converted products.
+- Preserve the original source prices in backup meta columns or an import ledger before replacing `Regular price` and `Sale price`.
 - Verify row count, variation parent links, image URL columns, gallery image counts, downloadable files, and Rank Math fields before import.
 - Classify every `Meta:` column by exact key before editing. Editable SEO meta is different from protected runtime/analytics/custom plugin meta.
 - Ensure featured images, gallery images, long descriptions, short descriptions, inline/body images, ALT/title/caption fields, and product detail HTML import successfully.
@@ -581,6 +583,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 28. Use `scripts/rank_math_content_audit.py` before Rank Math metadata writing to check focus keyword placement, subheadings, image ALT, keyword density, internal links, readability, and rich media.
 29. Use `scripts/rank_math_meta_writer.py` to generate a Code Snippets one-time writer from an approved SEO mapping JSON for Rank Math Free sites.
 29a. Use `scripts/reference_site_capture.py` before reference-site/clone-style builds to capture public/authorized HTML snapshots and generate a page-type manifest.
+29b. Use `scripts/convert_product_prices.py` before WooCommerce CSV import when source prices and target WooCommerce currency differ.
 30. Use `scripts/resume_ledger.py` to initialize, update, summarize, and recover a resumable build ledger after interruptions.
 31. Read `references/code-snippets-implementation-guide.md` for REAL, ready-to-use Code Snippets code. Contains WordPress core configuration, WooCommerce customizations, performance optimization, SEO enhancements, dynamic product renderers, security hardening, custom shortcodes, age/compliance gate, cookie consent, and custom REST API endpoints. Use these snippets instead of writing code from scratch.
 32. Read `references/wordpress-settings-implementation.md` for practical WordPress/WooCommerce/Elementor/Rank Math settings configuration via REST API and Code Snippets PHP. Contains exact curl commands and PHP code for configuring shipping zones, payment gateways, menus, and all settings programmatically.

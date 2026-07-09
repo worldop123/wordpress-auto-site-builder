@@ -52,6 +52,7 @@
 - [Reference Site Capture](../references/reference-site-capture.md)
 - [Site Plan Script](../scripts/site_plan.py)
 - [Product CSV Inspector](../scripts/inspect_product_csv.py)
+- [Product Price Currency Converter](../scripts/convert_product_prices.py)
 - [Reference Site Capture Script](../scripts/reference_site_capture.py)
 - [Rank Math Content Audit](../scripts/rank_math_content_audit.py)
 - [Rank Math Meta Writer](../scripts/rank_math_meta_writer.py)

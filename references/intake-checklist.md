@@ -28,6 +28,7 @@ Collect only what is needed. Infer anything that can be safely observed from Wor
 - Product or service list with names, prices, images, categories, variants/options, inventory status, shipping limits, and purchase rules.
 - Product import/media details when CSV is involved:
   - Source CSV type, row count, encoding, delimiter, and whether it updates existing products.
+  - Source price currency, target WooCommerce currency, exchange-rate source, conversion permission, rounding strategy, and whether original prices must be backed up.
   - Featured image column, gallery image column, inline/body image handling, and whether images are remote URLs or media-library URLs.
   - Variation parent/SKU strategy, attribute columns, stock/pricing fields, category/tag fields, and Rank Math columns.
   - Whether every gallery image and product body image must be verified after import.
@@ -200,6 +201,13 @@ Collect or infer whether each surface needs a custom layout pass:
   "product_import": {
     "csv_source": "",
     "expected_row_count": null,
+    "source_currency": "",
+    "target_currency": "",
+    "exchange_rate": null,
+    "exchange_rate_source": "",
+    "price_rounding": "standard|charm_ending|market_default",
+    "charm_ending": "",
+    "backup_original_prices": true,
     "image_columns": [],
     "gallery_required": true,
     "body_images_required": true,

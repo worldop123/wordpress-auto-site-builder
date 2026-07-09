@@ -15,6 +15,7 @@ Before editing, identify:
 - Header names exactly as exported.
 - Product row types: simple, variable, variation, grouped, external.
 - Identity fields: `ID`, `Type`, `SKU`, `Name`, `Published`, `Is featured?`, `Visibility in catalog`, `Short description`, `Description`, `Categories`, `Tags`, `Images`, `Parent`, attributes, prices, stock, shipping, tax.
+- Price currency context: source currency of `Regular price` and `Sale price`, target WooCommerce currency, exchange-rate source, timestamp, rounding rule, and whether original prices need backup columns.
 - Media fields: featured image URL/ID, gallery image list, inline/body images inside `Description`, image ALT/title/caption columns, remote image URLs, attachment IDs, and any CDN/proxy URLs.
 - Rank Math fields, often exported as `Meta:` columns or plugin-specific columns. Detect columns containing `rank_math`, `seo`, `focus`, `robots`, `title`, or `description`.
 - Custom metadata columns. Every `Meta: ...` column must be classified by exact meta key before editing.
@@ -82,6 +83,29 @@ Do not change these casually:
 
 Changing these can break imports, variations, existing URLs, inventory, or internal links.
 
+## Currency conversion for imported prices
+
+When the product source data uses a different currency than the target small-language/localized site, convert product prices before import.
+
+Rules:
+
+- Detect source currency and target WooCommerce currency before touching price columns.
+- Use ISO 4217 codes such as `USD`, `EUR`, `CZK`, `PLN`, `HUF`, `RON`, `BGN`, `SEK`, `DKK`, `NOK`, `CHF`, `GBP`.
+- Do not hardcode exchange rates in this skill. Use a user-provided rate or a live rate checked at build time from a documented source.
+- Record exchange-rate source, retrieval timestamp, source currency, target currency, rate, decimal precision, and rounding strategy in the import ledger.
+- Convert `Regular price` and `Sale price`; preserve sale/regular relationships and never make sale price greater than regular price.
+- Preserve original source prices in backup meta columns or a separate report, for example `Meta: _source_regular_price`, `Meta: _source_regular_price_currency`, and `Meta: _source_regular_price_fx_rate`.
+- Do not convert non-price numbers such as stock, dimensions, puff counts, nicotine strength, SKU, GTIN, or attributes.
+- After import, verify WooCommerce currency setting, product price display, cart totals, checkout totals, Product schema `priceCurrency`, and sample variable products.
+
+Suggested helper:
+
+```bash
+python scripts/convert_product_prices.py products.csv --output products-converted.csv --source-currency USD --target-currency CZK --rate 22.50 --rate-source "ECB/manual check" --rate-timestamp "2026-07-09T12:00:00Z"
+```
+
+Use `--charm-ending 0.99` only when the target market uses psychological pricing and the user/market strategy allows it.
+
 ## Originality rewrite rules
 
 - Rewrite product copy from the product's actual facts, not generic adjectives.
@@ -124,6 +148,7 @@ If Rank Math fields are not present in the CSV:
    - No broken CSV quoting.
    - Required columns still present.
    - HTML in descriptions is valid enough for WordPress import.
+   - Converted prices match the target currency and original prices are backed up when currency conversion was used.
 8. Provide a change report with edited columns, preserved columns, SEO fields, media fields, and import notes.
 
 ## Media and body-content integrity
@@ -157,6 +182,7 @@ If importing into WordPress:
 Every CSV import deliverable must include:
 
 - Source file name, encoding, delimiter, original row count, output row count.
+- Source currency, target currency, exchange rate, rate source/timestamp, rounding rule, converted price columns, and original-price backup columns when conversion was used.
 - Product/variation counts by type.
 - Preserved identity fields and rewritten fields.
 - Expected featured/gallery/body image counts and actual sampled results.

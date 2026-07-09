@@ -34,6 +34,7 @@
 - 国家、语言、市场差异化设计，避免千篇一律。
 - SEO 文章批量生成、草稿、定时发布规划。
 - WooCommerce 产品 CSV 改写、图库、正文图片、变体和 Rank Math 字段完整性检查。
+- 小语种/本地化 WooCommerce 站点导入产品前，按目标币种转换产品价格。
 - WooCommerce 官方导出 CSV 自定义元数据精细识别，区分受保护运行时 meta 和可编辑 SEO meta。
 - 生成网站 logo 时同步生成并配置独立 favicon/site icon，检查小尺寸清晰度。
 - logo 必须适配真实页眉/页脚背景，不能在深色页脚上出现突兀白底块或像截图贴上去。
@@ -71,6 +72,12 @@ python scripts/site_plan.py docs/SITE_CONFIG_REFERENCE_CLONE_EXAMPLE.json
 
 ```bash
 python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
+```
+
+源币种和目标站点币种不一致时，导入前转换产品价格：
+
+```bash
+python scripts/convert_product_prices.py docs/SAMPLE_PRODUCT_IMPORT.csv --output products-converted.csv --source-currency USD --target-currency EUR --rate 0.92 --rate-source "manual/runtime checked" --rate-timestamp "2026-07-09T12:00:00Z"
 ```
 
 抓取公开参考站 HTML 快照用于本地布局分析：

@@ -28,6 +28,7 @@ If the user supplied a product CSV or the site already has WooCommerce products,
 - Proposed header menu and footer menu.
 - First viewport hero.
 - Product/category sections.
+- Rich merchandising modules selected from the target market and product data, such as a dynamic product-image slideshow, collection strip, category image grid, comparison block, guide hub, or support/COD ordering module.
 - Trust/shipping/compliance strip.
 - Payment method block, including cash on delivery if the user selected it.
 - Ordering steps and checkout rule preview.
@@ -42,6 +43,7 @@ Minimum homepage preview structure:
 - Header with logo, primary navigation, account/cart/search affordance or clear placeholders.
 - Hero with concrete store facts and primary actions.
 - At least 6 meaningful homepage sections after the hero.
+- At least 2 sections must use real product/category/post data when those records exist, with real links and real media. Do not hardcode product names, prices, images, or URLs into static HTML; use dynamic render containers or a preview clearly marked as data-driven.
 - Footer with contact, policy links, category/shop links, payment/shipping note, and compliance note.
 - Responsive behavior for desktop, tablet, and mobile; mobile navigation may be represented as a compact preview if not interactive.
 
@@ -57,6 +59,8 @@ Use the most practical available format:
 - Draft WordPress page only if the user allowed live-site drafts.
 
 The preview should be enough for the user to judge visual direction, homepage density, header/footer completeness, section rhythm, and mobile behavior. It is not a full finished site, but it must not feel perfunctory.
+
+Before presenting the preview, verify that any slideshow, carousel, accordion, tab, filter, or expandable module has visible controls, works on touch and mouse, does not trap focus, and does not block product/category links.
 
 ## Approval checkpoint
 
@@ -87,3 +91,4 @@ Make the preview feel specific:
 - Let navigation and page hierarchy look like an actual store, not a pitch deck.
 - Use restrained, credible copy and natural microcopy.
 - Prefer real product/category images when available.
+- Include enough real internal paths for the preview to show how buyers move from homepage modules into products, categories, guides, policies, and contact/support.

@@ -198,6 +198,10 @@ ALL images on the site must be converted to WebP format. This is a hard requirem
 - Homepage style preview was approved or the user explicitly waived the preview gate.
 - Final homepage still matches the approved direction.
 - Homepage preview and final homepage include a complete header, footer, mobile behavior, product/category area, payment/shipping/order facts, and buyer guidance.
+- Homepage and major custom pages pass the content-richness gate from `design-variation.md`: no thin hero-only pages, no generic three-card filler, and each section supports buying, trust, navigation, SEO, education, or support.
+- Homepage includes at least 2 useful dynamic or data-driven modules from real products/categories/posts when data exists, such as product-image slideshow, featured-product strip, category image grid, comparison block, guide hub, FAQ preview, or support/COD ordering module.
+- Rich modules use real internal links to products, categories, posts, policies, or support pages; no decorative buttons point to `#`, empty URLs, missing pages, or irrelevant destinations.
+- Any slideshow, carousel, tab, accordion, filter, or expandable module was tested on desktop and mobile; controls are visible, touch/click works, focus is not trapped, and product/category links are not blocked.
 - Page copy and visual treatment pass anti-AI review: no generic filler slogans, fake claims, repeated template sections, or unsupported social proof.
 - Home returns HTTP 200 and renders header/footer.
 - Custom Elementor pages use Elementor Canvas where required. **DEAD RULE: Verify EVERY custom page has Canvas set 鈥?no theme header/footer visible on any custom page.**
@@ -228,6 +232,7 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - Product pages render gallery, price, variants, stock, and add-to-cart.
 - Single product pages have a verified layout pass: gallery, summary, long description/tabs, trust information, related products, quantity input, and mobile purchase area.
 - Blog index, blog archives, and single posts have a verified layout pass: article cards, category/tag/date archives, typography, product internal links, schema, and mobile readability.
+- Blog surfaces include article discovery and topic grouping when SEO content exists; they are not left as plain default lists unless the user explicitly chose a minimal blog.
 - Cart quantity changes work.
 - Cart quantity changes do not freeze, repeatedly reload, or leave the cart total/update state ambiguous.
 - Checkout blocks invalid minimum quantity/value.

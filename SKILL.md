@@ -161,6 +161,20 @@ Do not treat the homepage and policy pages as the whole website. Every ecommerce
 
 The layouts must be varied by country/language and site strategy. Do not reuse the same one-column mobile product grid, the same card rhythm, or the same policy layout across every site. Record the layout choices and verify no text/button/image overflow at 360px, 390px, and 430px.
 
+## CRITICAL: Rich Page Content and Dynamic Merchandising
+
+Do not build thin pages that rely on a hero, a few generic cards, and policy links. Every full site build must turn the product knowledge ledger, target market, language, shipping/payment facts, media library, and SEO plan into rich page modules across the whole site.
+
+- Homepage must include market-appropriate merchandising modules, not only static copy. Consider dynamic product-image slideshows, featured-product strips, category image grids, seasonal/collection blocks, buying-guide teasers, shipping/payment explainers, support/WhatsApp callouts, compliance/age notices, FAQ previews, blog-guide teasers, and internal links to real product/category/article pages.
+- Other custom pages must also feel complete. About, Contact, FAQ, Shipping, Returns, Payment, Terms, Privacy, Cookie, Age/Compliance, blog pages, and category support pages should use useful layouts such as summaries, timelines, comparison tables, step flows, icon+text checklists, contextual product/category links, FAQ accordions, and support blocks when appropriate.
+- Product archives and category archives should expose buyer navigation: category filters, product density suited to the target market, sorting, trust/shipping notes, internal links, and short SEO/category guidance without blocking WooCommerce loops.
+- Single product pages should enrich the native WooCommerce product surface with real gallery media, key specs, delivery/return/payment facts, related products, compliance notes, FAQ, and internal links while preserving add-to-cart and variation behavior.
+- Blog index, blog archives, and single posts should connect articles to real categories/products using contextual links and media, instead of a plain list of posts.
+- Select modules by country/language and product data. For example, a slideshow may be useful when product images are strong, but a dense spec comparison, category-first layout, guide hub, or WhatsApp/COD ordering flow may be better for another market.
+- Never hardcode dynamic product names, prices, stock, URLs, or article titles into static HTML. Use WooCommerce/WP queries or approved Code Snippets renderers so modules stay current and link to real content.
+- Richness must not create clutter. Each module must support buying, trust, navigation, SEO, education, or support; remove decorative filler that does not serve a page goal.
+- Verify every dynamic module on desktop and mobile: images render, links navigate, carousel/slider controls work, keyboard/touch interaction does not freeze, lazy loading does not create blank sections, and no text/button/image overflows.
+
 ## CRITICAL: Article Batch Is Part of the Build
 
 Unless the user explicitly opts out, every full SEO ecommerce build MUST create an initial article batch. In ask-user mode, ask for count/schedule/approval. In autonomous mode, choose conservative defaults from the market, products, and language.
@@ -584,7 +598,7 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 11. Read `references/product-csv-originality-seo.md` when the user provides a WordPress/WooCommerce product export CSV for product title, description, content, or Rank Math SEO rewriting before import.
 11a. If a product CSV was provided, run product CSV inspection and create the product knowledge ledger before generating any homepage preview, page HTML, article plan, or SEO mapping.
 11b. Read `references/reference-site-capture.md` when the user provides a site URL to clone, imitate, reference, or rebuild from. Capture public/authorized HTML snapshots locally and transform the layout into original WordPress/WooCommerce implementation.
-12. Read `references/design-variation.md` before generating page HTML/CSS so every site and article batch has a distinct, non-AI-looking design direction.
+12. Read `references/design-variation.md` before generating page HTML/CSS so every site and article batch has a distinct, content-rich, non-AI-looking design direction.
 13. Read `references/automation-and-safety.md` before touching wp-admin, WooCommerce settings, snippets, or live content.
 14. Read `references/google-seo-guidelines.md` for comprehensive Google SEO official guidelines, E-E-A-T, spam policies, and best practices.
 15. Read `references/rank-math-seo-guide.md` for complete Rank Math configuration, module reference, and WooCommerce product SEO mapping.
@@ -626,10 +640,11 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 - Use a resumable page ledger: each page has status `created`, `canvas_set`, `html_inserted`, `updated`, `verified`. If one step fails, resume from the failed step instead of deleting and starting over.
 - **Create all pages first, then generate HTML code with correct page paths.** Never write HTML with links to non-existent pages.
 - Generate homepage and blog page containers such as `data-site-render="home-products"`, `data-site-render="home-posts"`, and `data-site-render="blog-posts"`; adapt names per project.
+- Generate content-rich dynamic modules where useful, such as product-image sliders, collection/category grids, comparison strips, guide hubs, FAQ accordions, support callouts, and contextual product/article links. Choose modules from the target market and product knowledge ledger; do not apply the same homepage/page module stack to every site.
 - Create and bind WordPress menus automatically: primary/header menu, mobile menu if separate, and footer policy/support menu.
 - Establish global site settings, Rank Math baseline, permalink settings, WooCommerce page bindings, and menu locations before large page HTML imports.
 - Before full-site buildout, generate one homepage style preview from the real brand/products/content and get user approval. Do not bulk-build pages until the preview is approved or the user explicitly waives the gate.
-- The homepage preview must be substantial: header, footer, mobile behavior, hero, product/category areas, ordering/payment/shipping/compliance sections, FAQ or guide teaser, and enough sections for the user to judge density.
+- The homepage preview must be substantial: header, footer, mobile behavior, hero, product/category areas, rich merchandising modules using real product images/links when available, ordering/payment/shipping/compliance sections, FAQ or guide teaser, and enough sections for the user to judge density.
 - Make output feel hand-built and site-specific. Avoid generic AI phrasing, over-explaining sections, repetitive card grids, vague superlatives, fake testimonials, and template-looking gradients.
 - **Apply global design preferences** based on the target market. Read `references/global-design-preferences.md` for regional color, layout, trust, payment, and content conventions.
 - When editing a WooCommerce product export CSV, preserve technical identity fields such as product ID, type, SKU, slug, parent, attributes, stock, prices, images, categories, and variation relationships unless the user explicitly asks to change them.

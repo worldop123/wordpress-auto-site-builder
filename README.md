@@ -1,5 +1,7 @@
 # WordPress Auto Site Builder Skill
 
+[中文 README](README.zh-CN.md) | [Documentation Index](docs/DOCUMENTATION_INDEX.md)
+
 A universal AI-agent workflow for building, rebuilding, and repairing WordPress/WooCommerce SEO sites with a lightweight, auditable stack:
 
 - Hello Elementor theme
@@ -53,14 +55,14 @@ Every project starts by identifying the service mode:
 
 ## Quick Start for AI Agents
 
-1. Read `SKILL.md`.
+1. Read [`SKILL.md`](SKILL.md).
 2. Read only the relevant reference files:
-   - `references/intake-checklist.md`
-   - `references/phase-playbook.md`
-   - `references/qa-and-launch.md`
-   - `references/product-csv-originality-seo.md` for CSV work
-   - `references/code-snippets-implementation-guide.md` for snippets
-   - `references/woocommerce-customizations-guide.md` for store UX
+   - [`references/intake-checklist.md`](references/intake-checklist.md)
+   - [`references/phase-playbook.md`](references/phase-playbook.md)
+   - [`references/qa-and-launch.md`](references/qa-and-launch.md)
+   - [`references/product-csv-originality-seo.md`](references/product-csv-originality-seo.md) for CSV work
+   - [`references/code-snippets-implementation-guide.md`](references/code-snippets-implementation-guide.md) for snippets
+   - [`references/woocommerce-customizations-guide.md`](references/woocommerce-customizations-guide.md) for store UX
 3. Build a site ledger with mode, protected data, required pages, snippets, SEO tasks, articles, and QA gates.
 4. Execute step by step.
 5. Verify with real browser or API evidence.
@@ -68,7 +70,7 @@ Every project starts by identifying the service mode:
 
 ## Resuming Interrupted Work
 
-If an AI run stops unexpectedly, read `docs/RESUME_PROTOCOL.md` before continuing. Resume from the last verified checkpoint after a read-only live-state check. Do not repeat destructive cleanup, product imports, article publishing, snippet replacement, or launch/indexing actions automatically.
+If an AI run stops unexpectedly, read [`docs/RESUME_PROTOCOL.md`](docs/RESUME_PROTOCOL.md) before continuing. Resume from the last verified checkpoint after a read-only live-state check. Do not repeat destructive cleanup, product imports, article publishing, snippet replacement, or launch/indexing actions automatically.
 
 ## Repository Layout
 
@@ -84,18 +86,18 @@ wordpress-auto-site-builder/
 
 ## Documentation
 
-- Chinese README: `README.zh-CN.md`
-- Installation: `INSTALL.md` / `INSTALL.zh-CN.md`
-- Documentation index: `docs/DOCUMENTATION_INDEX.md` / `docs/DOCUMENTATION_INDEX.zh-CN.md`
-- AI tool compatibility: `docs/AI_TOOL_COMPATIBILITY.md` / `docs/AI_TOOL_COMPATIBILITY.zh-CN.md`
-- Resume protocol: `docs/RESUME_PROTOCOL.md` / `docs/RESUME_PROTOCOL.zh-CN.md`
-- GitHub publishing: `docs/GITHUB_PUBLISHING.md` / `docs/GITHUB_PUBLISHING.zh-CN.md`
-- Contributing: `CONTRIBUTING.md` / `CONTRIBUTING.zh-CN.md`
-- Security: `SECURITY.md` / `SECURITY.zh-CN.md`
-- Support: `SUPPORT.md` / `SUPPORT.zh-CN.md`
-- Code of conduct: `CODE_OF_CONDUCT.md` / `CODE_OF_CONDUCT.zh-CN.md`
-- Roadmap: `ROADMAP.md` / `ROADMAP.zh-CN.md`
-- Changelog: `CHANGELOG.md` / `CHANGELOG.zh-CN.md`
+- Chinese README: [`README.zh-CN.md`](README.zh-CN.md)
+- Installation: [`INSTALL.md`](INSTALL.md) / [`INSTALL.zh-CN.md`](INSTALL.zh-CN.md)
+- Documentation index: [`docs/DOCUMENTATION_INDEX.md`](docs/DOCUMENTATION_INDEX.md) / [`docs/DOCUMENTATION_INDEX.zh-CN.md`](docs/DOCUMENTATION_INDEX.zh-CN.md)
+- AI tool compatibility: [`docs/AI_TOOL_COMPATIBILITY.md`](docs/AI_TOOL_COMPATIBILITY.md) / [`docs/AI_TOOL_COMPATIBILITY.zh-CN.md`](docs/AI_TOOL_COMPATIBILITY.zh-CN.md)
+- Resume protocol: [`docs/RESUME_PROTOCOL.md`](docs/RESUME_PROTOCOL.md) / [`docs/RESUME_PROTOCOL.zh-CN.md`](docs/RESUME_PROTOCOL.zh-CN.md)
+- GitHub publishing: [`docs/GITHUB_PUBLISHING.md`](docs/GITHUB_PUBLISHING.md) / [`docs/GITHUB_PUBLISHING.zh-CN.md`](docs/GITHUB_PUBLISHING.zh-CN.md)
+- Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md) / [`CONTRIBUTING.zh-CN.md`](CONTRIBUTING.zh-CN.md)
+- Security: [`SECURITY.md`](SECURITY.md) / [`SECURITY.zh-CN.md`](SECURITY.zh-CN.md)
+- Support: [`SUPPORT.md`](SUPPORT.md) / [`SUPPORT.zh-CN.md`](SUPPORT.zh-CN.md)
+- Code of conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) / [`CODE_OF_CONDUCT.zh-CN.md`](CODE_OF_CONDUCT.zh-CN.md)
+- Roadmap: [`ROADMAP.md`](ROADMAP.md) / [`ROADMAP.zh-CN.md`](ROADMAP.zh-CN.md)
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md) / [`CHANGELOG.zh-CN.md`](CHANGELOG.zh-CN.md)
 
 ## Helper Scripts
 

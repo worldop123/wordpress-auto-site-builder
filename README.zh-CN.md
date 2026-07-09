@@ -1,14 +1,16 @@
 # WordPress Auto Site Builder Skill
 
+[English README](README.md) | [中文文档索引](docs/DOCUMENTATION_INDEX.zh-CN.md)
+
 这是一个通用 AI Agent 工作流，用来搭建、重建、修复和优化 WordPress/WooCommerce SEO 网站。它适配 Codex、Claude、Trae、Cursor、OpenHands、Aider 等 AI 编程工具，只要工具可以读取文件、编辑文本、操作浏览器或调用 WordPress REST API，就可以按本 skill 执行。
 
 ## 技术栈约束
 
-- 主题依赖：Hello Elementor。
-- 页面搭建：Elementor HTML 小工具，每个页面只放页面专属 HTML/CSS/JS。
-- 功能实现：Code Snippets 插件承载 PHP hooks、一次性设置写入器、全局页眉页脚、局部交互 JS/CSS。
-- 电商流程：WooCommerce。
-- SEO：Rank Math，包含 metadata、sitemap、schema、robots/noindex、文章和产品 SEO。
+- 主题依赖：[Hello Elementor](https://wordpress.org/themes/hello-elementor/)。
+- 页面搭建：[Elementor](https://wordpress.org/plugins/elementor/) HTML 小工具，每个页面只放页面专属 HTML/CSS/JS。
+- 功能实现：[Code Snippets](https://wordpress.org/plugins/code-snippets/) 插件承载 PHP hooks、一次性设置写入器、全局页眉页脚、局部交互 JS/CSS。
+- 电商流程：[WooCommerce](https://wordpress.org/plugins/woocommerce/)。
+- SEO：[Rank Math](https://wordpress.org/plugins/seo-by-rank-math/)，包含 metadata、sitemap、schema、robots/noindex、文章和产品 SEO。
 
 除非用户明确要求，不创建自定义主题、大型插件或不可维护的大工程代码。
 
@@ -28,7 +30,7 @@
 - 旧站重建并保护产品和媒体库。
 - 现有网站全盘 SEO 优化，不改页面视觉结构。
 - 首页、政策页、产品页、产品归档、博客归档、单篇文章、购物车、结账、账户页重构。
-- 国家/语言/市场差异化设计，避免千篇一律。
+- 国家、语言、市场差异化设计，避免千篇一律。
 - SEO 文章批量生成、草稿、定时发布规划。
 - WooCommerce 产品 CSV 改写、图库、正文图片、变体和 Rank Math 字段完整性检查。
 - WooCommerce 官方导出 CSV 自定义元数据精细识别，区分受保护运行时 meta 和可编辑 SEO meta。
@@ -102,21 +104,21 @@ wordpress-auto-site-builder/
   .github/
 ```
 
-## 中断续做
-
-如果 AI 工具因为服务器错误、上下文限制、浏览器崩溃、网络失败或用户暂停而中断，继续前必须读取 `docs/RESUME_PROTOCOL.zh-CN.md`。只能从最后一个已验证检查点继续，不能盲目重复旧站清理、产品导入、文章发布、snippet 替换或上线索引操作。
-
 ## 文档入口
 
-- 英文 README：`README.md`
-- 安装说明：`INSTALL.zh-CN.md` / `INSTALL.md`
-- 文档索引：`docs/DOCUMENTATION_INDEX.zh-CN.md` / `docs/DOCUMENTATION_INDEX.md`
-- AI 工具兼容：`docs/AI_TOOL_COMPATIBILITY.zh-CN.md` / `docs/AI_TOOL_COMPATIBILITY.md`
-- 中断续做：`docs/RESUME_PROTOCOL.zh-CN.md` / `docs/RESUME_PROTOCOL.md`
-- GitHub 发布：`docs/GITHUB_PUBLISHING.zh-CN.md` / `docs/GITHUB_PUBLISHING.md`
-- 贡献指南：`CONTRIBUTING.zh-CN.md` / `CONTRIBUTING.md`
-- 安全政策：`SECURITY.zh-CN.md` / `SECURITY.md`
-- 支持说明：`SUPPORT.zh-CN.md` / `SUPPORT.md`
-- 行为准则：`CODE_OF_CONDUCT.zh-CN.md` / `CODE_OF_CONDUCT.md`
-- 路线图：`ROADMAP.zh-CN.md` / `ROADMAP.md`
-- 更新日志：`CHANGELOG.zh-CN.md` / `CHANGELOG.md`
+- [英文 README](README.md)
+- [安装说明](INSTALL.zh-CN.md) / [Installation](INSTALL.md)
+- [文档索引](docs/DOCUMENTATION_INDEX.zh-CN.md) / [Documentation Index](docs/DOCUMENTATION_INDEX.md)
+- [AI 工具兼容](docs/AI_TOOL_COMPATIBILITY.zh-CN.md) / [AI Tool Compatibility](docs/AI_TOOL_COMPATIBILITY.md)
+- [中断续做](docs/RESUME_PROTOCOL.zh-CN.md) / [Resume Protocol](docs/RESUME_PROTOCOL.md)
+- [GitHub 发布](docs/GITHUB_PUBLISHING.zh-CN.md) / [GitHub Publishing](docs/GITHUB_PUBLISHING.md)
+- [贡献指南](CONTRIBUTING.zh-CN.md) / [Contributing](CONTRIBUTING.md)
+- [安全政策](SECURITY.zh-CN.md) / [Security](SECURITY.md)
+- [支持说明](SUPPORT.zh-CN.md) / [Support](SUPPORT.md)
+- [行为准则](CODE_OF_CONDUCT.zh-CN.md) / [Code of Conduct](CODE_OF_CONDUCT.md)
+- [路线图](ROADMAP.zh-CN.md) / [Roadmap](ROADMAP.md)
+- [更新日志](CHANGELOG.zh-CN.md) / [Changelog](CHANGELOG.md)
+
+## 中断续做
+
+如果 AI 工具因为服务器错误、上下文限制、浏览器崩溃、网络失败或用户暂停而中断，继续前必须读取 [中断续做协议](docs/RESUME_PROTOCOL.zh-CN.md)。只能从最后一个已验证检查点继续，不能盲目重复旧站清理、产品导入、文章发布、snippet 替换或上线索引操作。

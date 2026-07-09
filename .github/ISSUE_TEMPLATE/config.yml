@@ -1,8 +1,14 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 中文支持说明
+    url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SUPPORT.zh-CN.md
+    about: 提问前请先阅读中文支持说明。
   - name: Support guide
     url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SUPPORT.md
     about: Read this before asking for help.
+  - name: 中文安全政策
+    url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SECURITY.zh-CN.md
+    about: 请按安全政策私下报告漏洞。
   - name: Security policy
     url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SECURITY.md
     about: Report vulnerabilities privately.

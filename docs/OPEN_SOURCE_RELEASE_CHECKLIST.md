@@ -34,6 +34,7 @@ Use this before publishing the skill to GitHub.
 - [ ] No reference contradicts the interruption resume protocol.
 - [ ] No reference allows launch before articles, products, pages, SEO, and QA are complete.
 - [ ] No reference allows page HTML, article planning, or Rank Math SEO generation before product CSV/live product understanding.
+- [ ] CSV product rewriting rules require intelligent rewriting of product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields; no rule permits translation-only, synonym-only, or repeated original CSV copy patterns.
 - [ ] No reference tells agents to blindly agree with risky user instructions; risky requests require pros/cons, safer alternatives, and confirmation or a safe autonomous choice.
 - [ ] No snippet guide recommends unsafe global DOM loops or unverified auto-submit.
 - [ ] Rank Math Free workflow uses content-aware audit plus Code Snippets one-time writer, not unavailable CSV SEO import.
@@ -43,6 +44,7 @@ Use this before publishing the skill to GitHub.
 - [ ] Fixed stack is documented: Hello Elementor, Elementor, WooCommerce, Code Snippets, Rank Math.
 - [ ] Full store surface is required: home, custom pages, products, product archives, blog archives, single posts, cart, checkout, account, policies.
 - [ ] CSV import integrity covers featured images, galleries, body images, long descriptions, variations, attributes, and Rank Math fields.
+- [ ] CSV rewrite reports include naming strategy, description strategy, SEO strategy, uniqueness checks, and any customer-facing source copy intentionally preserved.
 - [ ] Official WooCommerce CSV parsing prefers double-quote-safe Excel/RFC parsing and validates `Images`, `Parent`, `Position`, and `Meta:` columns before rewriting.
 - [ ] Product knowledge ledger is required before homepage preview, page HTML, article planning, image ALT planning, and Rank Math metadata.
 - [ ] Custom metadata policy distinguishes editable Rank Math/Yoast SEO fields from protected runtime, analytics, serialized, or unknown meta fields.

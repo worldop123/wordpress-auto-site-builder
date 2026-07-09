@@ -140,7 +140,9 @@ When configuring WordPress plugins, themes, or settings, the agent MUST:
 
 WooCommerce product data must never be lost, corrupted, or accidentally modified:
 - Product ID, SKU, slug, price, stock, images, categories, attributes, and variations are sacred
-- When rewriting product CSV data, only rewrite customer-facing fields (title, description, SEO metadata)
+- When rewriting product CSV data, only rewrite customer-facing fields (name/title, short description, long body description, editable image text, SEO metadata)
+- CSV rewriting must be intelligent originality work, not translation-only or synonym replacement. Rebuild product names, short descriptions, and long descriptions from verified product facts, target market intent, category strategy, and compliance limits while varying patterns across the catalog.
+- Never invent specs, certifications, compatibility, shipping promises, reviews, guarantees, or regulated claims during product copy rewrites
 - When cleaning up an old site, products and media library are PRESERVED
 - If any product data is lost during any operation, STOP immediately and inform the user
 

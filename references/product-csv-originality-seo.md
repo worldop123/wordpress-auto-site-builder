@@ -1,10 +1,12 @@
 # Product CSV Originality and Rank Math SEO
 
-Use this when the user provides an official WordPress/WooCommerce product export CSV and wants product titles, short descriptions, product body/long descriptions, and product SEO data rewritten before re-import.
+Use this when the user provides an official WordPress/WooCommerce product export CSV and wants product names/titles, short descriptions, product body/long descriptions, editable image text, and product SEO data rewritten before re-import.
 
 ## Goal
 
 Produce a re-import-ready CSV that keeps WooCommerce product identity and commerce data intact while making customer-facing product copy original, useful, compliant, and aligned with Rank Math product SEO.
+
+The rewrite must be intelligent content transformation, not simple translation, synonym swapping, or preserving the source CSV title/description/body pattern. Treat the source CSV as raw product facts and evidence, then create differentiated product names, short descriptions, long descriptions, SEO fields, and image text for the target market.
 
 ## First inspect the CSV
 
@@ -127,13 +129,33 @@ Use `--charm-ending 0.99` only when the target market uses psychological pricing
 ## Originality rewrite rules
 
 - Rewrite product copy from the product's actual facts, not generic adjectives.
+- Do not only translate the original product name, short description, or long description. Translation can be a starting point only; the final copy must be newly planned for the target market, buyer intent, SEO opportunity, and category context.
+- Do not preserve the same source CSV content with minor synonym changes. If the source has repetitive manufacturer text, thin descriptions, duplicated bodies, or formulaic names, rebuild the copy architecture.
 - Preserve factual specs, sizes, flavors, colors, compatibility, package contents, materials, shipping notes, and usage limits.
 - Vary title patterns across products; do not make every title the same formula.
+- Rewrite product names/titles with useful differentiation: product type, key attribute, model/series, material/flavor/color/size, compatibility, pack count, or primary use case when those facts are available.
 - Keep titles natural and searchable, not stuffed.
-- Keep short descriptions concise and purchase-oriented.
-- Use long descriptions for structured SEO depth: intro, key specs, use cases, what's included, shipping/returns note, FAQ if appropriate.
+- Avoid adding unsupported superlatives such as "best", "premium", "official", "certified", or "guaranteed" unless the source proves them.
+- Keep short descriptions concise and purchase-oriented. Each short description should surface the most relevant differentiator, not repeat the title in sentence form.
+- Rewrite long descriptions as structured buying content. Depending on available facts, use sections such as overview, key specs, buyer use cases, compatibility/fit, flavor/material notes, package contents, care/use instructions, shipping/returns note, compliance note, and FAQ.
+- Preserve inline/body images, existing valid HTML, tables, lists, and media references unless they are broken or explicitly being replaced. Rewrite surrounding text without dropping product detail images.
+- Vary body structure across categories where useful. A size/fit product, flavor product, accessory, replacement part, bundle, and regulated product should not all use the same section rhythm.
+- Make product copy internally linkable: identify likely category anchors, comparison angles, FAQ topics, and article ideas in the change report when the CSV facts support them.
+- Align SEO fields with the rewritten copy, not the old source title. SEO titles, meta descriptions, and focus keywords must reflect the new product name/category and a real differentiator.
 - For regulated products, avoid health, safety, cessation, medical, guaranteed result, or illegal-use claims.
-- Do not invent specs, certifications, stock status, shipping times, reviews, awards, or guarantees.
+- Do not invent specs, certifications, stock status, shipping times, reviews, awards, guarantees, compatibility, material, country of origin, or performance claims.
+
+### Product rewrite planning checklist
+
+Before rewriting the full CSV, create a short rewrite plan:
+
+- Naming strategy by category: which product facts belong in names, which facts belong in descriptions, and which words should be avoided.
+- Description strategy by product group: expected short-description angle, long-description section pattern, FAQ/spec use, and compliance limits.
+- SEO strategy: primary keyword pattern, category keyword boundaries, cannibalization risks, and Rank Math field format.
+- Uniqueness strategy: how similar SKUs, variations, bundles, colors, flavors, or sizes will stay distinct without fabricated claims.
+- Evidence limits: facts that are missing and therefore must not be invented.
+
+For catalogs larger than a few products, rewrite and review a 3-5 product sample first unless the user explicitly authorized autonomous full processing. The sample should include different product types or categories where possible.
 
 ## Rank Math product SEO mapping
 
@@ -156,7 +178,7 @@ If Rank Math fields are not present in the CSV:
 3. Inspect headers and row counts.
 4. Identify safe editable columns.
 5. Rewrite one sample product first if the catalog is large or the style is uncertain.
-6. Produce the full rewritten CSV after style confirmation or when the user requested direct processing.
+6. Produce the full rewritten CSV after style confirmation or when the user requested direct processing. Ensure the full pass rewrites product names/titles, short descriptions, long descriptions/body content, editable image text, and Rank Math fields where present; do not leave original source copy in customer-facing fields unless the field is already excellent and the change report explains why it was preserved.
 7. Validate:
    - Same row count as source unless intentionally filtered.
    - Same identity fields.
@@ -205,6 +227,8 @@ Every CSV import deliverable must include:
 - Source currency, target currency, exchange rate, rate source/timestamp, rounding rule, converted price columns, and original-price backup columns when conversion was used.
 - Product/variation counts by type.
 - Preserved identity fields and rewritten fields.
+- Rewrite strategy summary: naming patterns used, short-description angles, long-description structures, SEO keyword patterns, sample before/after notes, and any source copy intentionally preserved.
+- Uniqueness checks: duplicate or near-duplicate titles, repeated short-description formulas, repeated meta descriptions, and products whose long descriptions still need manual product facts.
 - Expected featured/gallery/body image counts and actual sampled results.
 - Import warnings, failed rows, failed image URLs, and remediation steps.
 - Large-file transport details when used: media attachment ID, CSV URL, file size, SHA-256 hash, dry-run result, importer snippet ID, cleanup status, and manual-upload fallback if automation was not safe.

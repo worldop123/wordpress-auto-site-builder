@@ -55,6 +55,7 @@ Some AI coding tools jump from requirement to code too quickly. Force this proto
 - If a required artifact is missing, mark the phase blocked instead of improvising.
 - If the agent cannot run browser tests, REST API calls, or shell commands, it must output paste-ready artifacts plus a manual verification checklist.
 - If the agent cannot read the product CSV, it must not generate homepage/page/SEO/blog content.
+- If the agent rewrites a product CSV, it must rewrite product names, short descriptions, long body descriptions, editable image text, and Rank Math fields from verified product facts. It must not only translate, lightly paraphrase, or preserve the original source CSV copy pattern across products.
 - If the agent cannot access WordPress, it must produce local deliverables only and say which live steps remain.
 
 ## Capability Fallback Matrix
@@ -101,5 +102,5 @@ Keep these mirrors short. They should point back to `SKILL.md` and the `referenc
 - Core rules exist in `references/` and can be read by any agent.
 - All scripts run with standard Python and no private local paths.
 - Docs explain what to do when the agent lacks browser, shell, GitHub, or WordPress access.
-- Chinese and English docs both mention language matching, autonomous vs ask-user mode, product knowledge gate, resume ledger, critical judgment, launch gate, and live QA.
+- Chinese and English docs both mention language matching, autonomous vs ask-user mode, product knowledge gate, intelligent product CSV rewriting, resume ledger, critical judgment, launch gate, and live QA.
 - Adapter instructions or templates exist for major agent families when possible.

@@ -33,6 +33,7 @@ Use the wordpress-auto-site-builder skill in this repository.
 First read SKILL.md, then read only the reference files needed for my task.
 Use autonomous mode only if I explicitly authorize it; otherwise use ask-user mode.
 Keep products/media protected, implement through Hello Elementor + Elementor HTML + Code Snippets, and do not enter launch mode until pages, products, articles, SEO, and full QA pass.
+When rewriting product CSV files, do intelligent originality rewriting of product names, short descriptions, long body descriptions, editable image text, and Rank Math fields from verified facts; do not merely translate or keep the original CSV copy pattern.
 Start by asking which service mode I need: new site build, old-site rebuild, or existing-site SEO optimization. If I choose existing-site SEO optimization, do not rebuild pages; inventory current content and update SEO data only.
 ```
 
@@ -43,4 +44,5 @@ Start by asking which service mode I need: new site build, old-site rebuild, or 
 - If a tool cannot safely store credentials, use user-guided login or short-lived application passwords and revoke them after use.
 - If a tool cannot run full QA, it must mark the missing checks as blockers instead of claiming launch readiness.
 - If a tool cannot read or inspect the product CSV/live products, it must not generate homepage HTML, page copy, article topics, image ALT plans, or Rank Math SEO metadata.
+- If a tool rewrites product CSV content, it must rewrite product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields from the product knowledge ledger. Translation-only, synonym-only, or catalog-wide repeated formulas are blockers.
 - If a user request is risky or likely wrong, the agent must explain benefits, risks, and safer alternatives before acting. It must not blindly agree with requests that break checkout, delete protected data, skip QA, copy protected content, hardcode secrets, or launch early.

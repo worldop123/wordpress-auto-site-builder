@@ -112,6 +112,8 @@ Required product knowledge ledger:
 
 Do not proceed to style preview, page HTML, article generation, or SEO metadata writing until this ledger exists and CSV blockers are resolved. If no CSV is provided, build the same understanding from live WooCommerce products before generating SEO-sensitive content.
 
+CSV rewrite work must transform customer-facing product copy, not merely translate it. Before re-import prep, create a rewrite strategy for product names, short descriptions, long body descriptions, editable image text, and Rank Math fields. Use actual product facts and market intent, vary patterns across products/categories, preserve protected import fields, and block the rewrite if it would require invented specs, false claims, or dropping body/detail images.
+
 ## 2. Environment inspection
 
 Check:

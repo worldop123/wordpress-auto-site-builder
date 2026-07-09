@@ -4,6 +4,7 @@
 
 ## [未发布]
 
+- 要求 WooCommerce 产品 CSV 智能改写产品名、短描述、长正文/正文内容、可编辑图片文字和 Rank Math 字段；明确把只翻译和沿用原 CSV 重复文案套路列为 blocker。
 - 增加 GitHub 社区健康文档、CI、文档索引、支持说明、路线图和发布指南。
 - 增加仿站/参考站捕获流程，包括本地 HTML 快照保存、页面类型 manifest 生成、WordPress/WooCommerce 差异化重构规则。
 - 增加本地化 WooCommerce 产品导入价格货币转换流程，包括原始价格备份 meta 列和汇率台账要求。

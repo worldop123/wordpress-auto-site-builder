@@ -22,6 +22,22 @@ Before editing, identify:
 
 If unsure about field meaning, preserve it unchanged and report it.
 
+## Product knowledge before page and SEO generation
+
+The CSV inspection must happen before creating homepage HTML, custom page HTML, category copy, product page enhancement copy, blog/article plans, image ALT text, or Rank Math metadata. Product data is the source material for the site's content strategy.
+
+Create a product knowledge ledger with:
+
+- Product counts by type: simple, variable, variation, grouped, external.
+- Category, tag, attribute, flavor/color/size/spec, and parent/variation structure.
+- Representative product names, SKUs, slugs, price range, sale-price patterns, stock/catalog visibility, shipping/compliance notes, and targetable differentiators.
+- Description quality: missing short descriptions, thin long descriptions, duplicate wording, body/detail image usage, FAQ/spec opportunities, and prohibited claims.
+- Media coverage: featured image availability, gallery counts, inline body images, image ALT/title/caption fields, remote URLs, and WebP/conversion needs.
+- SEO state: existing Rank Math title, description, focus keyword, robots/canonical fields, duplicate/missing values, and keyword cannibalization risks.
+- Content outputs unlocked by this knowledge: homepage product/category sections, shop/category introductions, product-page trust/FAQ blocks, policy wording, article topics, internal-link plan, schema evidence, and image ALT themes.
+
+Do not generate generic page sections such as "featured products", "premium quality", or "best sellers" without mapping them to real products/categories or dynamic WooCommerce queries. If product facts are missing or the CSV parser report shows blockers, fix inspection first.
+
 ### WooCommerce official CSV sanity checks
 
 For official WooCommerce exports, run these checks before any rewrite/import:

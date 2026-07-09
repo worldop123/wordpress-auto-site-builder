@@ -20,6 +20,8 @@ Can be skipped only when:
 
 Generate one complete homepage style preview using real inputs. Do not make a thin mockup with only a hero and one product row.
 
+If the user supplied a product CSV or the site already has WooCommerce products, inspect that product data first and use the product knowledge ledger as preview input. The preview must reflect actual product categories, representative products, price/currency signals, product media availability, shipping/compliance constraints, and likely buyer questions.
+
 - Brand name and logo if available.
 - Real product/category names or service names.
 - Real market/language/currency/shipping/compliance signals.

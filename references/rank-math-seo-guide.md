@@ -509,8 +509,9 @@ Before writing metadata:
 
 1. Create a content inventory from live WordPress content and build artifacts.
 2. Inspect each page, product, post, and taxonomy before generating SEO fields.
-3. Use the build ledger/resume ledger/product CSV report/article plan as a knowledge base, but verify against live content.
-4. Produce an SEO mapping with:
+3. If a product CSV was provided, inspect it first and use the product knowledge ledger to understand categories, attributes, prices, images, descriptions, product groups, compliance limits, and SEO opportunities before generating any page/product/category/blog metadata.
+4. Use the build ledger/resume ledger/product knowledge ledger/product CSV report/article plan as a knowledge base, but verify against live content.
+5. Produce an SEO mapping with:
    - `id`
    - `object_type`: `post`, `page`, `product`, `term`
    - `seo_title`

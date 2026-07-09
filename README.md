@@ -24,6 +24,7 @@ The skill is designed for Codex, Claude, Trae, Cursor, OpenHands, Aider, and oth
 - Country/language-specific design variation
 - SEO article batch generation
 - WooCommerce product CSV rewriting and import integrity
+- Product knowledge ledger before homepage/page HTML, article plans, and Rank Math SEO generation
 - Product price currency conversion for localized/small-language WooCommerce sites
 - Official WooCommerce CSV custom metadata inspection, including protected runtime meta and editable SEO meta
 - Logo plus separate favicon/site icon generation and verification

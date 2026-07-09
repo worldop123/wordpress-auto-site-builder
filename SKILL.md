@@ -163,6 +163,9 @@ Unless the user explicitly opts out, every full SEO ecommerce build MUST create 
 When importing or rewriting WooCommerce CSV data, product data and media integrity are mandatory:
 
 - For official WooCommerce CSV exports, prefer RFC/Excel CSV parsing with doubled-quote support (`doublequote=True`) and verify parser quality before editing. Do not blindly trust delimiter sniffing when product descriptions contain HTML.
+- When a product CSV is provided, inspect and summarize it BEFORE generating homepage previews, page HTML, product/category copy, blog topics, or Rank Math SEO metadata. Page code and SEO data must be based on real product names, categories, attributes, prices, images, descriptions, and compliance limits, not guesses.
+- Produce a product knowledge ledger before design/content generation: product/category counts, representative products, variable/simple product mix, key attributes, price range/currency, image/gallery/body-image coverage, current descriptions, SEO fields, protected fields, and content opportunities.
+- If the CSV cannot be parsed or product facts are unclear, stop page/SEO generation and fix the CSV inspection first. Do not create generic HTML sections or generic SEO metadata while product understanding is missing.
 - Preserve IDs/SKUs/slugs/parents/variations/attributes/prices/stock/categories unless explicitly changing them.
 - If the source product prices are in a different currency than the target site currency, convert prices before import using a recorded exchange rate. Do not hardcode exchange rates in the skill; use a user-provided rate or a live rate checked at build time and record source, timestamp, source currency, target currency, rounding rule, and sample converted products.
 - Preserve the original source prices in backup meta columns or an import ledger before replacing `Regular price` and `Sale price`.
@@ -563,7 +566,8 @@ Read `references/post-build-actions.md` for the complete post-build action guide
 9. Read `references/elementor-html-automation.md` before opening Elementor, setting Elementor Canvas, adding HTML widgets, or pasting page HTML.
 10. Read `references/style-preview-gate.md` before building the full site; produce a homepage style preview and wait for user approval before broad page import.
 11. Read `references/product-csv-originality-seo.md` when the user provides a WordPress/WooCommerce product export CSV for product title, description, content, or Rank Math SEO rewriting before import.
-11a. Read `references/reference-site-capture.md` when the user provides a site URL to clone, imitate, reference, or rebuild from. Capture public/authorized HTML snapshots locally and transform the layout into original WordPress/WooCommerce implementation.
+11a. If a product CSV was provided, run product CSV inspection and create the product knowledge ledger before generating any homepage preview, page HTML, article plan, or SEO mapping.
+11b. Read `references/reference-site-capture.md` when the user provides a site URL to clone, imitate, reference, or rebuild from. Capture public/authorized HTML snapshots locally and transform the layout into original WordPress/WooCommerce implementation.
 12. Read `references/design-variation.md` before generating page HTML/CSS so every site and article batch has a distinct, non-AI-looking design direction.
 13. Read `references/automation-and-safety.md` before touching wp-admin, WooCommerce settings, snippets, or live content.
 14. Read `references/google-seo-guidelines.md` for comprehensive Google SEO official guidelines, E-E-A-T, spam policies, and best practices.

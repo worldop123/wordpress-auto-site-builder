@@ -1,4 +1,4 @@
-# QA and Launch Checklist
+﻿# QA and Launch Checklist
 
 Do not claim completion until relevant checks are run or explicitly blocked. Every item in this checklist must be verified on BOTH desktop and mobile unless explicitly noted.
 
@@ -118,7 +118,7 @@ This section is MANDATORY. Every interactive element must be tested on both desk
 - Site icon/favicon remains clear at 32x32 and 64x64; it is not dark, muddy, cropped, or visually merged into browser UI.
 - WordPress `custom_logo` and `site_icon` are configured with separate suitable assets when the generated full logo is too detailed for favicon use.
 - Every social sharing image (OpenGraph) is configured.
-- Every image is optimized (not oversized — check file size vs display size).
+- Every image is optimized (not oversized 鈥?check file size vs display size).
 - Every image uses WebP format (see WebP conversion section below).
 
 ### Mobile-specific image checks
@@ -200,22 +200,23 @@ ALL images on the site must be converted to WebP format. This is a hard requirem
 - Homepage preview and final homepage include a complete header, footer, mobile behavior, product/category area, payment/shipping/order facts, and buyer guidance.
 - Page copy and visual treatment pass anti-AI review: no generic filler slogans, fake claims, repeated template sections, or unsupported social proof.
 - Home returns HTTP 200 and renders header/footer.
-- Custom Elementor pages use Elementor Canvas where required. **DEAD RULE: Verify EVERY custom page has Canvas set — no theme header/footer visible on any custom page.**
+- Custom Elementor pages use Elementor Canvas where required. **DEAD RULE: Verify EVERY custom page has Canvas set 鈥?no theme header/footer visible on any custom page.**
 - Custom Elementor pages contain the intended HTML widget content and no duplicate generated widgets.
 
-### DEAD RULE Verification (MANDATORY — All Must Pass)
+### DEAD RULE Verification (MANDATORY 鈥?All Must Pass)
 
 Before marking the build as complete, verify ALL dead rules were followed:
 
-- [ ] **Dead Rule 1 — Elementor Canvas**: Every custom page (Home, Blog, Contact, About, FAQ, Policy pages) has Canvas set. Verified by loading each page — no Hello Elementor default header/footer/menu visible.
-- [ ] **Dead Rule 2 — Age Gate**: Age gate is a global Code Snippets PHP snippet using `wp_footer` hook. NOT in any Elementor HTML widget. Verified: age gate appears on first visit, disappears after confirmation, works on all pages.
-- [ ] **Dead Rule 3 — Batch Import**: If any page used batch import, verify: no broken HTML tags, no orphaned closing tags, no missing sections, complete page renders correctly.
-- [ ] **Dead Rule 4 — WooCommerce Pages**: WooCommerce pages regenerated (Status → Tools → Install pages) and bound (Settings → Advanced shows correct pages). Verified for BOTH new and old sites.
-- [ ] **Dead Rule 5 — Dynamic Data**: Homepage and Blog use dynamic data containers filled by Code Snippets PHP. No hardcoded product names, prices, images, or article titles in page HTML. Containers show real data.
-- [ ] **Dead Rule 6 — Product Images**: All images in page HTML are real product images from the media library. No placeholder/stock/fake images. All images are WebP.
-- [ ] **Dead Rule 7 — Import Order**: Global shell (header/footer/CSS/JS) was created and verified BEFORE any page HTML was imported. Page HTML was imported one page at a time.
-- [ ] **Dead Rule 8 — SEO/Speed/WebP**: Rank Math metadata set for all content. PageSpeed mobile 90+. ALL images converted to WebP. Cart fragments disabled on non-shop pages.
-- [ ] **Dead Rule 9 — No Launch Before Completion**: Product/store pages, archives, blog surfaces, initial article batch, Rank Math SEO, sitemap/schema, and full desktop/mobile QA are complete before launch/indexing mode.
+- [ ] **Dead Rule 1 鈥?Elementor Canvas**: Every custom page (Home, Blog, Contact, About, FAQ, Policy pages) has Canvas set. Verified by loading each page 鈥?no Hello Elementor default header/footer/menu visible.
+- [ ] **Dead Rule 2 鈥?Age Gate**: Age gate is a global Code Snippets PHP snippet using `wp_footer` hook. NOT in any Elementor HTML widget. Verified: age gate appears on first visit, disappears after confirmation, works on all pages.
+- [ ] **Dead Rule 3 鈥?Batch Import**: If any page used batch import, verify: no broken HTML tags, no orphaned closing tags, no missing sections, complete page renders correctly.
+- [ ] **Dead Rule 4 鈥?WooCommerce Pages**: WooCommerce pages regenerated (Status 鈫?Tools 鈫?Install pages) and bound (Settings 鈫?Advanced shows correct pages). Verified for BOTH new and old sites.
+- [ ] **Dead Rule 5 鈥?Dynamic Data**: Homepage and Blog use dynamic data containers filled by Code Snippets PHP. No hardcoded product names, prices, images, or article titles in page HTML. Containers show real data.
+- [ ] **Dead Rule 6 鈥?Product Images**: All images in page HTML are real product images from the media library. No placeholder/stock/fake images. All images are WebP.
+- [ ] **Dead Rule 7 鈥?Import Order**: Global shell (header/footer/CSS/JS) was created and verified BEFORE any page HTML was imported. Page HTML was imported one page at a time.
+- [ ] **Dead Rule 8 鈥?SEO/Speed/WebP**: Rank Math metadata set for all content. PageSpeed mobile 90+. ALL images converted to WebP. Cart fragments disabled on non-shop pages.
+- [ ] **Dead Rule 9 鈥?No Launch Before Completion**: Product/store pages, archives, blog surfaces, initial article batch, Rank Math SEO, sitemap/schema, and full desktop/mobile QA are complete before launch/indexing mode.
+- [ ] **Product Knowledge Gate**: If a product CSV or live products were available, a product knowledge ledger was created before homepage preview, page HTML, article planning, and Rank Math metadata generation.
 - Header/primary menu renders expected links.
 - Footer/support menu renders expected policy/support links.
 - Mobile menu opens, closes, and links to the same intended destinations.
@@ -247,6 +248,7 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - Home page and posts/blog page reading settings are correct.
 - Header, footer, and mobile menu locations are assigned or rendered from the global shell.
 - If products were prepared from CSV, row count, IDs, SKUs, slugs, parent/variation relationships, prices, stock, categories, and image URLs were preserved unless intentionally changed.
+- If products were prepared from CSV, homepage sections, page copy, category copy, article topics, image ALT themes, and Rank Math metadata can be traced back to the product knowledge ledger instead of generic ecommerce assumptions.
 - If product prices were converted from another currency, the import ledger records source currency, target currency, rate, rate source/timestamp, rounding rule, converted columns, original backup columns, and sample converted products.
 - Converted product prices display in the target WooCommerce currency on product pages, archives, cart, checkout, order review, and Product schema `priceCurrency`.
 - If products were imported from rewritten CSV, sample products show rewritten title, short description, long description, and correct Rank Math product SEO data.
@@ -385,7 +387,7 @@ The global shell architecture must be verified. Read `global-shell-architecture.
 - [ ] Footer mobile layout is correct (stacked, responsive).
 
 ### Global CSS
-- [ ] Global CSS is in Appearance → Customize → Additional CSS (not in page HTML widgets).
+- [ ] Global CSS is in Appearance 鈫?Customize 鈫?Additional CSS (not in page HTML widgets).
 - [ ] CSS variables (design tokens) are defined and used consistently.
 - [ ] Header styles are in global CSS (not in page HTML).
 - [ ] Footer styles are in global CSS (not in page HTML).

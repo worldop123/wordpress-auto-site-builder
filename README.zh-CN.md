@@ -34,6 +34,7 @@
 - 国家、语言、市场差异化设计，避免千篇一律。
 - SEO 文章批量生成、草稿、定时发布规划。
 - WooCommerce 产品 CSV 改写、图库、正文图片、变体和 Rank Math 字段完整性检查。
+- 页面 HTML、文章计划和 Rank Math SEO 生成前，必须先基于产品 CSV 或现有产品建立产品知识台账。
 - 小语种/本地化 WooCommerce 站点导入产品前，按目标币种转换产品价格。
 - WooCommerce 官方导出 CSV 自定义元数据精细识别，区分受保护运行时 meta 和可编辑 SEO meta。
 - 生成网站 logo 时同步生成并配置独立 favicon/site icon，检查小尺寸清晰度。

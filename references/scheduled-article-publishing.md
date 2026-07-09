@@ -47,7 +47,7 @@ If the user explicitly says "pre-approve all articles in this batch" or "auto-pu
 
 ### Context Awareness
 Before generating any article, the agent MUST understand:
-1. **Site products**: What products does the site sell? What categories? What are the key product features?
+1. **Site products**: What products does the site sell? What categories? What are the key product features? If a CSV was provided, use the product knowledge ledger before choosing article topics, links, images, FAQs, or focus keywords.
 2. **Target market**: Which country/region is the site targeting? Read `global-design-preferences.md` for cultural and language conventions.
 3. **Language**: What language should articles be in? Match the site's primary language.
 4. **SEO keywords**: What are the seed keywords? What products/categories are priority?

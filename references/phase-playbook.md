@@ -97,6 +97,21 @@ If SiteGround is detected:
 - Mark unknowns explicitly.
 - Ask only for unknowns that block execution or could cause a harmful live change.
 
+### 1a. Product understanding gate for CSV-backed builds
+
+If the user provides a WooCommerce product CSV, inspect it before generating homepage previews, page HTML, category copy, article topics, or Rank Math SEO mappings. Product understanding is an upstream content dependency, not only an import step.
+
+Required product knowledge ledger:
+
+- CSV file name, encoding, delimiter, parser quality, row count, column count, and product type counts.
+- Product/category/tag/attribute summary, including simple vs variable product mix and variation parent health.
+- Representative products, priority categories, price range, currency context, sale-price relationships, stock/publish/catalog visibility signals, and shipping/compliance clues.
+- Existing short descriptions, long descriptions, body/detail images, featured/gallery image coverage, Rank Math fields, and custom meta policies.
+- Content opportunities for homepage sections, shop/category copy, product page trust blocks, FAQ/policy wording, article topics, internal links, focus keywords, and image ALT text.
+- Protected fields that must not be rewritten or used as assumptions.
+
+Do not proceed to style preview, page HTML, article generation, or SEO metadata writing until this ledger exists and CSV blockers are resolved. If no CSV is provided, build the same understanding from live WooCommerce products before generating SEO-sensitive content.
+
 ## 2. Environment inspection
 
 Check:
@@ -155,7 +170,7 @@ Before full page buildout, the agent MUST regenerate and bind WooCommerce pages.
 
 Read `code-snippets-implementation-guide.md` Section 2.2 for the exact binding code.
 
-Before full page buildout, read `style-preview-gate.md` and generate one homepage style preview. Pause for approval unless the user explicitly waived the gate. Use the approved preview as the source of truth for visual language, spacing, menu emphasis, section rhythm, and copy tone.
+Before full page buildout, read `style-preview-gate.md` and generate one homepage style preview. If a product CSV or live products are available, the preview must use the product knowledge ledger. Pause for approval unless the user explicitly waived the gate. Use the approved preview as the source of truth for visual language, spacing, menu emphasis, section rhythm, and copy tone.
 
 Create or verify:
 
@@ -266,6 +281,8 @@ Dynamic renderer rules:
 ### DEAD RULE: Dynamic Data via Code Snippets — No Static Data
 
 Generate Elementor HTML block content for Home, Blog, Contact, policies, FAQ, and About.
+
+Before writing page HTML, read the product knowledge ledger created in Phase 1a or the live WooCommerce product inventory. Use it to decide which sections, category groupings, product benefits, compliance notes, FAQs, internal links, and dynamic containers belong on each page. Do not write generic ecommerce sections when product facts are available.
 
 ### Full storefront surface layout
 

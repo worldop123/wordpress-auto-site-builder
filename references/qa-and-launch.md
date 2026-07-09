@@ -374,6 +374,8 @@ Use this section when `site.build_mode` is `existing_seo_optimization`. Passing 
 
 The global shell architecture must be verified. Read `global-shell-architecture.md` for the complete architecture.
 
+This gate must be completed before any production Elementor page HTML is generated, pasted, imported, or updated. If a build ledger shows page HTML work before global header/footer/menu, Additional CSS, global JS, and dynamic renderers were verified, treat the build as out of order and repair the shell/page separation before launch.
+
 ### Global header
 - [ ] Global header Code Snippet is active and persistent.
 - [ ] Header uses `wp_body_open` hook (not hardcoded in page HTML).
@@ -420,6 +422,7 @@ The global shell architecture must be verified. Read `global-shell-architecture.
 - [ ] Global JS is NOT duplicated in any Elementor HTML page widget.
 
 ### Page HTML isolation
+- [ ] Build ledger proves global shell verification happened before page HTML generation/import.
 - [ ] No page HTML widget contains `<header>` tags.
 - [ ] No page HTML widget contains `<footer>` tags.
 - [ ] No page HTML widget contains navigation menu HTML.

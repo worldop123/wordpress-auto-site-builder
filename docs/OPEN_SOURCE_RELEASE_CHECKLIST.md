@@ -34,6 +34,7 @@ Use this before publishing the skill to GitHub.
 - [ ] No reference contradicts the interruption resume protocol.
 - [ ] No reference allows launch before articles, products, pages, SEO, and QA are complete.
 - [ ] No reference allows page HTML, article planning, or Rank Math SEO generation before product CSV/live product understanding.
+- [ ] No reference allows production Elementor page HTML generation/import before global header, footer/menu, Additional CSS, global JS, and dynamic renderers are active and verified.
 - [ ] CSV product rewriting rules require intelligent rewriting of product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields using target market/language, single-language or multilingual strategy, design/content tone, brand replacements, payment/shipping facts, and currency; no rule permits translation-only, synonym-only, mixed-language fields, currency mistakes, unsupported commerce promises, or repeated original CSV copy patterns.
 - [ ] No reference tells agents to blindly agree with risky user instructions; risky requests require pros/cons, safer alternatives, and confirmation or a safe autonomous choice.
 - [ ] No snippet guide recommends unsafe global DOM loops or unverified auto-submit.
@@ -43,6 +44,7 @@ Use this before publishing the skill to GitHub.
 
 - [ ] Fixed stack is documented: Hello Elementor, Elementor, WooCommerce, Code Snippets, Rank Math.
 - [ ] Full store surface is required: home, custom pages, products, product archives, blog archives, single posts, cart, checkout, account, policies.
+- [ ] Global shell ordering is explicit: Code Snippets header/footer/menu first, global CSS in Additional CSS, global JS in Code Snippets, dynamic renderers, then page HTML one page at a time.
 - [ ] CSV import integrity covers featured images, galleries, body images, long descriptions, variations, attributes, and Rank Math fields.
 - [ ] CSV rewrite reports include localization strategy, design-content alignment, commerce trust strategy, brand replacement strategy, naming strategy, description strategy, SEO strategy, uniqueness checks, and any customer-facing source copy intentionally preserved.
 - [ ] Brand replacement rules explicitly protect image URLs, inline `<img src>`, media attachment IDs, CDN paths, and download URLs from string replacement.

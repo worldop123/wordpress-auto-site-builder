@@ -194,6 +194,8 @@ Rules:
 
 ### DEAD RULE: Elementor Canvas (MANDATORY for all custom pages)
 
+Before this Canvas phase, the global shell gate must already be complete: global header, footer/menu, global CSS in Additional CSS, global JS in Code Snippets, and required dynamic renderers are active and verified. If the shell gate is not complete, stop and finish `global-shell-architecture.md` first.
+
 For Elementor-designed pages, read `elementor-html-automation.md` and use a resumable page ledger. **The agent MUST set Page Layout to Elementor Canvas on EVERY custom page BEFORE adding any HTML widget.** This is a DEAD RULE.
 
 Enforcement procedure for EACH custom page:
@@ -203,7 +205,7 @@ Enforcement procedure for EACH custom page:
 4. Reload the front-end URL — verify NO theme header/footer/menu appears.
 5. If theme chrome still appears: Canvas was NOT set correctly. Re-set, Update, re-verify.
 6. Record `"canvas_set": true` in the page ledger.
-7. Do NOT add the HTML widget or paste page HTML in this phase. Page HTML import happens only after the global shell is active and verified in Phase 5.
+7. Do NOT add the HTML widget or paste page HTML in this phase. Page HTML import happens only after the global shell and Canvas are both active and verified.
 
 **Pages that MUST use Canvas**: Home, Blog, Contact, About, FAQ, Policy pages, Landing pages.
 **Pages that MUST NOT use Canvas** (WooCommerce-owned): Shop, Cart, Checkout, My Account, product archives, single product pages.
@@ -285,6 +287,8 @@ Dynamic renderer rules:
 Generate Elementor HTML block content for Home, Blog, Contact, policies, FAQ, and About.
 
 Before writing page HTML, read the product knowledge ledger created in Phase 1a or the live WooCommerce product inventory. Use it to decide which sections, category groupings, product benefits, compliance notes, FAQs, internal links, and dynamic containers belong on each page. Do not write generic ecommerce sections when product facts are available.
+
+Before writing any production page HTML code, verify the global shell gate again. Header/footer/menu must come from Code Snippets and WordPress menus, global CSS must live in Appearance → Customize → Additional CSS, global JS must live in Code Snippets, and page HTML must not include shared shell code.
 
 ### Full storefront surface layout
 
@@ -536,14 +540,15 @@ When resuming, the ledger is a starting point, not proof. Verify live state befo
 | Gate 3→4 | Baseline set | Permalinks, WC bindings, Rank Math baseline, menus, cache strategy; **DEAD RULE: WooCommerce pages regenerated and bound** |
 | Gate 4→5 | Pages created | All pages exist with correct slugs; URL map built; **WooCommerce page IDs re-verified after page creation** |
 | Gate 4a | Product knowledge ready | Product CSV or live products inspected; product knowledge ledger exists before homepage preview, page HTML, article planning, and SEO mapping |
-| Gate 5→6 | Preview approved | Homepage style preview approved by user; **DEAD RULE: Global shell (header/footer/CSS/JS) active and verified BEFORE any page HTML import** |
-| Gate 6→7 | HTML imported | **DEAD RULE: Elementor Canvas set on EVERY custom page (verified — no theme header/footer)**; All Elementor HTML pages contain only page-specific content; no header/footer; **Large HTML batch-imported correctly**; **DEAD RULE: Homepage/Blog use dynamic data containers (no hardcoded product/article data)**; **Page HTML imported one page at a time** |
-| Gate 7→8 | Products ready | CSV rewritten; categories/attributes/products/variations created; WebP images; gallery/body images and long descriptions verified |
-| Gate 8→9 | Global shell active | Header/footer/CSS/JS injected globally; no duplicate code in pages |
-| Gate 9→10 | Product UX added | Variation events preserved; add-to-cart works; mobile layout fixed |
-| Gate 10→11 | Cart/checkout rules | Min quantity, notices, terms defaults verified |
-| Gate 11→12 | SEO metadata done | Rank Math titles/descriptions/keywords; schema; noindex correct |
-| Gate 12→13 | QA passed | All links/images/buttons verified desktop AND mobile; no 404s; WebP; performance; **DEAD RULE: Age gate is global Code Snippet (NOT in any page HTML)** |
-| Gate 13→14 | Articles generated | Drafts created or scheduled according to interaction mode; article ledger includes IDs, dates, images, links, and SEO metadata |
-| Gate 14→Launch | Launch mode allowed | Full content complete, initial article batch complete, Rank Math/sitemap/schema verified, desktop/mobile QA passed, no launch blockers |
+| Gate 5→6 | Preview approved | Homepage style preview approved by user; approved visual direction recorded for the real global shell |
+| Gate 6→7 | Global shell active | **DEAD RULE: Global header/footer/footer menu via Code Snippets, global CSS in Additional CSS, global JS in Code Snippets, and dynamic renderers active/verified BEFORE any production page HTML is generated or imported** |
+| Gate 7→8 | Canvas ready | **DEAD RULE: Elementor Canvas set on EVERY custom page (verified — no theme header/footer)**; URL map verified; no page HTML imported yet |
+| Gate 8→9 | HTML imported | All Elementor HTML pages contain only page-specific content; no header/footer/menu/global CSS/global JS; **Large HTML batch-imported correctly**; **DEAD RULE: Homepage/Blog use dynamic data containers (no hardcoded product/article data)**; **Page HTML imported one page at a time** |
+| Gate 9→10 | Products ready | CSV rewritten; categories/attributes/products/variations created; WebP images; gallery/body images and long descriptions verified |
+| Gate 10→11 | Product UX added | Variation events preserved; add-to-cart works; mobile layout fixed |
+| Gate 11→12 | Cart/checkout rules | Min quantity, notices, terms defaults verified |
+| Gate 12→13 | SEO metadata done | Rank Math titles/descriptions/keywords; schema; noindex correct |
+| Gate 13→14 | QA passed | All links/images/buttons verified desktop AND mobile; no 404s; WebP; performance; **DEAD RULE: Age gate is global Code Snippet (NOT in any page HTML)** |
+| Gate 14→15 | Articles generated | Drafts created or scheduled according to interaction mode; article ledger includes IDs, dates, images, links, and SEO metadata |
+| Gate 15→Launch | Launch mode allowed | Full content complete, initial article batch complete, Rank Math/sitemap/schema verified, desktop/mobile QA passed, no launch blockers |
 | Final | Handoff complete | Indexing package prepared only after launch gate; final report delivered; post-build actions presented |

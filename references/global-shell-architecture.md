@@ -23,16 +23,19 @@ This means each Elementor HTML page contains ONLY the page body content — no h
 
 ## DEAD RULE: Global Shell Must Be Created BEFORE Page HTML
 
-**This is a DEAD RULE. The global shell (header, footer, CSS, JS) MUST be created, activated, and verified on the front-end BEFORE any page HTML is imported into Elementor.** See `agent-enforcement-rules.md` Section 11.7 for the complete step-by-step import order.
+**This is a DEAD RULE. The global shell (header, footer, footer menu, global CSS, global JS, and shared menu behavior) MUST be created, activated, and verified on the front-end BEFORE any production page HTML is generated, pasted, imported, or updated in Elementor.** See `agent-enforcement-rules.md` Section 11.7 for the complete step-by-step import order.
 
 Import order (MANDATORY — no reordering):
 1. **Global header** (Code Snippets PHP, `wp_body_open` hook, priority 5) — verify on front-end.
 2. **Global footer** (Code Snippets PHP, `wp_footer` hook, priority 10) — verify on front-end.
-3. **Global CSS** (Appearance → Customize → Additional CSS) — verify loads on all pages.
-4. **Global JS** (Code Snippets HTML/JS, `wp_footer` hook) — verify mobile menu, cart counter, smooth scroll work.
-5. **ONLY THEN** import page HTML into Elementor (one page at a time, Canvas set first).
+3. **Global CSS** (Appearance → Customize → Additional CSS) — design tokens, header/footer styles, shared components, and responsive breakpoints; verify it loads on all pages.
+4. **Global JS** (Code Snippets HTML/JS, `wp_footer` hook) — verify mobile menu, cart counter, smooth scroll, cookie/compliance interactions as needed.
+5. **Dynamic renderers** (Code Snippets PHP/JS where needed) — prepare data containers for real products/posts before page HTML depends on them.
+6. **ONLY THEN** generate/import page HTML into Elementor (one page at a time, Canvas set and verified first).
 
-**Why**: If page HTML is imported before the global shell is active, the agent cannot verify that page HTML does NOT contain duplicate header/footer. The global shell must be in place first so the agent can confirm pages contain only page-specific content.
+**Why**: If page HTML is generated or imported before the global shell is active, agents tend to duplicate header/footer/menu/CSS/JS inside every page and later fight conflicts. The global shell must be in place first so the agent can confirm page HTML contains only page-specific content.
+
+The build ledger must record the global shell gate before page HTML begins: snippet names/IDs, hooks, menu sources, Additional CSS status, global JS status, tested URLs, desktop/mobile header result, footer result, and no-duplicate evidence.
 
 ## Global Header Implementation
 

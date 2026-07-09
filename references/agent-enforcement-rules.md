@@ -410,12 +410,12 @@ When creating page HTML, the agent MAY use real product images from the WooComme
 
 When building pages, the agent MUST follow this import order. No exceptions. No reordering.
 
-1. **FIRST: Global shell** — Create the global header (Code Snippets PHP, `wp_body_open` hook) and global footer (Code Snippets PHP, `wp_footer` hook) BEFORE any page HTML. The global shell must be active and verified on the front-end before any page HTML is imported.
-2. **SECOND: Global CSS** — Add global CSS (design tokens, header styles, footer styles, shared components, responsive breakpoints) to Appearance → Customize → Additional CSS. Verify it loads on all pages.
-3. **THIRD: Global JS** — Add global JS (mobile menu toggle, cart counter, smooth scroll) via Code Snippets HTML/JS snippet on `wp_footer` hook. Verify it works on all pages.
-4. **FOURTH: Page HTML — one page at a time** — Import page HTML into Elementor HTML widgets, one page at a time. For each page: Set Canvas → verify → add HTML widget → paste HTML → Update → verify front-end → move to next page.
-5. **FIFTH: Dynamic renderers** — Activate Code Snippets PHP snippets for dynamic product/post rendering. Verify containers are filled with real data.
-6. **NEVER import all page HTML at once before the global shell is active.** The global shell must be in place first so the agent can verify that page HTML does NOT contain duplicate header/footer.
+1. **FIRST: Global header/footer/menu** — Create the global header (Code Snippets PHP, `wp_body_open` hook), global footer/footer menu (Code Snippets PHP, `wp_footer` hook), and WordPress menu sources BEFORE any production page HTML is generated or imported.
+2. **SECOND: Global CSS** — Add global CSS (design tokens, header styles, footer styles, shared components, responsive breakpoints) to Appearance → Customize → Additional CSS. Verify it loads on all pages. Do not put global CSS in page HTML widgets.
+3. **THIRD: Global JS** — Add global JS (mobile menu toggle, cart counter, smooth scroll, cookie/compliance behavior as needed) via Code Snippets HTML/JS snippet on `wp_footer` hook. Verify it works on all pages.
+4. **FOURTH: Dynamic renderers** — Activate Code Snippets PHP/JS snippets for dynamic product/post rendering before page HTML depends on `data-site-render` containers. Verify containers can be filled with real data.
+5. **FIFTH: Page HTML — one page at a time** — Only after steps 1-4 are active and verified, import page HTML into Elementor HTML widgets, one page at a time. For each page: Set Canvas → verify → add HTML widget → paste HTML → Update → verify front-end → move to next page.
+6. **NEVER generate or import all page HTML before the global shell is active.** The global shell must be in place first so the agent can verify that page HTML does NOT contain duplicate header/footer/menu/global CSS/global JS.
 
 ### 11.8 SEO, Speed, and WebP Optimization (MANDATORY)
 

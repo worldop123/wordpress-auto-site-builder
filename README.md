@@ -82,6 +82,21 @@ wordpress-auto-site-builder/
   .github/
 ```
 
+## Documentation
+
+- Chinese README: `README.zh-CN.md`
+- Installation: `INSTALL.md` / `INSTALL.zh-CN.md`
+- Documentation index: `docs/DOCUMENTATION_INDEX.md` / `docs/DOCUMENTATION_INDEX.zh-CN.md`
+- AI tool compatibility: `docs/AI_TOOL_COMPATIBILITY.md` / `docs/AI_TOOL_COMPATIBILITY.zh-CN.md`
+- Resume protocol: `docs/RESUME_PROTOCOL.md` / `docs/RESUME_PROTOCOL.zh-CN.md`
+- GitHub publishing: `docs/GITHUB_PUBLISHING.md` / `docs/GITHUB_PUBLISHING.zh-CN.md`
+- Contributing: `CONTRIBUTING.md` / `CONTRIBUTING.zh-CN.md`
+- Security: `SECURITY.md` / `SECURITY.zh-CN.md`
+- Support: `SUPPORT.md` / `SUPPORT.zh-CN.md`
+- Code of conduct: `CODE_OF_CONDUCT.md` / `CODE_OF_CONDUCT.zh-CN.md`
+- Roadmap: `ROADMAP.md` / `ROADMAP.zh-CN.md`
+- Changelog: `CHANGELOG.md` / `CHANGELOG.zh-CN.md`
+
 ## Helper Scripts
 
 Generate a build plan and launch-gate checklist:

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support guide
+    url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SUPPORT.md
+    about: Read this before asking for help.
+  - name: Security policy
+    url: https://github.com/worldop123/wordpress-auto-site-builder/blob/main/SECURITY.md
+    about: Report vulnerabilities privately.

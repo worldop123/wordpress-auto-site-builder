@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile scripts
+        run: |
+          python -m py_compile scripts/*.py
+
+      - name: Site plan smoke tests
+        run: |
+          python scripts/site_plan.py docs/SITE_CONFIG_EXAMPLE.json --format json
+          python scripts/site_plan.py docs/SITE_CONFIG_EXISTING_SEO_EXAMPLE.json --format json || true
+
+      - name: CSV inspector smoke test
+        run: |
+          python scripts/inspect_product_csv.py docs/SAMPLE_PRODUCT_IMPORT.csv
+
+      - name: Rank Math audit smoke test
+        run: |
+          python scripts/rank_math_content_audit.py docs/SAMPLE_RANK_MATH_META_MAP.json
+
+      - name: Rank Math writer generation smoke test
+        run: |
+          python scripts/rank_math_meta_writer.py docs/SAMPLE_RANK_MATH_META_MAP.json --output tmp-rank-math-writer.php
+          test -s tmp-rank-math-writer.php
+          rm tmp-rank-math-writer.php
+
+      - name: Secret scan
+        run: |
+          python scripts/secret_scan.py .

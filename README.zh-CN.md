@@ -105,3 +105,18 @@ wordpress-auto-site-builder/
 ## 中断续做
 
 如果 AI 工具因为服务器错误、上下文限制、浏览器崩溃、网络失败或用户暂停而中断，继续前必须读取 `docs/RESUME_PROTOCOL.zh-CN.md`。只能从最后一个已验证检查点继续，不能盲目重复旧站清理、产品导入、文章发布、snippet 替换或上线索引操作。
+
+## 文档入口
+
+- 英文 README：`README.md`
+- 安装说明：`INSTALL.zh-CN.md` / `INSTALL.md`
+- 文档索引：`docs/DOCUMENTATION_INDEX.zh-CN.md` / `docs/DOCUMENTATION_INDEX.md`
+- AI 工具兼容：`docs/AI_TOOL_COMPATIBILITY.zh-CN.md` / `docs/AI_TOOL_COMPATIBILITY.md`
+- 中断续做：`docs/RESUME_PROTOCOL.zh-CN.md` / `docs/RESUME_PROTOCOL.md`
+- GitHub 发布：`docs/GITHUB_PUBLISHING.zh-CN.md` / `docs/GITHUB_PUBLISHING.md`
+- 贡献指南：`CONTRIBUTING.zh-CN.md` / `CONTRIBUTING.md`
+- 安全政策：`SECURITY.zh-CN.md` / `SECURITY.md`
+- 支持说明：`SUPPORT.zh-CN.md` / `SUPPORT.md`
+- 行为准则：`CODE_OF_CONDUCT.zh-CN.md` / `CODE_OF_CONDUCT.md`
+- 路线图：`ROADMAP.zh-CN.md` / `ROADMAP.md`
+- 更新日志：`CHANGELOG.zh-CN.md` / `CHANGELOG.md`

@@ -87,18 +87,24 @@ def classify_url(url: str, title: str = "") -> str:
     text = f"{path} {title.lower()}"
     if not path:
         return "home"
+    segments = [segment for segment in path.split("/") if segment]
+    if len(segments) >= 2 and segments[0] in {"blog", "news", "journal", "magazine", "guides", "articles"}:
+        return "single_post_or_article"
+    if len(segments) >= 2 and segments[0] in {"category", "collections", "collection", "catalog", "shop"}:
+        return "category_or_listing"
     checks = [
         ("checkout", ["checkout", "kasse", "caisse", "pago", "pokladna"]),
         ("cart", ["cart", "basket", "bag", "warenkorb", "kosik"]),
         ("account", ["account", "login", "register", "my-account", "customer"]),
         ("product", ["product/", "products/", "produkt/", "item/"]),
-        ("shop_or_catalog", ["shop", "store", "catalog", "collections", "category", "collections/", "collections"]),
+        ("shop_or_catalog", ["shop", "store", "catalog", "collections", "collection", "category"]),
         ("blog_index_or_archive", ["blog", "news", "journal", "magazine", "guides", "articles"]),
         ("policy", ["privacy", "terms", "shipping", "returns", "refund", "cookie", "payment", "legal", "policy"]),
-        ("contact", ["contact", "support", "help", "service"]),
+        ("case_study", ["case-study", "case-studies", "portfolio", "work"]),
+        ("service", ["services", "service/"]),
+        ("contact", ["contact", "support", "help"]),
         ("about", ["about", "company", "brand", "story"]),
         ("pricing", ["pricing", "plans"]),
-        ("case_study", ["case-study", "case-studies", "portfolio", "work"]),
         ("documentation", ["docs", "documentation", "manual", "help-center"]),
         ("faq", ["faq", "questions"]),
     ]

@@ -42,6 +42,10 @@ jobs:
           test -s tmp-rank-math-writer.php
           rm tmp-rank-math-writer.php
 
+      - name: Reference site capture multi-page smoke test
+        run: |
+          python scripts/reference_capture_fixture_smoke.py
+
       - name: Secret scan
         run: |
           python scripts/secret_scan.py .

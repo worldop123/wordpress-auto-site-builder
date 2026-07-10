@@ -2,6 +2,8 @@
 
 Use this before full-site buildout. The agent should be highly automated after approval, but the first homepage direction must be reviewed by the user so the whole site does not inherit the wrong style.
 
+Read `frontend-ui-aesthetic-system.md` before generating the preview. The preview must demonstrate the future global UI system: design tokens, header/footer direction, component style, ecommerce affordances, mobile drawer behavior, and target-market visual density.
+
 ## When required
 
 Required for:
@@ -36,6 +38,7 @@ If the user supplied a product CSV or the site already has WooCommerce products,
 - FAQ or buyer guidance section.
 - Blog/guide teaser if SEO is part of the site.
 - Mobile behavior notes or a responsive HTML prototype.
+- Design-token summary: palette, typography, spacing, radii, button/form/card style, icon direction, and mobile breakpoint behavior.
 
 Minimum homepage preview structure:
 
@@ -62,6 +65,8 @@ The preview should be enough for the user to judge visual direction, homepage de
 
 Before presenting the preview, verify that any slideshow, carousel, accordion, tab, filter, or expandable module has visible controls, works on touch and mouse, does not trap focus, and does not block product/category links.
 
+Also verify the preview against the frontend UI aesthetic gate: header and footer feel production-worthy, spacing and typography are balanced, product cards/forms/buttons have clear states, mobile 360/390/430px layouts do not overflow, and no default Elementor or generic AI styling remains.
+
 ## Approval checkpoint
 
 After producing the preview, ask for approval or specific edits. Do not bulk-create/import all pages yet.
@@ -84,6 +89,8 @@ Before showing the preview, remove common AI-site patterns:
 - Decorative sections that do not help shopping, trust, navigation, or SEO.
 - Fake urgency, fake reviews, fake awards, or unsupported claims.
 - Identical section rhythm across Home, About, Contact, and policy pages.
+- Header/footer that merely exist but look cramped, oversized, unbalanced, or disconnected from the page design.
+- One-note palettes made from the same hue, default blue/purple SaaS gradients, decorative blobs, or empty glass-card effects.
 
 Make the preview feel specific:
 

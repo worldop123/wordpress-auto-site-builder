@@ -1,6 +1,6 @@
 # Design Variation and Anti-AI Rules
 
-Every build must feel custom and human-made. Before generating HTML/CSS, choose a design seed and document it briefly in the internal plan. For new builds, first produce a homepage style preview and wait for approval using `style-preview-gate.md`.
+Every build must feel custom and human-made. Before generating HTML/CSS, read `frontend-ui-aesthetic-system.md`, choose a design seed, define the shared UI tokens/components, and document them briefly in the internal plan. For new builds, first produce a homepage style preview and wait for approval using `style-preview-gate.md`.
 
 ## Vary these dimensions
 
@@ -11,6 +11,7 @@ Every build must feel custom and human-made. Before generating HTML/CSS, choose 
 - Typography scale: restrained commerce, luxury spacious, technical specs, friendly DTC, wholesale practical.
 - Palette: derive from brand/logo/product photos; avoid reusing the previous site's dominant colors.
 - Buttons and icons: consistent but not identical across projects.
+- Component system: header, footer, buttons, icon buttons, product cards, forms, tabs, accordions, notices, trust strips, and mobile drawer behavior.
 - Blog article layouts: alternate guide, comparison, checklist, buyer FAQ, shipping explainer, product spotlight, category overview, and troubleshooting formats.
 
 ## Non-negotiables
@@ -24,6 +25,7 @@ Every build must feel custom and human-made. Before generating HTML/CSS, choose 
 - Preserve WooCommerce templates for transactional pages.
 - Avoid designs that look like an AI-generated SaaS landing page unless the business actually is SaaS.
 - Avoid generic gradients, empty glass cards, vague icons, and repetitive "feature card" layouts.
+- Avoid default Elementor styling, unbalanced headers, afterthought footers, oversized logos, cramped mobile drawers, and decorative UI that does not support buying or trust.
 - Avoid copy that sounds generated: "elevate your experience", "seamless solutions", "unleash potential", "discover the future", "premium quality", "cutting-edge", and similar filler.
 - Avoid fake social proof, fake awards, fake testimonials, fake scarcity, and unsupported brand claims.
 - Use concrete store facts: product types, specs, delivery areas, minimum order, warranty/return terms, customer support path, category names, and compliance notices.
@@ -67,6 +69,17 @@ Before creating page HTML, choose and record a content-module plan for each majo
 - Blog surfaces: article discovery, topic grouping, and internal links must be designed rather than left as plain default lists.
 
 If product images are strong and numerous, use them as visual anchors. If product images are weak, dark, inconsistent, or unavailable, prefer category/spec/guide/trust modules and improve media first where possible. Never invent fake products, fake images, fake reviews, or fake claims to make a page look richer.
+
+## Frontend UI Aesthetic Gate
+
+Before creating global shell CSS or production page HTML, record:
+
+- `frontend_ui_system_defined`: palette, typography, spacing, radii, shadows, icon style, button hierarchy, form style, product-card rules, mobile drawer pattern, and footer structure.
+- `tokens_defined`: CSS variables and shared component classes placed in Additional CSS.
+- Header/footer aesthetic pass: balanced spacing, stable logo size, hover/focus states, mobile drawer, contact/policy/payment/support/compliance links, and target-market trust cues.
+- Page aesthetic pass: no default Elementor look, no repeated filler sections, no one-note palette, no generic hero-only layout, no placeholder imagery, and no fake proof.
+
+Use open-source UI systems as references for component quality and accessibility, not as copied templates or assets.
 
 ## Mobile Overflow Gate
 

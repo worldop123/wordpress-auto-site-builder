@@ -4,6 +4,7 @@ All notable project changes should be recorded here.
 
 ## [Unreleased]
 
+- Add a frontend UI aesthetic system reference with open-source-inspired design-token, component, header/footer, ecommerce UI, target-market, and visual QA gates so generated pages do not look generic or unfinished.
 - Enforce a global-shell-first page build order: Code Snippets header/footer/menu, Additional CSS global styles, global JS, and dynamic renderers must be active and verified before production Elementor page HTML.
 - Require Elementor pages to clear default/old layouts, placeholder sections, stale generated widgets, and duplicate HTML widgets before adding the intended HTML block.
 - Require intelligent WooCommerce product CSV rewriting for product names, short descriptions, long descriptions/body content, editable image text, and Rank Math fields; translation-only and repeated source-copy patterns are explicit blockers.

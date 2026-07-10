@@ -10,6 +10,7 @@ The site cannot enter launch/live/indexing mode until the entire website is comp
 - All articles required for the initial build exist as drafts, scheduled posts, or published posts according to the user-approved/autonomous mode plan.
 - Rank Math metadata, schema, sitemap, robots.txt, canonical/noindex rules, image ALT text, and internal links are verified.
 - Desktop and mobile tests pass for all links, buttons, menus, quantity controls, add-to-cart, cart update, checkout boundary, contact forms, age/cookie gates, images, and layout overflow.
+- Frontend UI aesthetic QA passes for the global header, footer, mobile drawer, product cards, buttons, forms, page rhythm, target-market styling, and screenshots.
 - Any missing products, missing articles, broken checkout, frozen interaction, incomplete archive layout, broken image, missing policy, noindex error, sitemap error, or untested snippet is a launch blocker.
 
 Only after all items pass can the agent say the website is ready to launch, submit indexing, or remove launch restrictions.
@@ -201,12 +202,14 @@ ALL images on the site must be converted to WebP format. This is a hard requirem
 
 - Homepage style preview was approved or the user explicitly waived the preview gate.
 - Final homepage still matches the approved direction.
+- Frontend UI aesthetic system from `frontend-ui-aesthetic-system.md` was defined and recorded before global shell/page HTML work.
 - Homepage preview and final homepage include a complete header, footer, mobile behavior, product/category area, payment/shipping/order facts, and buyer guidance.
 - Homepage and major custom pages pass the content-richness gate from `design-variation.md`: no thin hero-only pages, no generic three-card filler, and each section supports buying, trust, navigation, SEO, education, or support.
 - Homepage includes at least 2 useful dynamic or data-driven modules from real products/categories/posts when data exists, such as product-image slideshow, featured-product strip, category image grid, comparison block, guide hub, FAQ preview, or support/COD ordering module.
 - Rich modules use real internal links to products, categories, posts, policies, or support pages; no decorative buttons point to `#`, empty URLs, missing pages, or irrelevant destinations.
 - Any slideshow, carousel, tab, accordion, filter, or expandable module was tested on desktop and mobile; controls are visible, touch/click works, focus is not trapped, and product/category links are not blocked.
 - Page copy and visual treatment pass anti-AI review: no generic filler slogans, fake claims, repeated template sections, or unsupported social proof.
+- Header, footer, buttons, forms, product cards, notices, and mobile drawer pass the frontend UI aesthetic gate: balanced spacing, stable dimensions, visible states, target-market density, and no default Elementor styling.
 - Home returns HTTP 200 and renders header/footer.
 - Custom Elementor pages use Elementor Canvas where required. **DEAD RULE: Verify EVERY custom page has Canvas set 鈥?no theme header/footer visible on any custom page.**
 - Custom Elementor pages contain the intended HTML widget content and no duplicate generated widgets.
@@ -225,6 +228,7 @@ Before marking the build as complete, verify ALL dead rules were followed:
 - [ ] **Dead Rule 8 鈥?SEO/Speed/WebP**: Rank Math metadata set for all content. PageSpeed mobile 90+. ALL images converted to WebP. Cart fragments disabled on non-shop pages.
 - [ ] **Dead Rule 9 鈥?No Launch Before Completion**: Product/store pages, archives, blog surfaces, initial article batch, Rank Math SEO, sitemap/schema, and full desktop/mobile QA are complete before launch/indexing mode.
 - [ ] **Product Knowledge Gate**: If a product CSV or live products were available, a product knowledge ledger was created before homepage preview, page HTML, article planning, and Rank Math metadata generation.
+- [ ] **Frontend UI Aesthetic Gate**: `frontend-ui-aesthetic-system.md` was read; `frontend_ui_system_defined`, `tokens_defined`, `header_aesthetic_pass`, `footer_aesthetic_pass`, and `page_aesthetic_pass` are recorded with screenshot or viewport evidence.
 - Header/primary menu renders expected links.
 - Footer/support menu renders expected policy/support links.
 - Mobile menu opens, closes, and links to the same intended destinations.
@@ -389,6 +393,7 @@ This gate must be completed before any production Elementor page HTML is generat
 - [ ] Header is NOT duplicated in any Elementor HTML page widget.
 - [ ] Header mobile layout is correct (hamburger menu, responsive).
 - [ ] Header does not overlap page content.
+- [ ] Header visual quality passes: logo size, spacing, active/hover/focus states, cart/search/account affordance when useful, and no cramped/oversized elements.
 
 ### Global footer
 - [ ] Global footer Code Snippet is active and persistent.
@@ -401,10 +406,12 @@ This gate must be completed before any production Elementor page HTML is generat
 - [ ] Footer displays copyright with current year.
 - [ ] Footer is NOT duplicated in any Elementor HTML page widget.
 - [ ] Footer mobile layout is correct (stacked, responsive).
+- [ ] Footer visual quality passes: useful columns/groups, readable links, payment/shipping/support/compliance facts, background-aware logo/icon treatment, and tap-safe mobile spacing.
 
 ### Global CSS
 - [ ] Global CSS is in Appearance 鈫?Customize 鈫?Additional CSS (not in page HTML widgets).
 - [ ] CSS variables (design tokens) are defined and used consistently.
+- [ ] Design tokens match the approved preview and target-market aesthetic system; no generic default palette remains.
 - [ ] Header styles are in global CSS (not in page HTML).
 - [ ] Footer styles are in global CSS (not in page HTML).
 - [ ] Shared component styles (buttons, forms, cards) are in global CSS.

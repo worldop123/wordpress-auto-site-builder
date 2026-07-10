@@ -24,6 +24,7 @@ The skill is designed for Codex, Claude Code, Cursor, Devin Desktop/Windsurf, Gi
 - Cross-agent compatibility and anti-skip rules for major domestic and international AI coding tools
 - Critical-judgment rules so agents do not blindly agree with risky or wrong user instructions
 - Country/language-specific design variation
+- Open-source-inspired frontend UI aesthetic system: design tokens, polished header/footer/mobile drawer, ecommerce component standards, and visual QA gates before page HTML
 - Strict global-shell-first order: Code Snippets header/footer/menu, Additional CSS global styles, global JS, and dynamic renderers must be verified before production Elementor page HTML
 - Clean Elementor canvas rule: clear default layouts, placeholder sections, stale generated widgets, and duplicates before adding the intended page HTML widget
 - SEO article batch generation
@@ -69,6 +70,7 @@ Every project starts by identifying the service mode:
    - [`references/phase-playbook.md`](references/phase-playbook.md)
    - [`references/ai-agent-compatibility.md`](references/ai-agent-compatibility.md) for cross-tool adaptation and anti-skip rules
    - [`references/qa-and-launch.md`](references/qa-and-launch.md)
+   - [`references/frontend-ui-aesthetic-system.md`](references/frontend-ui-aesthetic-system.md) for UI tokens, header/footer quality, component standards, and visual QA
    - [`references/product-csv-originality-seo.md`](references/product-csv-originality-seo.md) for CSV work
    - [`references/reference-site-capture.md`](references/reference-site-capture.md) for clone-style/reference-site builds
    - [`references/code-snippets-implementation-guide.md`](references/code-snippets-implementation-guide.md) for snippets

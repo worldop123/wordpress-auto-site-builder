@@ -1,5 +1,7 @@
 # Site Baseline and Menus
 
+Before finalizing menus, header, footer, or shared CSS, read `frontend-ui-aesthetic-system.md`. Navigation is part of the frontend UI quality gate: menu structure, logo sizing, cart/search/account affordances, footer groups, and mobile drawer behavior must be designed and verified, not merely created.
+
 Run this before importing lots of Elementor HTML. The aim is to make the site stable once, then build on top of it without repeated teardown.
 
 ## Baseline order

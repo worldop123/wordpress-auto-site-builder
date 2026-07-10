@@ -21,21 +21,24 @@ The new approach uses **global injection**:
 
 This means each Elementor HTML page contains ONLY the page body content — no header, no footer, no menu, no global CSS, no global JS. The global shell handles all shared elements.
 
+Before implementing the global shell, read `frontend-ui-aesthetic-system.md`. The global shell is also the visual baseline for the whole site: design tokens, shared component styles, header quality, footer quality, mobile drawer behavior, and ecommerce affordances must be defined and verified before page HTML begins.
+
 ## DEAD RULE: Global Shell Must Be Created BEFORE Page HTML
 
 **This is a DEAD RULE. The global shell (header, footer, footer menu, global CSS, global JS, and shared menu behavior) MUST be created, activated, and verified on the front-end BEFORE any production page HTML is generated, pasted, imported, or updated in Elementor.** See `agent-enforcement-rules.md` Section 11.7 for the complete step-by-step import order.
 
 Import order (MANDATORY — no reordering):
-1. **Global header** (Code Snippets PHP, `wp_body_open` hook, priority 5) — verify on front-end.
-2. **Global footer** (Code Snippets PHP, `wp_footer` hook, priority 10) — verify on front-end.
-3. **Global CSS** (Appearance → Customize → Additional CSS) — design tokens, header/footer styles, shared components, and responsive breakpoints; verify it loads on all pages.
-4. **Global JS** (Code Snippets HTML/JS, `wp_footer` hook) — verify mobile menu, cart counter, smooth scroll, cookie/compliance interactions as needed.
-5. **Dynamic renderers** (Code Snippets PHP/JS where needed) — prepare data containers for real products/posts before page HTML depends on them.
-6. **ONLY THEN** generate/import page HTML into Elementor (one page at a time, Canvas set and verified first).
+1. **Frontend UI system** — define design tokens, shared component styles, icon approach, mobile drawer behavior, and header/footer layout rules from `frontend-ui-aesthetic-system.md`.
+2. **Global header** (Code Snippets PHP, `wp_body_open` hook, priority 5) — verify on front-end for structure, interaction, and visual polish.
+3. **Global footer** (Code Snippets PHP, `wp_footer` hook, priority 10) — verify on front-end for structure, trust content, and visual polish.
+4. **Global CSS** (Appearance → Customize → Additional CSS) — design tokens, header/footer styles, shared components, and responsive breakpoints; verify it loads on all pages.
+5. **Global JS** (Code Snippets HTML/JS, `wp_footer` hook) — verify mobile menu, cart counter, smooth scroll, cookie/compliance interactions as needed.
+6. **Dynamic renderers** (Code Snippets PHP/JS where needed) — prepare data containers for real products/posts before page HTML depends on them.
+7. **ONLY THEN** generate/import page HTML into Elementor (one page at a time, Canvas set and verified first).
 
 **Why**: If page HTML is generated or imported before the global shell is active, agents tend to duplicate header/footer/menu/CSS/JS inside every page and later fight conflicts. The global shell must be in place first so the agent can confirm page HTML contains only page-specific content.
 
-The build ledger must record the global shell gate before page HTML begins: snippet names/IDs, hooks, menu sources, Additional CSS status, global JS status, tested URLs, desktop/mobile header result, footer result, and no-duplicate evidence.
+The build ledger must record the global shell gate before page HTML begins: `frontend_ui_system_defined`, `tokens_defined`, snippet names/IDs, hooks, menu sources, Additional CSS status, global JS status, tested URLs, desktop/mobile header result, footer result, `header_aesthetic_pass`, `footer_aesthetic_pass`, and no-duplicate evidence.
 
 ## Global Header Implementation
 
@@ -114,6 +117,8 @@ function site_global_header() {
 ### Header CSS (in Appearance → Customize → Additional CSS)
 
 All header styling goes in the Additional CSS section, NOT in the snippet or page HTML:
+
+The header must pass the header quality gate in `frontend-ui-aesthetic-system.md`: stable logo sizing, balanced spacing, hover/focus/active states, cart/search/account affordances when useful, tested mobile drawer, and no awkward wrapping or overlap.
 
 ```css
 /* === GLOBAL HEADER === */
@@ -344,6 +349,8 @@ function site_global_footer() {
 
 All footer styling goes in Additional CSS alongside header styling, using the same CSS variables.
 
+The footer must pass the footer quality gate in `frontend-ui-aesthetic-system.md`: brand/contact block, shop/category links, policy links, payment/shipping/support facts, compliance note when needed, responsive columns or grouped mobile sections, readable logo variant, and tappable links.
+
 ## Global CSS Strategy
 
 ### Where to Put Global CSS
@@ -361,6 +368,8 @@ This is the single source of truth for all global styles:
 ### CSS Variables (Design Tokens)
 
 Define all design tokens as CSS variables in Additional CSS:
+
+Use `frontend-ui-aesthetic-system.md` before choosing token values. Tokens must reflect the brand, target market, product media, and approved preview; do not leave generic blue/purple defaults unless they are explicitly appropriate.
 
 ```css
 :root {
@@ -609,6 +618,8 @@ When rebuilding an old site that used the old approach (header/footer in every p
 
 ## Verification Checklist
 
+- [ ] `frontend-ui-aesthetic-system.md` was read before implementation.
+- [ ] Frontend UI system was recorded in the build ledger (`frontend_ui_system_defined`, `tokens_defined`).
 - [ ] Global header appears on all front-end pages.
 - [ ] Global footer appears on all front-end pages.
 - [ ] Mobile menu toggle works on all pages.
@@ -627,3 +638,4 @@ When rebuilding an old site that used the old approach (header/footer in every p
 - [ ] All pages load correctly on mobile.
 - [ ] All pages load correctly on desktop.
 - [ ] No 404s on any header/footer assets (logo, icons).
+- [ ] Header and footer pass aesthetic QA: balanced spacing, stable logo size, readable typography, useful ecommerce affordances, target-market trust cues, hover/focus/active states, and no cramped or oversized elements.

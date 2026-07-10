@@ -65,6 +65,7 @@ INTERACTION_QA = [
     "age_cookie_gates",
     "no_overlay_blocks_clicks",
     "no_layout_overflow_360_390_430",
+    "frontend_ui_aesthetic_header_footer_page_pass",
 ]
 
 PHASES = [
@@ -73,6 +74,7 @@ PHASES = [
     "collect_requirements",
     "inspect_environment",
     "set_foundation_baseline_rankmath_menus_bindings",
+    "define_frontend_ui_aesthetic_system_and_design_tokens",
     "generate_homepage_style_preview_or_record_autonomous_mode",
     "create_and_bind_pages",
     "generate_and_verify_global_shell_header_footer_menus_additional_css_global_js",
@@ -113,6 +115,7 @@ REFERENCE_SITE_PHASES = [
     "define_transformation_rules_to_avoid_verbatim_copying",
     "collect_or_infer_user_brand_content_products_language_and_compliance",
     "set_foundation_baseline_rankmath_menus_bindings",
+    "define_frontend_ui_aesthetic_system_and_design_tokens",
     "generate_transformed_homepage_style_preview_or_record_autonomous_mode",
     "create_pages_menus_logo_site_icon_and_global_shell",
     "generate_transformed_page_html_from_reference_patterns",

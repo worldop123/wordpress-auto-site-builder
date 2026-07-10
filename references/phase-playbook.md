@@ -88,7 +88,7 @@ If SiteGround is detected:
 
 ## 1. Requirements and site_config
 
-- Read `intake-checklist.md` and `global-design-preferences.md` before asking the user for information.
+- Read `intake-checklist.md`, `global-design-preferences.md`, and `frontend-ui-aesthetic-system.md` before asking the user for information or choosing a visual direction.
 - Determine and record interaction mode:
   - `ask_user`: ask for approvals and pause at required gates.
   - `autonomous`: if the user explicitly authorized no-question execution, choose target market/language/layout/article defaults from the available details and continue while preserving protected data.
@@ -172,7 +172,9 @@ Before full page buildout, the agent MUST regenerate and bind WooCommerce pages.
 
 Read `code-snippets-implementation-guide.md` Section 2.2 for the exact binding code.
 
-Before full page buildout, read `style-preview-gate.md` and generate one homepage style preview. If a product CSV or live products are available, the preview must use the product knowledge ledger. Pause for approval unless the user explicitly waived the gate. Use the approved preview as the source of truth for visual language, spacing, menu emphasis, section rhythm, and copy tone.
+Before full page buildout, read `style-preview-gate.md` and `frontend-ui-aesthetic-system.md`, then generate one homepage style preview. If a product CSV or live products are available, the preview must use the product knowledge ledger. Pause for approval unless the user explicitly waived the gate. Use the approved preview as the source of truth for visual language, spacing, menu emphasis, section rhythm, copy tone, design tokens, shared components, header/footer/mobile drawer pattern, icon style, ecommerce affordances, and target-market density.
+
+Before building the real global shell, record `frontend_ui_system_defined` and `tokens_defined` in the ledger.
 
 Create or verify:
 
@@ -258,7 +260,7 @@ Step-by-step import order (MANDATORY — no reordering):
 4. **Global JS** (Code Snippets HTML/JS, `wp_footer` hook) — verify mobile menu, cart counter, smooth scroll work.
 5. ONLY THEN proceed to Phase 6 (Page HTML).
 
-Read `global-shell-architecture.md` for the complete architecture before creating any snippets or page HTML.
+Read `global-shell-architecture.md` and `frontend-ui-aesthetic-system.md` for the complete architecture and visual quality gate before creating any snippets or page HTML. The global shell phase is not complete until design tokens, shared component styles, polished header/footer layout, mobile drawer behavior, and target-market ecommerce trust cues are active and verified.
 
 Create the global shell using Code Snippets and Additional CSS:
 
@@ -311,7 +313,8 @@ Each surface must share a coherent brand system while using different section rh
 - **NEVER hardcode** product names, prices, images, article titles, or product IDs in page HTML. Pages must update automatically when products/posts change.
 - **If the user wants specific products featured**: Ask the user which products. Use product names or SKUs to identify them. Fetch IDs dynamically.
 - **Product images in page HTML**: MAY use real product images from the media library. Ask the user which products/categories to feature. NEVER use placeholder/stock/fake images. All images must be WebP.
-- **Target-market mobile layout**: Before generating page CSS, choose a mobile layout seed from `global-design-preferences.md` and `design-variation.md`. Record whether product/category sections use two-column, mixed grid, horizontal scroller, or one-column, and why it fits the target country/language.
+- **Target-market mobile layout**: Before generating page CSS, choose a mobile layout seed from `global-design-preferences.md`, `frontend-ui-aesthetic-system.md`, and `design-variation.md`. Record whether product/category sections use two-column, mixed grid, horizontal scroller, or one-column, and why it fits the target country/language.
+- **Frontend UI aesthetic inheritance**: Before generating page CSS, confirm the page uses the approved tokens/components from `frontend-ui-aesthetic-system.md` and does not recreate global header/footer/buttons/forms/product-card styles inside page HTML.
 - **Policy pages**: Shipping, returns, payment, privacy, terms, cookies, contact, FAQ, and age/compliance pages must contain store-specific facts and buyer steps. Do not create shallow placeholder policies. Use document-style layouts with summaries, lists, tables, and support callouts where helpful.
 
 ### Step-by-Step Page Import (One Page at a Time)
@@ -338,6 +341,7 @@ Import page HTML ONE PAGE AT A TIME. For each page:
 - Make each site visually distinct.
 - Apply the approved homepage style direction across the rest of the site without cloning every section.
 - Run an anti-AI pass: remove generic slogans, repeated card grids, fake claims, decorative filler, and copy that could fit any business.
+- Run a frontend aesthetic pass: verify page rhythm, typography scale, button states, product-card dimensions, form styling, mobile spacing, and screenshot evidence before moving to the next page.
 
 ## 7. Product page UX
 
@@ -554,3 +558,9 @@ When resuming, the ledger is a starting point, not proof. Verify live state befo
 | Gate 14→15 | Articles generated | Drafts created or scheduled according to interaction mode; article ledger includes IDs, dates, images, links, and SEO metadata |
 | Gate 15→Launch | Launch mode allowed | Full content complete, initial article batch complete, Rank Math/sitemap/schema verified, desktop/mobile QA passed, no launch blockers |
 | Final | Handoff complete | Indexing package prepared only after launch gate; final report delivered; post-build actions presented |
+
+Additional frontend UI aesthetic gates:
+
+- Gate 6 also requires `frontend_ui_system_defined` and `tokens_defined` in the ledger before global shell verification can pass.
+- Gate 6 also requires `header_aesthetic_pass` and `footer_aesthetic_pass`: polished spacing, stable logo sizing, useful ecommerce affordances, mobile drawer behavior, target-market trust cues, and screenshot/viewport evidence.
+- Gate 8 also requires `page_aesthetic_pass` for each imported Elementor HTML page: no default Elementor look, no repeated filler sections, no one-note palette, no overflow at 360/390/430px, and no recreated global header/footer/buttons/forms/product-card CSS inside page HTML.

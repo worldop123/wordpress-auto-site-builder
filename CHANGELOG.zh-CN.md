@@ -4,6 +4,7 @@
 
 ## [未发布]
 
+- 增加前端 UI 开源审美系统参考文件，把设计 token、组件标准、页眉/页脚、移动菜单、电商组件、目标市场审美和视觉 QA 变成硬门槛，避免生成页面千篇一律或很粗糙。
 - 强制全局壳优先建站顺序：Code Snippets 页眉/页脚/菜单、Additional CSS 全局样式、全局 JS 和动态渲染器必须先启用并验证，之后才能做生产 Elementor 页面 HTML。
 - 要求 Elementor 页面添加 HTML 区块前，先清空默认/旧布局、占位 section、旧生成 widget 和重复 HTML widget。
 - 要求 WooCommerce 产品 CSV 智能改写产品名、短描述、长正文/正文内容、可编辑图片文字和 Rank Math 字段；明确把只翻译和沿用原 CSV 重复文案套路列为 blocker。

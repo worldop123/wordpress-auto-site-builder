@@ -111,6 +111,7 @@ The following procedures are defined and MUST be followed exactly:
 - **SiteGround handling**: `siteground-bypass-guide.md` — follow handling procedures for CAPTCHA, IP blocks, WAF
 - **Old site rebuild**: `old-site-rebuild-procedure.md` — 13-step cleanup, no skipping
 - **Global shell architecture**: `global-shell-architecture.md` — header/footer/CSS/JS injection via hooks
+- **Frontend UI aesthetic system**: `frontend-ui-aesthetic-system.md` — design tokens, polished header/footer/mobile drawer, ecommerce components, target-market fit, and visual QA gates before page HTML
 - **Page creation**: Create all pages first, then generate HTML with correct paths
 - **Elementor HTML**: `elementor-html-automation.md` — page HTML contains only page-specific content
 - **Elementor Canvas (DEAD RULE)**: Every custom page MUST have Canvas set BEFORE adding HTML widget — see Section 11.1
@@ -175,6 +176,16 @@ Each page must load ONLY the CSS and JS it needs:
 - Use scoped class names (`.page-name .class`)
 - Use IIFE for page-specific JS: `(function() { ... })()`
 - Use conditional loading in Code Snippets (check page type before output)
+
+### 5.1a Frontend UI Aesthetic Quality
+
+Before global shell or page HTML work, the agent MUST read `frontend-ui-aesthetic-system.md` and record the UI system in the ledger.
+
+- Define and use shared design tokens in Additional CSS.
+- Build polished header/footer/mobile drawer components before page HTML.
+- Use open-source UI systems only as inspiration for component quality and accessibility; do not copy templates or assets.
+- Reject default Elementor styling, generic AI gradients, repetitive filler cards, one-note palettes, oversized logos, cramped menus, afterthought footers, fake proof, and placeholder content.
+- Verify desktop/mobile screenshots and 360/390/430px overflow checks before marking UI work complete.
 
 ### 5.2 No Header/Footer in Page HTML
 
